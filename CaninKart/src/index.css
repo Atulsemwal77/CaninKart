@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+
+.swiper-pagination-bullets {
+  bottom: 0 !important;
+}
+.swiper-pagination-bullet {
+  background: #ff7e1b; /* orange */
+  opacity: 1;
+}
+.swiper-pagination-bullet-active {
+  background: #d64500; /* darker orange */
+}
+
+
+
+
