@@ -13,32 +13,81 @@ import img6_1 from "../assets/products/5.png";
 import img6_2 from "../assets/products/6.png";
 import img6_3 from "../assets/products/7.png";
 
-import img10 from '../assets/products/18.png'
-import img10_1 from '../assets/products/19.png'
-import img10_2 from '../assets/products/20.png'
+import img10 from "../assets/products/18.png";
+import img10_1 from "../assets/products/19.png";
+import img10_2 from "../assets/products/20.png";
 
+import Images from "../utils/img";
+import {Images2} from '../utils/img'   //Easy on Harness
 
 const Product = () => {
   const navigate = useNavigate();
   const productImages = [img11];
 
-
   const Productss = [
-    { id: 1, image: productImages[0], name: "H-Harness" },
-    { id: 2, image: productImages[0], name: "Easy On Harness" },
-    { id: 3, image: img3, thumbnails:[img3_2 , img3_3 , img3], name: "Full Body Harness" },
+    {
+      id: 1,
+      image: Images.hHarness,
+      thumbnails: [
+        Images.hHarness,
+        Images.hHarness2,
+        Images.hHarness3,
+        Images.hHarness4,
+        Images.hHarness5,
+        Images.hHarness6,
+        Images.hHarness7,
+        Images.hHarness8,
+        Images.hHarness9,
+      ],
+      name: "H-Harness",
+    },
+    { id: 2, image: Images2.EasyOn, thumbnails : [Images2.EasyOn , Images2.EasyOn2, Images2.EasyOn3, Images2.EasyOn4], name: "Easy On Harness" },
+    {
+      id: 3,
+      image: img3,
+      thumbnails: [img3_2, img3_3, img3],
+      name: "Full Body Harness",
+    },
     { id: 4, image: productImages[0], name: "Chest Harness" },
     { id: 5, image: productImages[0], name: "Cat Harness" },
-    { id: 6, image: img6, thumbnails:[img6 , img6_1, img6_2 , img6_3] , name: "Dog Collar" },
+    {
+      id: 6,
+      image: img6,
+      thumbnails: [img6, img6_1, img6_2, img6_3],
+      name: "Dog Collar",
+    },
     { id: 7, image: productImages[0], name: "Dog Collar Printed" },
     { id: 8, image: productImages[0], name: "Leash" },
     { id: 9, image: productImages[0], name: "Printed Leash" },
     {
       id: 10,
       image: img10,
-      thumbnails:[img10 , img10_1 , img10_2],
+      thumbnails: [img10, img10_1, img10_2],
       name: "Hut-Pumpkin",
     },
+    { id: 11, image: productImages[0], name: "Tuxedo" },
+    { id: 12, image: productImages[0], name: "Bow Tue" },
+    { id: 13, image: productImages[0], name: "Bandana" },
+    { id: 14, image: productImages[0], name: "Printed Mat" },
+    { id: 15, image: productImages[0], name: "Fur Mat" },
+    { id: 16, image: productImages[0], name: "Pattern Lounger" },
+    { id: 17, image: productImages[0], name: "Embroidery Lounger" },
+    { id: 18, image: productImages[0], name: "Fur Lounger" },
+    { id: 19, image: productImages[0], name: "Printed Lounger" },
+    { id: 20, image: productImages[0], name: "Mattress" },
+    { id: 21, image: productImages[0], name: "Round Bed" },
+    { id: 22, image: productImages[0], name: "Hut-Snail" },
+    {
+      id: 23,
+      image: img10,
+      thumbnails: [img10, img10_1, img10_2],
+      name: "Hut-Pumpkin",
+    },
+    { id: 24, image: productImages[0], name: "Hut-Caterpillar" },
+    { id: 25, image: productImages[0], name: "Cave Bed-Cartoon" },
+    { id: 26, image: productImages[0], name: "Cave Bed-X-MAS" },
+    { id: 27, image: productImages[0], name: "Cave Bed-Grey" },
+    { id: 28, image: productImages[0], name: "Cave Bed-Printed" },
   ];
 
   useEffect(() => {
