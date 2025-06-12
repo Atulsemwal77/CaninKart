@@ -65,7 +65,7 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="bg-[#F1FFEF] flex flex-col p-4 sm:p-6 md:px-32 relative top-18 max-w-7xl mx-auto">
+      <div className="bg-[#F1FFEF] flex flex-col p-4 sm:p-6 md:px-32 relative top-18 max-w-[1500px] mx-auto">
         <button
           className="text-sm font-bold text-gray-600 hover:text-orange-500 w-fit transition-colors mb-4"
           onClick={() => navigate(-1)}

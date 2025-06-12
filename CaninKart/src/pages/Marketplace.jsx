@@ -39,7 +39,7 @@ const Marketplace = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-black text-white">
+        <div className="min-h-screen bg-black text-white max-w-[1500px] mx-auto">
             {/* Header */}
             <div>
                 <img

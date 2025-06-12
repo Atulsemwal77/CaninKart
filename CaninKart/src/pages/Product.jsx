@@ -19,6 +19,7 @@ import img10_2 from "../assets/products/20.png";
 
 import Images from "../utils/img";
 import {Images2} from '../utils/img'   //Easy on Harness
+import { Images4 } from "../utils/img"; //chest Harness
 
 const Product = () => {
   const navigate = useNavigate();
@@ -48,7 +49,7 @@ const Product = () => {
       thumbnails: [img3_2, img3_3, img3],
       name: "Full Body Harness",
     },
-    { id: 4, image: productImages[0], name: "Chest Harness" },
+    { id: 4, image: Images4.chest, thumbnails:[Images4.chest1,], name: "Chest Harness" },
     { id: 5, image: productImages[0], name: "Cat Harness" },
     {
       id: 6,
@@ -96,7 +97,7 @@ const Product = () => {
 
   return (
     <>
-      <div className="bg-[#ecf2e7] px-4 sm:px-10 md:px-16 lg:px-10  py-6 sm:py-10 mt-15 max-w-7xl mx-auto">
+      <div className="bg-[#ecf2e7] px-4 sm:px-10 md:px-16 lg:px-10  py-6 sm:py-10 mt-15 max-w-[1500px] mx-auto">
         <p className="text-center font-semibold text-lg mb-6">Products</p>
 
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 sm:gap-6">

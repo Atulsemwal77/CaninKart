@@ -98,7 +98,7 @@ function App() {
   window.scrollTo(0, 0);
 }, []);
   return (
-    <div className="bg-[#f9f5f3] text-gray-800 font-sans px-4 py-10 mt-16">
+    <div className="bg-[#f9f5f3] text-gray-800 font-sans px-4 py-10 mt-16 max-w-[1500px] mx-auto">
       <h2 className="text-center text-orange-500 text-sm font-semibold mb-10">
         🐾 KNOW ABOUT DOG BREEDS
       </h2>

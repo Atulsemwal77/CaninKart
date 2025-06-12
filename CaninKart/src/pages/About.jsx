@@ -19,7 +19,7 @@ const CaninkartHome = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="font-sans text-gray-700 bg-[#DEFED2] max-w-7xl mx-auto">
+    <div className="font-sans text-gray-700 bg-[#DEFED2] max-w-[1500px] mx-auto">
       {/* ABOUT SECTION */}
 
       {/* <h2 className="text-sm font-semibold  bg-[#DEFED2] text-orange-500 text-center  ">🧡 ABOUT</h2> */}

@@ -91,7 +91,7 @@ const HomePage = () => {
   }, [])
 
   return (
-    <div className="font-sans text-gray-800 max-w-7xl mx-auto">
+    <div className="font-sans text-gray-800 max-w-[1500px] mx-auto">
       {/* Hero Section */}
       <section className="bg-orange-100 md:relative overflow-hidden px-4 py-20 text-center flex flex-col items-center mt-16">
         <div className="relative z-10 max-w-4xl mx-auto">

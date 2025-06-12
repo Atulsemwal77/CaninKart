@@ -26,7 +26,7 @@ const Navbar = () => {
   }
   return (
     <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
-      <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <div className="max-w-[1500px] mx-auto px-6 py-4 flex items-center justify-between">
         {/* Logo */}
         <NavLink to="/" className="flex items-center space-x-2">
           <img src={logo} alt="Caninkart Logo" className="h-10 w-auto" />
