@@ -76,7 +76,7 @@ const ProductDetail = () => {
         {/* Main Product Display */}
         <div className="w-full max-w-6xl rounded-lg flex flex-col md:flex-row gap-6 my-8">
           {/* Desktop Sidebar Thumbnails */}
-          <div className="hidden md:flex md:flex-col gap-4 h-120 sticky top-24 overflow-y-scroll ">
+          <div className= {`hidden md:flex md:flex-col gap-4 h-120 sticky top-24 ${thumbnails.length > 4 && "overflow-y-scroll"}`}>
             {thumbnails.map((img, index) => (
               <Thumbnail
                 key={`desktop-${index}`}
@@ -88,8 +88,8 @@ const ProductDetail = () => {
           </div>
 
           {/* Main Image Section */}
-          <div className="flex flex-col md:bg-white md:justify-center flex-1 gap-4 h-120 lg:sticky top-24 border">
-            <div className="flex justify-center bg-white p-4 rounded relative">
+          <div className="flex flex-col md:bg-white md:justify-center flex-1 gap-4 h-120 lg:sticky top-24 ">
+            <div className="flex justify-center bg-white p-4 rounded relative overflow-hidden">
               {imageError ? (
                 <div className="w-full max-w-xs sm:max-w-sm h-48 md:h-auto flex items-center justify-center bg-gray-100 rounded-md">
                   <span className="text-gray-500">Image not available</span>
@@ -99,7 +99,7 @@ const ProductDetail = () => {
                   src={mainImage}
                   alt={`${product.name} - Main Product`}
                   onError={handleImageError}
-                  className="w-full max-w-xs sm:max-w-sm md:h-96  h-48 object-contain rounded-md p-2"
+                  className="w-full  object-fit rounded-md p-2"
                 />
               )}
             </div>
@@ -969,34 +969,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-          {product.id === 19 && (
-            <div className="space-y-4 text-left flex-1">
-              <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">
-                {product.name}
-              </h1>
-              <p className="text-gray-700 font-semibold text-lg">
-                🎨 Dog Printed Lounger Bed – Soft, Stylish, and Snuggly!
-              </p>
-              <ul className="list-disc list-inside text-gray-700">
-                <li>Vibrant, eye-catching printed designs</li>
-                <li>Ultra-soft, durable fabric with high-density polyfill</li>
-                <li>Supportive raised sides for head and neck rest</li>
-                <li>Removable, washable cover for easy upkeep</li>
-                <li>Available in Small, Medium, and Large sizes</li>
-                <li>Multiple trendy color variants available</li>
-              </ul>
-              <p className="text-gray-700">
-                Our printed loungers offer ergonomic comfort and charming
-                aesthetics to enhance both pet happiness and your home style.
-              </p>
-              <p className="text-gray-700">
-                <strong>Why Choose Caninkart?</strong> As India’s most preferred
-                manufacturer of printed dog beds, Caninkart delivers premium
-                quality, stylish variety, and trusted craftsmanship tailored for
-                pets and pet parents alike.
-              </p>
-            </div>
-          )}
+         
           {product.id === 20 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">

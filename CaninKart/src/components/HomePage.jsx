@@ -236,7 +236,7 @@ const HomePage = () => {
             </button>
 
             {/* Swiper Container */}
-            <div className="flex-1 overflow-hidden border border-red-500 h-full ">
+            <div className="flex-1 overflow-hidden h-full ">
               <Swiper
                 modules={[ Autoplay, Navigation]}
                 spaceBetween={20}
