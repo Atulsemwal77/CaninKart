@@ -11,10 +11,10 @@ import "swiper/css/navigation";
 
 import hero from "../assets/5dog.png";
 import pupy from "../assets/pupy.png";
-import img1 from "../assets/categoriy.png";
-import img2 from "../assets/categoriy.png";
-import img3 from "../assets/categoriy.png";
-import img4 from "../assets/categoriy.png";
+// import img1 from "../assets/categoriy.png";
+// import img2 from "../assets/categoriy.png";
+// import img3 from "../assets/categoriy.png";
+// import img4 from "../assets/categoriy.png";
 import img5 from "../assets/categoriy.png";
 import img6 from "../assets/pngwing.png";
 import img96 from "../assets/promo.png";
@@ -23,16 +23,20 @@ import ContactForm from "./contactForm";
 import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
 import Productss from "../pages/productdata";
+import img1 from "../assets/Printed_Collar/4.png"
+import img2 from "../assets/Fur Lounger/24.png"
+import img3 from "../assets/Cave Hut - Grey/11.png"
+import img4 from "../assets/Jackets/4.png"
 
 const HomePage = () => {
-  const categories = [
-    "WALKING ESSENTIALS",
-    "BEDDINGS",
-    "CAVE HUT",
-    "JACKETS",
-    "TOYS",
-  ];
-  const images = [img1, img2, img3, img4, img5];
+  const categories =[
+  { category: "WALKING ESSENTIALS", image: img1 },
+  { category: "BEDDINGS", image: img2 },
+  { category: "CAVE HUT", image: img3 },
+  { category: "JACKETS", image: img4 },
+  { category: "TOYS", image: img5 },
+]
+
   const navigate = useNavigate();
 
   const testimonials = [
@@ -131,12 +135,12 @@ const HomePage = () => {
             <div key={index} className="flex flex-col items-center my-3">
               <div className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40">
                 <img
-                  src={images[index] || "/placeholder.svg"}
+                  src={category.image}
                   alt={category}
                   className="h-30 mx-auto object-contain"
                 />
               </div>
-              <p className="my-2 text-xs font-medium">{category}</p>
+              <p className="my-2 text-xs font-medium">{category.category}</p>
             </div>
           ))}
         </div>
