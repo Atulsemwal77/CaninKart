@@ -6,14 +6,14 @@ import logo1 from "../assets/logo.png";
 
 const Footer = () => {
   return (
-    <footer className="bg-white px-6 py-0 md:py-10 text-sm md:mt-10 max-w-7xl mx-auto">
-      <div className=" grid grid-cols-2 md:grid-cols-4 gap-10">
+    <footer className="bg-white px-6 py-0 md:py-10 text-sm md:mt-10 max-w-8xl mx-auto">
+      <div className=" grid grid-cols-2 md:grid-cols-4 gap-10 border">
         {/* Logo & Description */}
-        <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left">
+        <div className="col-span-2 md:col-span-1 flex flex-col items-center md:items-start text-center md:text-left border ">
           <img
             src={logo1}
             alt="Caninkart"
-            className="w-24 h-auto md:h-20 mb-3"
+            className="w-24 h-auto  mb-3"
           />
           <p className="text-gray-700 leading-relaxed max-w-xs">
             Caninkart is a highly reputable manufacturer and exporter of pet
@@ -78,21 +78,21 @@ const Footer = () => {
           </h4>
 
           {/* Email */}
-          <div className="flex items-start sm:items-center gap-2 text-gray-700 mb-3">
+          <div className="flex items-start sm:items-center gap-2  mb-3">
             <div className="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#FDDF82]">
               <FiMail className="text-sm md:text-lg" />
             </div>
-            <span className="hover:text-orange-400 text-sm md:text-base break-all">
+            <span className="hover:text-orange-400 text-sm md:text-base break-all text-gray-700">
               support@caninkart.com
             </span>
           </div>
 
           {/* Phone */}
-          <div className="flex items-start sm:items-center gap-2 text-gray-700">
+          <div className="flex items-start sm:items-center gap-2 ">
             <div className="w-7 h-7 md:w-10 md:h-10 flex items-center justify-center rounded-full bg-[#FDDF82]">
               <FiPhone className="text-sm md:text-lg" />
             </div>
-            <span className="hover:text-orange-400 text-sm md:text-base">
+            <span className="hover:text-orange-400 text-sm md:text-base text-gray-700">
               +91 95029 57250
             </span>
           </div>
@@ -110,7 +110,9 @@ const Footer = () => {
           <div
             key={idx}
             aria-label={item.label}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDDF82] transition hover:text-blue-400 cursor-pointer"
+            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDDF82] 
+                 transition-transform duration-300 ease-in-out cursor-pointer 
+                 hover:scale-110 hover:rotate-12"
           >
             {item.icon}
           </div>

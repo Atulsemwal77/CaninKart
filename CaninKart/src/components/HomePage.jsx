@@ -33,20 +33,7 @@ const HomePage = () => {
   ];
   const images = [img1, img2, img3, img4, img5];
   const navigate = useNavigate();
-  const productImages = [img11];
 
-  const topSellers = [
-    { name: "Lounge", img: img6 },
-    { name: "Cozy Bed", img: img6 },
-    { name: "Cave Hut", img: img6 },
-    { name: "Travel Carrier", img: img6 },
-  ];
-  const products = [
-    { name: "Lounge", img: img6 },
-    { name: "Cozy Bed", img: img6 },
-    { name: "Play Toy", img: img6 },
-    { name: "Warm Jacket", img: img6 },
-  ];
   const testimonials = [
     {
       name: "David",
@@ -97,8 +84,6 @@ const HomePage = () => {
     // Delay to ensure swiper is initialized
     setTimeout(handleMobileNavigation, 100);
   }, []);
-
-  const featuredProducts = Productss.slice(0, 12);
 
   return (
     <div className="font-sans text-gray-800 max-w-[1500px] mx-auto">
@@ -155,38 +140,6 @@ const HomePage = () => {
           🔥 TOP SELLERS
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto ">
-          {/* {Array.from({ length: 8 }).map((_, idx) => {
-            const item = topSellers[idx % topSellers.length]
-            return (
-              <div key={idx} className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded">
-                <img
-                  src={item.img || "/placeholder.svg"}
-                  alt={item.name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
-                />
-                <p className="text-xs mt-2 font-medium">{item.name}</p>
-              </div>
-            )
-          })} */}
-          {/* {Array.from({ length: 8 }).map((_, idx) => {
-            const id = idx + 1;
-            const image = productImages[idx % productImages.length];
-            const name = "lounge";
-            return (
-              <div
-                onClick={() => navigate(`/product/${id}`)}
-                key={idx}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md  rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-              >
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
-                />
-                <p className="text-xs mt-2 font-medium">{name}</p>
-              </div>
-            );
-          })} */}
           {Productss.slice(12, 20).map((product, idx) => {
             return (
               <div
@@ -201,7 +154,7 @@ const HomePage = () => {
                   alt={product.name}
                   className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
                 />
-                <p className="text-xs mt-2 font-medium">{product.name}</p>
+                <p className=" mt-2 font-medium">{product.name}</p>
               </div>
             );
           })}
@@ -209,11 +162,11 @@ const HomePage = () => {
       </section>
 
       {/* Promo Banner */}
-      <div className="w-full max-w-8xl mx-auto">
+      <div className="w-full max-w-[1400px] mx-auto ">
         <img
           src={img96 || "/placeholder.svg"}
           alt="Product"
-          className="w-full h-auto object-contain hidden md:flex"
+          className="w-full h-auto object-contain hidden md:flex "
         />
 
         <img
@@ -229,39 +182,12 @@ const HomePage = () => {
           🛍️ Products
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto">
-          {/* {Array.from({ length: 12 }).map((_, idx) => {
-            const product = products[idx % products.length]
-            return (
-              <div key={idx} className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded">
-                <img
-                  src={product.img || "/placeholder.svg"}
-                  alt={product.name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
-                />
-                <p className="text-xs mt-2 font-medium">{product.name}</p>
-              </div>
-            )
-          })} */}
-          {/* {Array.from({ length: 12 }).map((_, idx) => {
-            const id = idx + 1
-            const image = productImages[idx % productImages.length]
-            const name = 'lounge'
-            return (
-              <div onClick={() => navigate(`/product/${id}`)}
-                  key={idx} className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200">
-                <img
-                  src={image || "/placeholder.svg"}
-                  alt={name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
-                />
-                <p className="text-xs mt-2 font-medium">{name}</p>
-              </div>
-            )
-          })} */}
-          {featuredProducts.map((product, idx) => {
+          {Productss.slice(0, 12).map((product, idx) => {
             return (
               <div
-                onClick={() => navigate(`/product/${product.id}`)}
+                onClick={() =>
+                  navigate(`/product/${product.id}`, { state: { product } })
+                }
                 key={product.id}
                 className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
               >
@@ -270,7 +196,7 @@ const HomePage = () => {
                   alt={product.name}
                   className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
                 />
-                <p className="text-xs mt-2 font-medium">{product.name}</p>
+                <p className="mt-2 font-medium">{product.name}</p>
               </div>
             );
           })}
@@ -373,8 +299,8 @@ const HomePage = () => {
               >
                 {testimonials.map((item, idx) => (
                   <SwiperSlide key={idx}>
-                    <div className="bg-white p-6 sm:p-8 border rounded-lg shadow-md text-left h-50 flex flex-col justify-cen ">
-                      <p className="text-sm mb-4 leading-relaxed">
+                    <div className="bg-white p-6 sm:p-4 border rounded-lg shadow-md text-left h-50 ">
+                      <p className="text-sm mb-4 leading-relaxed h-1/2">
                         {item.text}
                       </p>
                       <div className="">
@@ -383,7 +309,7 @@ const HomePage = () => {
                           <img
                             src={item.img || "/placeholder.svg"}
                             alt={item.name}
-                            className="w-10 h-10 rounded-full object-cover"
+                            className="w-10 h-10 rounded-full object-contain border ml-2"
                           />
                           <div className="flex flex-col leading-tight">
                             <span className="font-semibold">{item.name}</span>

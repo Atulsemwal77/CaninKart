@@ -35,7 +35,7 @@ const ContactForm = () => {
       >
         {/* Optional semi-transparent overlay for readability */}
         {isMdOrLarger && (
-          <div className="absolute inset-0 bg-white opacity-30 rounded-2xl z-0"></div>
+          <div className="absolute inset-0  rounded-2xl z-0"></div>
         )}
 
         <div className="relative max-w-7xl mx-auto flex justify-center md:justify-end z-10">
