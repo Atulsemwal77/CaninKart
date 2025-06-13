@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Mail, Phone, MapPin, Facebook, Youtube, Instagram, Twitter } from 'lucide-react';
+import { FaPaw } from 'react-icons/fa';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -62,10 +63,10 @@ const ContactUs = () => {
   }, []);
 
   return (
-    <div className="bg-white py-10 px-4 md:px-6 max-w-[1500px] mx-auto mt-16">
+    <div className="bg-white py-10 px-4 md:px-6 max-w-screen-2xl mx-auto mt-16">
       {/* Header */}
       <div className="text-center mb-10">
-        <p className="text-orange-500 font-semibold">📍 CONTACT</p>
+        <p className="text-orange-500 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw/> CONTACT</p>
         <h2 className="text-3xl font-bold text-gray-800 mt-2">Contact Us</h2>
         {/* <p className="text-gray-600 mt-2">We'd love to hear from you. Send us a message!</p> */}
       </div>

@@ -13,6 +13,7 @@ import Marketplace from './pages/Marketplace';
 import Contact from './pages/Contact.jsx';
 import MarketPlacedetails from './pages/MarketPlacedetails.jsx';
 import ProductDetail from './pages/ProductDetail.jsx';
+import Dashboard from './dashboard/OverView.jsx';
 
 const router = createBrowserRouter([
   {
@@ -22,7 +23,7 @@ const router = createBrowserRouter([
       { path: '/', element: <HomePage /> },
       { path: 'home', element: <HomePage /> },
       { path: 'about', element: <About /> },
-      { path: 'breed', element: <Breed /> },
+      { path: 'dogbreed', element: <Breed /> },
       { path: 'product',
          element: <Product /> },
          {
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
       { path: 'contact', element: <Contact /> }
     ],
   },
+  { path : "/dashboard" , element : <Dashboard/>}
 ]);
 
 createRoot(document.getElementById('root')).render(

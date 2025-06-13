@@ -22,27 +22,32 @@ function MarketPlacedetails() {
 }, []);
 
   return (
-    <div className="min-h-screen bg-[#FFFDF4] mt-18">
+    <div className="min-h-screen bg-[#FFFDF4] max-w-screen-2xl mx-auto mt-18">
       {/* Hero Section */}
-      <section
-        className="relative bg-cover bg-center bg-no-repeat h-[400px] sm:h-[500px] md:h-[400px] w-full flex items-center justify-center px-4 sm:px-8"
-        style={{ backgroundImage: `url(${img99})` }}
-      >
-        <div className="absolute top-4 left-4">
-          <button
-            onClick={() => navigate(-1)}
-            className="text-white bg-black/40 backdrop-blur-md px-4 py-2 rounded-md"
-          >
-            ← Back
-          </button>
-        </div>
-        <div className="text-white font-[Poppins] text-center text-xl sm:text-2xl md:text-3xl lg:text-5xl font-semibold leading-relaxed max-w-4xl">
-          Caninkart Manufacturers in {cityname.name}
-        </div>
-      </section>
+    <section
+  className="relative w-full h-[250px] sm:h-[350px] md:h-[500px] bg-cover bg-bottom bg-no-repeat flex items-center justify-center px-4 sm:px-8"
+  style={{ backgroundImage: `url(${img99})` }}
+>
+  {/* Back Button */}
+  <div className="absolute top-4 left-4">
+    <button
+      onClick={() => navigate(-1)}
+      className="text-white bg-black/40 backdrop-blur-md px-4 py-2 rounded-md"
+    >
+      ← Back
+    </button>
+  </div>
+
+  {/* Text Overlay */}
+  <div className="text-white font-[Poppins] text-center text-[28px] md:text-5xl font-semibold leading-relaxed max-w-4xl">
+    Caninkart Manufacturers in {cityname.name}
+  </div>
+</section>
+
+
 
       {/* Main Content */}
-      <div className="container bg-[#FFFDF4] mx-auto px-4 py-12 max-w-8xl text-gray-700">
+      <div className="container bg-[#FFFDF4] mx-auto px-4 py-12 max-w-7xl text-gray-700">
         <p className="text-base md:text- leading-relaxed mb-6">
           When it comes to selecting the perfect dog collar for your furry companion, quality and craftsmanship are key factors to consider. In a market flooded with options, Caninkart has emerged as a standout manufacturer of top-of-the-line dog collars that combine precision and perfection in every design. With a commitment to excellence and a dedication to providing pet owners with the highest quality products, we have earned a reputation as the industry leader in dog collar manufacturing. From durable materials to innovative designs, we've set the standard for reliability and style in the pet accessory market
         </p>
@@ -60,7 +65,7 @@ function MarketPlacedetails() {
           </div>
           <div className="md:w-1/2 flex justify-center">
             <img
-              src={img100} // Make sure this image exists in your public folder
+              src={img100} 
               alt="Corgi dog"
               className="rounded shadow w-full  max-w-sm"
               loading="lazy"

@@ -3,6 +3,7 @@
 import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import { FaPaw } from "react-icons/fa";
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -42,6 +43,12 @@ const HomePage = () => {
       text: '"My golden retriever, Max, absolutely loves the chew toys I ordered. The quality is top-notch, and delivery was super fast. You\'ve earned a customer for life!"',
     },
     {
+      name: "David",
+      city: "Pune",
+      img: img1,
+      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered.The quality is top-notch, and delivery was super fast. You\'ve earned a customer for life!"',
+    },
+    {
       name: "Aarav",
       city: "Delhi",
       img: img2,
@@ -51,7 +58,7 @@ const HomePage = () => {
       name: "Sneha",
       city: "Mumbai",
       img: img3,
-      text: '"Fantastic service and the cutest products! My puppy is obsessed with the new bed."',
+      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam rem eos odio quam suscipit, laudantium iusto molestiae maiores possimus reprehenderit excepturi blanditiis et quo expedita ut saepe, nam odit voluptatibus. My puppy is obsessed with the new bed."',
     },
     {
       name: "Sneha",
@@ -86,14 +93,14 @@ const HomePage = () => {
   }, []);
 
   return (
-    <div className="font-sans text-gray-800 max-w-[1500px] mx-auto">
+    <div className="font-sans text-gray-800 max-w-screen-2xl mx-auto">
       {/* Hero Section */}
       <section className="bg-orange-100 md:relative overflow-hidden px-4 py-20 text-center flex flex-col items-center mt-16">
         <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold mb-4">
+          <h1 className="text-xl  md:text-2xl lg:text-5xl font-extrabold mb-4 fredoka-heading">
             WELCOME TO CANINKART
           </h1>
-          <p className="mb-6 font-semibold text-base sm:text-lg md:text-2xl leading-relaxed">
+          <p className="mb-6 font-semibold text-base sm:text-lg md:text-xl leading-relaxed">
             One of India's Leading{" "}
             <span className="text-red-950">Manufacturers and Exporters</span> of
             pet
@@ -110,13 +117,14 @@ const HomePage = () => {
             alt="Hero Dogs"
             className="w-full h-auto object-contain"
           />
+          
         </div>
       </section>
 
       {/* Categories */}
       <section className="py-10 text-center ">
-        <h2 className="text-sm font-semibold text-orange-500 mb-4">
-          🧡 CATEGORY
+        <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
+          <FaPaw /> CATEGORY
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-50 mx-auto md:gap-5">
           {categories.map((category, index) => (
@@ -136,8 +144,8 @@ const HomePage = () => {
 
       {/* Top Sellers */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
-        <h2 className="font-semibold mb-4 text-lg text-orange-500">
-          🔥 TOP SELLERS
+        <h2 className="font-semibold mb-4 text-lg text-orange-500 flex justify-center items-center gap-2">
+          <FaPaw /> TOP SELLERS
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto ">
           {Productss.slice(12, 20).map((product, idx) => {
@@ -154,7 +162,7 @@ const HomePage = () => {
                   alt={product.name}
                   className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
                 />
-                <p className=" mt-2 font-medium">{product.name}</p>
+                <p className=" mt-2 text-lg font-medium">{product.name}</p>
               </div>
             );
           })}
@@ -178,8 +186,8 @@ const HomePage = () => {
 
       {/* Products */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
-        <h2 className="font-semibold mb-4 text-lg text-orange-500">
-          🛍️ Products
+        <h2 className="font-semibold mb-4 text-lg text-orange-500 flex justify-center items-center gap-2">
+          <FaPaw /> Products
         </h2>
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto">
           {Productss.slice(0, 12).map((product, idx) => {
@@ -196,7 +204,7 @@ const HomePage = () => {
                   alt={product.name}
                   className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
                 />
-                <p className="mt-2 font-medium">{product.name}</p>
+                <p className="mt-2 text-lg font-medium">{product.name}</p>
               </div>
             );
           })}
@@ -205,13 +213,13 @@ const HomePage = () => {
 
       {/* About */}
       <div className="mt- bg-green-200">
-        <h2 className="text-sm font-semibold  text-orange-500 text-center  py-4 ">
-          🧡 ABOUT
+        <h2 className="text-lg font-semibold text-orange-500 text-center  py-4 flex justify-center items-center gap-2 ">
+          <FaPaw /> ABOUT
         </h2>
         <section className="py-5 px-4  flex flex-col md:flex-row items-center justify-center md:gap-15">
           <img src={pupy} alt="About Dog" className="h-70 " />
           <div>
-            <p className="text-sm max-w-md">
+            <p className="text-lg max-w-md">
               As a leading manufacturer and exporter of pet accessories,
               Caninkart has gained a reputation for producing top-notch pet
               products that cater to the needs of pets of all shapes and sizes.
@@ -228,122 +236,96 @@ const HomePage = () => {
       </div>
 
       {/* Testimonials with Swiper */}
-      <section className="bg-gray-100 py-10 text-center overflow-hidden ">
-        <h2 className="text-sm font-semibold text-orange-500 mb-6">
-          🧡 TESTIMONIALS
+      <section className="bg-[#FEFBF3] py-10 text-center overflow-hidden">
+        <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
+          <FaPaw /> TESTIMONIALS
         </h2>
-        <h3 className="font-black text-xl mb-6">
+        <h3 className="font-black text-xl mb-8">
           Trusted by Pet Lovers Everywhere
         </h3>
 
-        {/* Main container with flex layout for buttons and swiper */}
-        <div className="max-w-7xl mx-auto px-4  sm:px-6 lg:px-8 ">
-          <div className="relative flex items-center ">
-            {/* Left Navigation Button */}
-            <button className="swiper-button-prev-custom hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300 z-10 mr-4 flex-shrink-0">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M15 19l-7-7 7-7"
-                />
-              </svg>
-            </button>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          {/* Desktop Navigation Buttons */}
+          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all z-10">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M15 19l-7-7 7-7"
+              />
+            </svg>
+          </button>
 
-            {/* Swiper Container */}
-            <div className="flex-1 overflow-hidden h-full ">
-              <Swiper
-                modules={[Autoplay, Navigation]}
-                spaceBetween={20}
-                pagination={{
-                  clickable: true,
-                  dynamicBullets: true,
-                }}
-                navigation={{
-                  prevEl: ".swiper-button-prev-custom",
-                  nextEl: ".swiper-button-next-custom",
-                }}
-                autoplay={{
-                  delay: 3000,
-                  disableOnInteraction: false,
-                }}
-                breakpoints={{
-                  320: {
-                    slidesPerView: 1,
-                    spaceBetween: 15,
-                  },
-                  640: {
-                    slidesPerView: 1,
-                    spaceBetween: 20,
-                  },
-                  768: {
-                    slidesPerView: 2,
-                    spaceBetween: 20,
-                  },
-                  1024: {
-                    slidesPerView: 2,
-                    spaceBetween: 25,
-                  },
-                  1280: {
-                    slidesPerView: 3,
-                    spaceBetween: 30,
-                  },
-                }}
-                className="testimonials-swiper !pb-2"
-              >
-                {testimonials.map((item, idx) => (
-                  <SwiperSlide key={idx}>
-                    <div className="bg-white p-6 sm:p-4 border rounded-lg shadow-md text-left h-50 ">
-                      <p className="text-sm mb-4 leading-relaxed h-1/2">
-                        {item.text}
-                      </p>
-                      <div className="">
-                        <hr className="border-t mb-3" />
-                        <div className="flex items-center mt-2 space-x-3 text-xs font-medium">
-                          <img
-                            src={item.img || "/placeholder.svg"}
-                            alt={item.name}
-                            className="w-10 h-10 rounded-full object-contain border ml-2"
-                          />
-                          <div className="flex flex-col leading-tight">
-                            <span className="font-semibold">{item.name}</span>
-                            <span className="text-gray-500">{item.city}</span>
-                          </div>
-                        </div>
+          <Swiper
+            modules={[Autoplay, Navigation]}
+            spaceBetween={20}
+            navigation={{
+              prevEl: ".swiper-button-prev-custom",
+              nextEl: ".swiper-button-next-custom",
+            }}
+            autoplay={{
+              delay: 3000,
+              disableOnInteraction: false,
+            }}
+            breakpoints={{
+              320: { slidesPerView: 1 },
+              768: { slidesPerView: 2 },
+              1280: { slidesPerView: 4 },
+            }}
+            className="testimonials-swiper"
+          >
+            {testimonials.map((item, idx) => (
+              <SwiperSlide key={idx}>
+                <div className="bg-white p-6 border rounded-lg shadow-md text-left h-full flex flex-col justify-between min-h-[280px]">
+                  <p className="text-sm mb-4 leading-relaxed line-clamp-5">
+                    {item.text}
+                  </p>
+
+                  <div>
+                    <hr className="border-t mb-2" />
+                    <div className="flex items-center space-x-3 text-xs font-medium">
+                      <img
+                        src={item.img || "/placeholder.svg"}
+                        alt={item.name}
+                        className="w-10 h-10 rounded-full object-cover border"
+                      />
+                      <div>
+                        <span className="font-semibold">{item.name}</span>
+                        <span className="block text-gray-500">{item.city}</span>
                       </div>
                     </div>
-                  </SwiperSlide>
-                ))}
-              </Swiper>
-            </div>
+                  </div>
+                </div>
+              </SwiperSlide>
+            ))}
+          </Swiper>
 
-            {/* Right Navigation Button */}
-            <button className="swiper-button-next-custom hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300 z-10 ml-4 flex-shrink-0">
-              <svg
-                className="w-5 h-5"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M9 5l7 7-7 7"
-                />
-              </svg>
-            </button>
-          </div>
+          {/* Right Navigation Button */}
+          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all z-10">
+            <svg
+              className="w-5 h-5"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M9 5l7 7-7 7"
+              />
+            </svg>
+          </button>
 
-          {/* Mobile Navigation Buttons (positioned below swiper) */}
-          <div className="flex md:hidden justify-center space-x-4 ">
-            <button className="swiper-button-prev-mobile flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300">
+          {/* Mobile Nav Buttons Below Swiper */}
+          <div className="flex md:hidden justify-center mt-6 gap-6">
+            <button className="swiper-button-prev-custom flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white transition">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -358,7 +340,7 @@ const HomePage = () => {
                 />
               </svg>
             </button>
-            <button className="swiper-button-next-mobile flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all duration-300">
+            <button className="swiper-button-next-custom flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white transition">
               <svg
                 className="w-4 h-4"
                 fill="none"
@@ -374,52 +356,34 @@ const HomePage = () => {
               </svg>
             </button>
           </div>
-
-          {/* Custom Styling */}
-          <style>{`
-            .testimonials-swiper .swiper-pagination {
-              bottom: 0px !important;
-              position: relative;
-              margin-top: 20px;
-              display: flex;
-              justify-content: center;
-            }
-            
-            .testimonials-swiper .swiper-pagination-bullet {
-              background-color: #fb923c;
-              opacity: 0.5;
-              width: 5px;
-              height: 5px;
-              margin: 0 4px;
-              transition: all 0.3s ease;
-            }
-            
-            .testimonials-swiper .swiper-pagination-bullet-active {
-              opacity: 1;
-              background-color: #ea580c;
-              transform: scale(1.2);
-            }
-
-            .swiper-button-prev-custom:hover svg,
-            .swiper-button-next-custom:hover svg,
-            .swiper-button-prev-mobile:hover svg,
-            .swiper-button-next-mobile:hover svg {
-              color: white;
-            }
-            
-            .swiper-button-prev-custom svg,
-            .swiper-button-next-custom svg,
-            .swiper-button-prev-mobile svg,
-            .swiper-button-next-mobile svg {
-              color: #ea580c;
-              transition: color 0.3s ease;
-            }
-          `}</style>
         </div>
+
+        {/* Custom Bullet Styling */}
+        <style>{`
+    .testimonials-swiper .swiper-pagination {
+      margin-top: 24px;
+      display: flex;
+      justify-content: center;
+    }
+    .testimonials-swiper .swiper-pagination-bullet {
+      background-color: #fb923c;
+      opacity: 0.5;
+      width: 6px;
+      height: 6px;
+      margin: 0 4px;
+      transition: all 0.3s ease;
+    }
+    .testimonials-swiper .swiper-pagination-bullet-active {
+      opacity: 1;
+      background-color: #ea580c;
+      transform: scale(1.2);
+    }
+  `}</style>
       </section>
 
       {/* Contact Form */}
       <ContactForm />
+      <h1 class="fredoka-heading">This is Fredoka One Font</h1>
     </div>
   );
 };

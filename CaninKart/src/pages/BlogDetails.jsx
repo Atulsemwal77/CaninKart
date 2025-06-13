@@ -114,7 +114,7 @@ const BlogDetails = () => {
 
   return (
     <>
-      <div className="w-full mx-auto px-10 py-8 bg-[#EDEBE0] mt-16 max-w-[1500px]">
+      <div className="w-full mx-auto px-10 py-8 bg-[#EDEBE0] mt-16 max-w-screen-2xl">
         {/* Back Button */}
         <div
           onClick={() => navigate(-1)}

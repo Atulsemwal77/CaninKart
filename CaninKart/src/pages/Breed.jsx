@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import lab1 from '../assets/dogb1.png'; // Ensure the image exists at this path
+import { FaPaw } from "react-icons/fa";
 
 const dogs = [
   {
@@ -81,7 +82,7 @@ const DogSection = ({ number, image, description, reverse , bread }) => (
     <div className=" flex flex-col md:flex-row gap-4 md:gap-6">
       <h1 className="text-4xl md:text-5xl font-bold text-[#CDDCEA] ">{number}</h1>
       <div className="space-y-4 px-4 border-l-2 border-[#CDDCEA]">
-        <h2 className="text-2xl md:text-4xl font-[Fredoka One] text-black ">{bread}</h2>
+        <h2 className="text-2xl md:text-4xl font-semibold  text-black  ">{bread}</h2>
         <p className="font-[Poppins] text-black leading-relaxed whitespace-pre-line text-sm md:text-base max-w-lg">
           {description}
         </p>
@@ -98,9 +99,9 @@ function App() {
   window.scrollTo(0, 0);
 }, []);
   return (
-    <div className="bg-[#f9f5f3] text-gray-800 font-sans px-4 py-10 mt-16 max-w-[1500px] mx-auto">
-      <h2 className="text-center text-orange-500 text-sm font-semibold mb-10">
-        🐾 KNOW ABOUT DOG BREEDS
+    <div className="bg-[#f9f5f3] text-gray-800 font-sans px-4 py-10 mt-16 max-w-screen-2xl mx-auto">
+      <h2 className="text-center text-orange-500 flex justify-center items-center gap-2 text-lg font-semibold mb-10">
+        <FaPaw/>  KNOW ABOUT DOG BREEDS
       </h2>
       <div className="max-w-7xl mx-auto space-y-14">
         {dogs.map((dog, idx) => (
@@ -109,7 +110,7 @@ function App() {
             number={dog.number}
             image={dog.image}
             description={dog.description}
-            bread={dog.bread}
+            bread={dog.breed}
             reverse={idx % 2 !== 0}
           />
         ))}

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import ContactForm from "../components/contactForm";
+import { FaArrowLeft } from "react-icons/fa";
 
 const ProductDetail = () => {
   const navigate = useNavigate();
@@ -65,18 +66,23 @@ const ProductDetail = () => {
 
   return (
     <>
-      <div className="bg-[#F1FFEF] flex flex-col p-4 sm:p-6 md:px-32 relative top-18 max-w-[1500px] mx-auto">
+      <div className="bg-[#F1FFEF] flex flex-col p-4 sm:p-6 md:px-32 relative top-18 max-w-screen-2xl mx-auto">
         <button
-          className="text-sm font-bold text-gray-600 hover:text-orange-500 w-fit transition-colors mb-4"
+          className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-orange-500 w-fit transition-colors mb-4"
           onClick={() => navigate(-1)}
         >
-          &larr; BACK
+          <FaArrowLeft className="text-base" />
+          BACK
         </button>
 
         {/* Main Product Display */}
         <div className="w-full max-w-6xl rounded-lg flex flex-col md:flex-row gap-6 my-8">
           {/* Desktop Sidebar Thumbnails */}
-          <div className= {`hidden md:flex md:flex-col gap-4 h-120 sticky top-24 ${thumbnails.length > 4 && "overflow-y-scroll"}`}>
+          <div
+            className={`hidden md:flex md:flex-col gap-4 h-120 sticky top-24 ${
+              thumbnails.length > 4 && "overflow-y-scroll"
+            }`}
+          >
             {thumbnails.map((img, index) => (
               <Thumbnail
                 key={`desktop-${index}`}
@@ -969,7 +975,7 @@ const ProductDetail = () => {
               </p>
             </div>
           )}
-         
+
           {product.id === 20 && (
             <div className="space-y-4 text-left flex-1">
               <h1 className="text-xl sm:text-2xl font-semibold text-gray-800 w-full">

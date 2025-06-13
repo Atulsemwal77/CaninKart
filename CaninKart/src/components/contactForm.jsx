@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import dog from "../assets/ctf.png";
+import { FaPaw } from "react-icons/fa";
 
 const ContactForm = () => {
   const [isMdOrLarger, setIsMdOrLarger] = useState(false);
@@ -25,8 +26,8 @@ const ContactForm = () => {
     : { backgroundImage: "none" };
 
   return (
-    <section className="relative py-10 px-4 bg-[#FDFDFD] text-center max-w-[1500px] mx-auto">
-      <h2 className="text-sm font-semibold text-orange-500 mb-2">🧡 CONTACT</h2>
+    <section className="relative py-10 px-4 bg-[#FDFDFD] text-center max-w-screen-2xl mx-auto">
+      <h2 className=" text-orange-500 mb-2 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw/> CONTACT</h2>
       <h3 className="text-lg font-bold mb-0 md:mb-6">Contact Us</h3>
 
       <div

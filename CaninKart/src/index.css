@@ -12,6 +12,8 @@
   background: #d64500; /* darker orange */
 }
 
-
-
-
+/* In your styles.css or component.css */
+.fredoka-heading {
+  font-family: 'Fredoka One', cursive;
+  color: #333;
+}

@@ -57,7 +57,7 @@ const Navbar = () => {
       {/* Toggle Button (Search or Close icon) */}
       <button
         onClick={toggleSearch}
-        className="bg-orange-100 p-2 rounded-full hover:bg-orange-200 transition"
+        className="bg-[#D0F3FF] p-2 rounded-full hover:bg-[#89defa] transition"
       >
         {showSearch ? (
           <IoClose size={20} className="text-gray-800" />

@@ -19,18 +19,18 @@ const CaninkartHome = () => {
     window.scrollTo(0, 0);
   }, []);
   return (
-    <div className="font-sans text-gray-700 bg-[#DEFED2] max-w-[1500px] mx-auto">
+    <div className="font-sans text-gray-700 bg-[#DEFED2] max-w-screen-2xl mx-auto">
       {/* ABOUT SECTION */}
 
       {/* <h2 className="text-sm font-semibold  bg-[#DEFED2] text-orange-500 text-center  ">🧡 ABOUT</h2> */}
       <div className="mt-18">
-        <h2 className="text-sm font-semibold  text-orange-500 text-center  py-4 ">
-          🧡 ABOUT
+        <h2 className="  text-orange-500 text-center  py-4 flex justify-center items-center gap-2 text-lg font-semibold">
+          <FaPaw/> ABOUT
         </h2>
         <section className="py-5 px-4  flex flex-col md:flex-row items-center justify-center md:gap-15">
           <img src={pupy} alt="About Dog" className="h-70 " />
           <div>
-            <p className=" max-w-md">
+            <p className=" max-w-md text-lg">
               As a leading manufacturer and exporter of pet accessories,
               Caninkart has gained a reputation for producing top-notch pet
               products that cater to the needs of pets of all shapes and sizes.
@@ -61,18 +61,10 @@ const CaninkartHome = () => {
         <div className="max-w-7xl mx-auto grid md:grid-cols-2  items-center">
           <img src={img6} alt="Dog" className="w-120 h-full object-cover" />
           <div>
-            <p className=" text-black ml-2 mt-2 ">
-              As a pet owner, the quality and safety of the accessories and pet
-              products you use for your pet is a top priority. When it comes to
-              pet accessories, you want to be sure you are using only the best
-              and most reliable products. That is why it is important to look
-              for pet accessories made in India. Indian-made pet accessories
-              provide a variety of benefits for pet owners. Caninkart pet
-              accessories are the best and offer an even higher level of
-              quality, making them an ideal choice for pet owners. As a pet
-              owner, the quality and safety of the accessories and pet products
-              you use for your pet is a top priority... [trimmed for brevity]
+            <p className=" text-black ml-2 mt-2 max-w-lg text-lg ">
+              As a pet owner, the quality and safety of the accessories and pet products you use for your pet is a top priority. When it comes to pet accessories, you want to be sure you are using only the best and most reliable products. That is why it is important to look for pet accessories made in India. Indian-made pet accessories provide a variety of benefits for pet owners. Caninkart pet accessories are the best and offer an even higher level of quality, making them an ideal choice for pet owners.
             </p>
+            <p className=" text-black ml-2 mt-2 max-w-lg text-lg">Caninkart pet accessories are made from quality materials.</p>
           </div>
         </div>
         <div className="mt-10   gap-10 items-center relative">
@@ -80,15 +72,15 @@ const CaninkartHome = () => {
             <img
               src={img7}
               alt="Dog"
-              className="w-40 h-40 md:h-54 md:w-54  rounded-full object-cover md:absolute -top-5 right-30 "
+              className="w-40 h-40 md:h-48 md:w-48 lg:h-56 lg:w-56  rounded-full object-cover md:absolute lg:-top-10 right-25 "
             />
             <img
               src={img8}
               alt="Dog"
-              className="w-35 h-35 md:h-44 md:w-44 rounded-full object-cover md:absolute top-10 right-100"
+              className="w-35 h-35 lg:h-52 lg:w-52 md:h-44 md:w-44  rounded-full object-cover md:absolute lg:top-20 right-100"
             />
           </div>
-          <p className=" text-black max-w-2xl md:mt-55 lg:mt-2">
+          <p className=" text-black max-w-lg md:mt-55 lg:mt-2 md:ml-10 mx-auto text-lg">
             As a pet owner, the quality and safety of the accessories and pet
             products you use for your pet is a top priority. When it comes to
             pet accessories, you want to be sure you are using only the best and
