@@ -282,7 +282,7 @@ const HomePage = () => {
           >
             {testimonials.map((item, idx) => (
               <SwiperSlide key={idx}>
-                <div className="bg-white p-6 border rounded-lg shadow-md text-left h-full flex flex-col justify-between min-h-[280px]">
+                <div className="bg-white p-6 border rounded-lg shadow-md text-left h-full flex flex-col justify-between min-h-[250px]">
                   <p className="text-sm mb-4 leading-relaxed line-clamp-5">
                     {item.text}
                   </p>
@@ -383,7 +383,7 @@ const HomePage = () => {
 
       {/* Contact Form */}
       <ContactForm />
-      <h1 class="fredoka-heading">This is Fredoka One Font</h1>
+      {/* <h1 class="fredoka-heading">This is Fredoka One Font</h1> */}
     </div>
   );
 };
