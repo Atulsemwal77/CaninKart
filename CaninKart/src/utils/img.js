@@ -8,12 +8,12 @@ import hHarness7 from "../assets/H-harness/7.png"
 import hHarness8 from "../assets/H-harness/8.png"
 import hHarness9 from "../assets/H-harness/9.png"
 
-import EasyOn from '../assets/Easy_On_Harness/4.png'
+import EasyOn from '../assets/Easy_On_Harness/4-1.png'
 import EasyOn2 from '../assets/Easy_On_Harness/5.png'
 import EasyOn3 from '../assets/Easy_On_Harness/6.png'
 import EasyOn4 from '../assets/Easy_On_Harness/xl.png'
 
-import chest from "../assets/Chest_harness/1.png"
+import chest from "../assets/Chest_harness/1-1.png"
 import chest1 from "../assets/Chest_harness/2.png"
 import chest2 from "../assets/Chest_harness/3.png"
 import chest3 from "../assets/Chest_harness/4.png"
