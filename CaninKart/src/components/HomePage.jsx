@@ -4,6 +4,8 @@ import { useEffect } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { FaPaw } from "react-icons/fa";
+import { motion } from "framer-motion";
+
 
 import "swiper/css";
 import "swiper/css/pagination";
@@ -131,17 +133,26 @@ const HomePage = () => {
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-50 mx-auto md:gap-5">
           {categories.map((category, index) => (
-            <div key={index} className="flex flex-col items-center my-3">
-              <div className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40">
-                <img
-                  src={category.image}
-                  alt={category}
-                  className="h-30 mx-auto object-contain"
-                />
-              </div>
-              <p className="my-2 text-xs font-medium">{category.category}</p>
-            </div>
-          ))}
+  <div key={index} className="flex flex-col items-center my-3">
+    <motion.div
+  className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40"
+  initial={{ opacity: 0, y: 50 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: false }}
+>
+  <img
+    src={category.image}
+    alt={category.category}
+    className="h-30 mx-auto object-contain"
+  />
+</motion.div>
+
+
+    <p className="my-2 text-xs font-medium">{category.category}</p>
+  </div>
+))}
+
         </div>
       </section>
 
@@ -153,20 +164,26 @@ const HomePage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto ">
           {Productss.slice(12, 20).map((product, idx) => {
             return (
-              <div
-                onClick={() =>
-                  navigate(`/product/${product.id}`, { state: { product } })
-                }
-                key={product.id}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-              >
+             <motion.div
+  onClick={() =>
+    navigate(`/product/${product.id}`, { state: { product } })
+  }
+  key={product.id}
+  className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
+  initial={{ rotateY: 90, opacity: 0 }}
+  whileInView={{ rotateY: 0, opacity: 1 }}
+  transition={{ duration: 0.6, ease: "easeOut" }}
+  viewport={{ once: false }}
+  style={{ transformStyle: "preserve-3d" }}
+>
+
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
                   className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
                 />
                 <p className=" mt-2 text-lg font-medium">{product.name}</p>
-              </div>
+              </motion.div>
             );
           })}
         </div>
@@ -195,20 +212,28 @@ const HomePage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto">
           {Productss.slice(0, 12).map((product, idx) => {
             return (
-              <div
-                onClick={() =>
-                  navigate(`/product/${product.id}`, { state: { product } })
-                }
-                key={product.id}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-              >
-                <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
-                />
-                <p className="mt-2 text-lg font-medium">{product.name}</p>
-              </div>
+              <motion.div
+  onClick={() =>
+    navigate(`/product/${product.id}`, { state: { product } })
+  }
+  key={product.id}
+  className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
+  initial={{ rotateY: 90, opacity: 0 }}
+  whileInView={{ rotateY: 0, opacity: 1 }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.97 }}
+  transition={{ duration: 0.5, ease: "easeOut" }}
+  viewport={{ once: false }}
+  style={{ transformStyle: "preserve-3d" }}
+>
+  <img
+    src={product.image || "/placeholder.svg"}
+    alt={product.name}
+    className="mx-auto h-20 sm:h-28 md:h-32 object-contain transition-transform duration-300"
+  />
+  <p className="mt-2 text-lg font-medium">{product.name}</p>
+</motion.div>
+
             );
           })}
         </div>
@@ -267,21 +292,27 @@ const HomePage = () => {
             </button>
 
             <Swiper
-              modules={[Autoplay, Navigation]}
-              autoplay={{ delay: 3000, disableOnInteraction: false }}
-              navigation={{
-                prevEl: ".swiper-button-prev-custom",
-                nextEl: ".swiper-button-next-custom",
-              }}
-              spaceBetween={20}
-              breakpoints={{
-                320: { slidesPerView: 1 },
-                768: { slidesPerView: 2 },
-                1024: { slidesPerView: 3 },
-                1280: { slidesPerView: 4 },
-              }}
-              className="testimonials-swiper"
-            >
+  modules={[Autoplay, Navigation]}
+  loop={true}
+  speed={3000} // 3 seconds for smooth slide transition
+  autoplay={{
+    delay: 0, // no delay between slides
+    disableOnInteraction: false, // keep autoplay even if user interacts
+  }}
+  navigation={{
+    prevEl: ".swiper-button-prev-custom",
+    nextEl: ".swiper-button-next-custom",
+  }}
+  spaceBetween={20}
+  breakpoints={{
+    320: { slidesPerView: 1 },
+    768: { slidesPerView: 2 },
+    1024: { slidesPerView: 3 },
+    1280: { slidesPerView: 4 },
+  }}
+  className="testimonials-swiper"
+>
+
               {testimonials.map((item, idx) => (
                 <SwiperSlide key={idx} className="h-full flex">
                   <div className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col h-[300px] w-full relative my-4 mx-4">
