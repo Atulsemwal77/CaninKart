@@ -1,8 +1,6 @@
 import React from "react";
 import { FiArrowUpRight } from "react-icons/fi";
 import blog from "../assets/dogb1.png";
-import DasNavbar from "./dasNavbar";
-
 
 const Dashboard = () => {
   const contactData = Array.from({ length: 8 }, (_, idx) => ({
@@ -15,7 +13,7 @@ const Dashboard = () => {
 
   return (
     <>
-    <DasNavbar/>
+  
     <div className="bg-[#D7D9DD] min-h-screen px-4 py-6">
       <div className="max-w-screen-xl mx-auto space-y-6">
         <h2 className="text-xl sm:text-2xl font-semibold">Overview</h2>

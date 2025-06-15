@@ -1,4 +1,5 @@
 import hHarness from "../assets/H-harness/1-1.png"
+import hHarness1 from "../assets/H-harness/1.png"
 import hHarness2 from "../assets/H-harness/2.png"
 import hHarness3 from "../assets/H-harness/3.png"
 import hHarness4 from "../assets/H-harness/4.png"
@@ -9,6 +10,7 @@ import hHarness8 from "../assets/H-harness/8.png"
 import hHarness9 from "../assets/H-harness/9.png"
 
 import EasyOn from '../assets/Easy_On_Harness/4-1.png'
+import EasyOn1 from '../assets/Easy_On_Harness/4.png'
 import EasyOn2 from '../assets/Easy_On_Harness/5.png'
 import EasyOn3 from '../assets/Easy_On_Harness/6.png'
 import EasyOn4 from '../assets/Easy_On_Harness/xl.png'
@@ -137,6 +139,7 @@ import dogCollar11 from "../assets/Printed_Collar/12.png"
 import dogCollar12 from "../assets/Printed_Collar/14.png"
 import dogCollar13 from "../assets/Printed_Collar/34.png"
 
+import leashA from "../assets/Leash/1-1.png"
 import leash1 from "../assets/Leash/1.png"
 import leash2 from "../assets/Leash/2.png"
 import leash3 from "../assets/Leash/7.png"
@@ -199,7 +202,8 @@ import furLounger12 from "../assets/Fur Lounger/23.png";
 import furLounger13 from "../assets/Fur Lounger/24.png";
 import furLounger14 from "../assets/Fur Lounger/25.png";
 
-import dogColler from "../assets/Solid_Collar/13.png"
+import dogColler from "../assets/Solid_Collar/13-1.png"
+import dogCollerA from "../assets/Solid_Collar/13.png"
 import dogColler1 from "../assets/Solid_Collar/16.png";
 import dogColler2 from "../assets/Solid_Collar/17.png";
 import dogColler3 from "../assets/Solid_Collar/18.png";
@@ -256,14 +260,14 @@ import jacket11 from "../assets/Jackets/13.png";
 
 
 
-const Images = {hHarness , hHarness2 , hHarness3, hHarness4,hHarness5 , hHarness6 , hHarness7 , hHarness8 , hHarness9}
-export const Images2 = {EasyOn , EasyOn2 , EasyOn3 , EasyOn4}
+const Images = {hHarness, hHarness1, hHarness2 , hHarness3, hHarness4,hHarness5 , hHarness6 , hHarness7 , hHarness8 , hHarness9}
+export const Images2 = {EasyOn, EasyOn1, EasyOn2 , EasyOn3 , EasyOn4}
 export const Images3 = {fullBody1 , fullBody2, fullBody3, fullBody4, fullBody5, fullBody6, fullBody7, fullBody8, fullBody9, fullBody10, fullBody11, fullBody12, fullBody13 }
 export const Images4 = {chest, chest1, chest2, chest3, chest4, chest5}
 export const Images5 = { catHarness1, catHarness2, catHarness3, catHarness4, catHarness5, catHarness6 }
-export const Images6 = {dogColler, dogColler1, dogColler2, dogColler3, dogColler4, dogColler5, dogColler6, dogColler7, dogColler8, dogColler9, dogColler10, dogColler11, dogColler12, dogColler13, dogColler14, dogColler15, dogColler16, dogColler17, dogColler18, dogColler19, }
+export const Images6 = {dogColler, dogCollerA, dogColler1, dogColler2, dogColler3, dogColler4, dogColler5, dogColler6, dogColler7, dogColler8, dogColler9, dogColler10, dogColler11, dogColler12, dogColler13, dogColler14, dogColler15, dogColler16, dogColler17, dogColler18, dogColler19, }
 export const Images7 = { dogCollar1, dogCollar2, dogCollar3, dogCollar4, dogCollar5, dogCollar6, dogCollar7, dogCollar8, dogCollar9, dogCollar10, dogCollar11, dogCollar12, dogCollar13 }
-export const Images8 = { leash1, leash2, leash3, leash4 }
+export const Images8 = { leashA ,leash1, leash2, leash3, leash4 }
 export const Images9 = {jacket, jacket1, jacket2, jacket3, jacket4, jacket5, jacket6, jacket7, jacket8, jacket9, jacket10, jacket11, };
 export const Image10 = {Basket, Basket1, Basket2, Basket3, Basket4 }
 export const Images11 = {tuxedo1, tuxedo2, tuxedo3, tuxedo4 }

@@ -23,19 +23,19 @@ import ContactForm from "./contactForm";
 import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
 import Productss from "../pages/productdata";
-import img1 from "../assets/Printed_Collar/4.png"
-import img2 from "../assets/Fur Lounger/24.png"
-import img3 from "../assets/Cave Hut - Grey/11.png"
-import img4 from "../assets/Jackets/4.png"
+import img1 from "../assets/Printed_Collar/4.png";
+import img2 from "../assets/Fur Lounger/24.png";
+import img3 from "../assets/Cave Hut - Grey/11.png";
+import img4 from "../assets/Jackets/4.png";
 
 const HomePage = () => {
-  const categories =[
-  { category: "WALKING ESSENTIALS", image: img1 },
-  { category: "BEDDINGS", image: img2 },
-  { category: "CAVE HUT", image: img3 },
-  { category: "JACKETS", image: img4 },
-  { category: "TOYS", image: img5 },
-]
+  const categories = [
+    { category: "WALKING ESSENTIALS", image: img1 },
+    { category: "BEDDINGS", image: img2 },
+    { category: "CAVE HUT", image: img3 },
+    { category: "JACKETS", image: img4 },
+    { category: "TOYS", image: img5 },
+  ];
 
   const navigate = useNavigate();
 
@@ -43,7 +43,7 @@ const HomePage = () => {
     {
       name: "David",
       city: "Pune",
-      img: img1,
+      img: "D",
       text: '"My golden retriever, Max, absolutely loves the chew toys I ordered. The quality is top-notch, and delivery was super fast. You\'ve earned a customer for life!"',
     },
     {
@@ -62,7 +62,7 @@ const HomePage = () => {
       name: "Sneha",
       city: "Mumbai",
       img: img3,
-      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quibusdam rem eos odio quam suscipit, laudantium iusto molestiae maiores possimus reprehenderit excepturi blanditiis et quo expedita ut saepe, nam odit voluptatibus. My puppy is obsessed with the new bed."',
+      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet conse expedita ut saepe, nam odit voluptatibus. My puppy is obsessed with the new bed."',
     },
     {
       name: "Sneha",
@@ -121,7 +121,6 @@ const HomePage = () => {
             alt="Hero Dogs"
             className="w-full h-auto object-contain"
           />
-          
         </div>
       </section>
 
@@ -240,98 +239,20 @@ const HomePage = () => {
       </div>
 
       {/* Testimonials with Swiper */}
-      <section className="bg-[#FEFBF3] py-10 text-center overflow-hidden">
-        <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
-          <FaPaw /> TESTIMONIALS
+      <section className="bg-[#fff9ed] py-14 text-center overflow-hidden">
+        <h2 className="text-lg gap-2 font-semibold text-orange-500 mb-3 flex justify-center items-center ">
+          <FaPaw/> TESTIMONIALS
         </h2>
-        <h3 className="font-black text-xl mb-8">
+        <h3 className="font-black text-xl mb-10">
           Trusted by Pet Lovers Everywhere
         </h3>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          {/* Desktop Navigation Buttons */}
-          <button className="swiper-button-prev-custom absolute left-0 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all z-10">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M15 19l-7-7 7-7"
-              />
-            </svg>
-          </button>
-
-          <Swiper
-            modules={[Autoplay, Navigation]}
-            spaceBetween={20}
-            navigation={{
-              prevEl: ".swiper-button-prev-custom",
-              nextEl: ".swiper-button-next-custom",
-            }}
-            autoplay={{
-              delay: 3000,
-              disableOnInteraction: false,
-            }}
-            breakpoints={{
-              320: { slidesPerView: 1 },
-              768: { slidesPerView: 2 },
-              1280: { slidesPerView: 4 },
-            }}
-            className="testimonials-swiper"
-          >
-            {testimonials.map((item, idx) => (
-              <SwiperSlide key={idx}>
-                <div className="bg-white p-6 border rounded-lg shadow-md text-left h-full flex flex-col justify-between min-h-[250px]">
-                  <p className="text-sm mb-4 leading-relaxed line-clamp-5">
-                    {item.text}
-                  </p>
-
-                  <div>
-                    <hr className="border-t mb-2" />
-                    <div className="flex items-center space-x-3 text-xs font-medium">
-                      <img
-                        src={item.img || "/placeholder.svg"}
-                        alt={item.name}
-                        className="w-10 h-10 rounded-full object-cover border"
-                      />
-                      <div>
-                        <span className="font-semibold">{item.name}</span>
-                        <span className="block text-gray-500">{item.city}</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
-
-          {/* Right Navigation Button */}
-          <button className="swiper-button-next-custom absolute right-0 top-1/2 -translate-y-1/2 hidden md:flex items-center justify-center w-12 h-12 bg-white border-2 border-orange-500 rounded-full shadow-lg hover:bg-orange-500 hover:text-white transition-all z-10">
-            <svg
-              className="w-5 h-5"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M9 5l7 7-7 7"
-              />
-            </svg>
-          </button>
-
-          {/* Mobile Nav Buttons Below Swiper */}
-          <div className="flex md:hidden justify-center mt-6 gap-6">
-            <button className="swiper-button-prev-custom flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white transition">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="relative">
+            {/* Left Nav */}
+            <button className="swiper-button-prev-custom hidden md:flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white absolute left-[-50px] top-1/2 transform -translate-y-1/2 z-10">
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -344,9 +265,58 @@ const HomePage = () => {
                 />
               </svg>
             </button>
-            <button className="swiper-button-next-custom flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white transition">
+
+            <Swiper
+              modules={[Autoplay, Navigation]}
+              autoplay={{ delay: 3000, disableOnInteraction: false }}
+              navigation={{
+                prevEl: ".swiper-button-prev-custom",
+                nextEl: ".swiper-button-next-custom",
+              }}
+              spaceBetween={20}
+              breakpoints={{
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 4 },
+              }}
+              className="testimonials-swiper"
+            >
+              {testimonials.map((item, idx) => (
+                <SwiperSlide key={idx} className="h-full flex">
+                  <div className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col h-[300px] w-full relative my-4 mx-4">
+                    <div className="relative">
+                      <div className="w-10 h-10 rounded-full bg-[#FDDF82] flex items-center justify-center absolute -top-10 -left-10 text-4xl ">
+                        ❝
+                      </div>
+                    </div>
+
+                    <p className="text-sm leading-relaxed mb-6 flex grow pt-4">
+                      {item.text}
+                    </p>
+                    <div className="flex items-center gap-3 mt-auto pt-3 border-t">
+                      {/* <img
+                        src={item.img || "/placeholder.svg"}
+                        alt={item.name}
+                        className="w-10 h-10 rounded-full object-cover"
+                      /> */}
+                      <div className="w-10 h-10 rounded-full bg-[#FDDF82]  flex items-center justify-center font-semibold text-lg">
+                        {item.name?.charAt(0).toUpperCase()}
+                      </div>
+                      <div className="text-sm">
+                        <p className="font-semibold">{item.name}</p>
+                        <p className="text-gray-500">{item.city}</p>
+                      </div>
+                    </div>
+                  </div>
+                </SwiperSlide>
+              ))}
+            </Swiper>
+
+            {/* Right Nav */}
+            <button className="swiper-button-next-custom hidden md:flex items-center justify-center w-10 h-10 bg-white border-2 border-orange-500 rounded-full shadow hover:bg-orange-500 hover:text-white absolute right-[-50px] top-1/2 transform -translate-y-1/2 z-10">
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5"
                 fill="none"
                 stroke="currentColor"
                 viewBox="0 0 24 24"
@@ -360,29 +330,31 @@ const HomePage = () => {
               </svg>
             </button>
           </div>
-        </div>
 
-        {/* Custom Bullet Styling */}
-        <style>{`
-    .testimonials-swiper .swiper-pagination {
-      margin-top: 24px;
-      display: flex;
-      justify-content: center;
-    }
-    .testimonials-swiper .swiper-pagination-bullet {
-      background-color: #fb923c;
-      opacity: 0.5;
-      width: 6px;
-      height: 6px;
-      margin: 0 4px;
-      transition: all 0.3s ease;
-    }
-    .testimonials-swiper .swiper-pagination-bullet-active {
-      opacity: 1;
-      background-color: #ea580c;
-      transform: scale(1.2);
-    }
-  `}</style>
+          {/* Swiper Pagination style */}
+          <style>{`
+          .testimonials-swiper .swiper-pagination {
+            bottom: -10px !important;
+            position: relative;
+            margin-top: 30px;
+            display: flex;
+            justify-content: center;
+          }
+          .testimonials-swiper .swiper-pagination-bullet {
+            background-color: #fbbf24;
+            opacity: 0.4;
+            width: 6px;
+            height: 6px;
+            margin: 0 4px;
+            transition: all 0.3s ease;
+          }
+          .testimonials-swiper .swiper-pagination-bullet-active {
+            opacity: 1;
+            background-color: #f97316;
+            transform: scale(1.3);
+          }
+        `}</style>
+        </div>
       </section>
 
       {/* Contact Form */}
