@@ -6,11 +6,11 @@ import { Pagination, Autoplay, Navigation } from "swiper/modules";
 import { FaPaw } from "react-icons/fa";
 import { motion } from "framer-motion";
 
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-
+import banner2 from "../assets/banner2.png"
+import hero2 from "../assets/caninkarthero.png";
 import hero from "../assets/5dog.png";
 import pupy from "../assets/pupy.png";
 // import img1 from "../assets/categoriy.png";
@@ -101,8 +101,8 @@ const HomePage = () => {
   return (
     <div className="font-sans text-gray-800 max-w-screen-2xl mx-auto">
       {/* Hero Section */}
-      <section className="bg-orange-100 md:relative overflow-hidden px-4 py-20 text-center flex flex-col items-center mt-16">
-        <div className="relative z-10 max-w-4xl mx-auto">
+      {/* <section className="bg-orange-100 md:relative overflow-hidden px-4 py-20 text-center flex flex-col items-center mt-16">
+        {/* <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-xl  md:text-2xl lg:text-5xl font-extrabold mb-4 fredoka-heading">
             WELCOME TO CANINKART
           </h1>
@@ -123,6 +123,16 @@ const HomePage = () => {
             alt="Hero Dogs"
             className="w-full h-auto object-contain"
           />
+        </div> */}
+      {/* <img src={hero2} alt="" /> */}
+      {/* </section> */}
+      <section className="bg-orange-100 md:relative overflow-hidden px-4 py-4 text-center flex flex-col items-center mt-16">
+        <div className="w-full ">
+          <img
+            src={hero2}
+            alt="Hero Image"
+            className="w-full h-auto object-contain mx-auto"
+          />
         </div>
       </section>
 
@@ -133,26 +143,24 @@ const HomePage = () => {
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-50 mx-auto md:gap-5">
           {categories.map((category, index) => (
-  <div key={index} className="flex flex-col items-center my-3">
-    <motion.div
-  className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40"
-  initial={{ opacity: 0, y: 50 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
-  viewport={{ once: false }}
->
-  <img
-    src={category.image}
-    alt={category.category}
-    className="h-30 mx-auto object-contain"
-  />
-</motion.div>
+            <div key={index} className="flex flex-col items-center my-3">
+              <motion.div
+                className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40"
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: false }}
+              >
+                <img
+                  src={category.image}
+                  alt={category.category}
+                  className="h-30 mx-auto object-contain"
+                />
+              </motion.div>
 
-
-    <p className="my-2 text-xs font-medium">{category.category}</p>
-  </div>
-))}
-
+              <p className="my-2 text-xs font-medium">{category.category}</p>
+            </div>
+          ))}
         </div>
       </section>
 
@@ -164,19 +172,18 @@ const HomePage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto ">
           {Productss.slice(12, 20).map((product, idx) => {
             return (
-             <motion.div
-  onClick={() =>
-    navigate(`/product/${product.id}`, { state: { product } })
-  }
-  key={product.id}
-  className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-  initial={{ rotateY: 90, opacity: 0 }}
-  whileInView={{ rotateY: 0, opacity: 1 }}
-  transition={{ duration: 0.6, ease: "easeOut" }}
-  viewport={{ once: false }}
-  style={{ transformStyle: "preserve-3d" }}
->
-
+              <motion.div
+                onClick={() =>
+                  navigate(`/product/${product.id}`, { state: { product } })
+                }
+                key={product.id}
+                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
+                initial={{ rotateY: 90, opacity: 0 }}
+                whileInView={{ rotateY: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: false }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
                 <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
@@ -192,9 +199,10 @@ const HomePage = () => {
       {/* Promo Banner */}
       <div className="w-full max-w-[1400px] mx-auto ">
         <img
-          src={img96 || "/placeholder.svg"}
+          // src={img96 || "/placeholder.svg"}
+          src={banner2}
           alt="Product"
-          className="w-full h-auto object-contain hidden md:flex "
+          className="w-full max-w-7xl mx-auto h-auto object-contain hidden md:flex p-4 "
         />
 
         <img
@@ -213,27 +221,26 @@ const HomePage = () => {
           {Productss.slice(0, 12).map((product, idx) => {
             return (
               <motion.div
-  onClick={() =>
-    navigate(`/product/${product.id}`, { state: { product } })
-  }
-  key={product.id}
-  className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
-  initial={{ rotateY: 90, opacity: 0 }}
-  whileInView={{ rotateY: 0, opacity: 1 }}
-  whileHover={{ scale: 1.05 }}
-  whileTap={{ scale: 0.97 }}
-  transition={{ duration: 0.5, ease: "easeOut" }}
-  viewport={{ once: false }}
-  style={{ transformStyle: "preserve-3d" }}
->
-  <img
-    src={product.image || "/placeholder.svg"}
-    alt={product.name}
-    className="mx-auto h-20 sm:h-28 md:h-32 object-contain transition-transform duration-300"
-  />
-  <p className="mt-2 text-lg font-medium">{product.name}</p>
-</motion.div>
-
+                onClick={() =>
+                  navigate(`/product/${product.id}`, { state: { product } })
+                }
+                key={product.id}
+                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
+                initial={{ rotateY: 90, opacity: 0 }}
+                whileInView={{ rotateY: 0, opacity: 1 }}
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.97 }}
+                transition={{ duration: 0.5, ease: "easeOut" }}
+                viewport={{ once: false }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <img
+                  src={product.image || "/placeholder.svg"}
+                  alt={product.name}
+                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain transition-transform duration-300"
+                />
+                <p className="mt-2 text-lg font-medium">{product.name}</p>
+              </motion.div>
             );
           })}
         </div>
@@ -266,7 +273,7 @@ const HomePage = () => {
       {/* Testimonials with Swiper */}
       <section className="bg-[#fff9ed] py-14 text-center overflow-hidden">
         <h2 className="text-lg gap-2 font-semibold text-orange-500 mb-3 flex justify-center items-center ">
-          <FaPaw/> TESTIMONIALS
+          <FaPaw /> TESTIMONIALS
         </h2>
         <h3 className="font-black text-xl mb-10">
           Trusted by Pet Lovers Everywhere
@@ -292,27 +299,26 @@ const HomePage = () => {
             </button>
 
             <Swiper
-  modules={[Autoplay, Navigation]}
-  loop={true}
-  speed={3000} // 3 seconds for smooth slide transition
-  autoplay={{
-    delay: 0, // no delay between slides
-    disableOnInteraction: false, // keep autoplay even if user interacts
-  }}
-  navigation={{
-    prevEl: ".swiper-button-prev-custom",
-    nextEl: ".swiper-button-next-custom",
-  }}
-  spaceBetween={20}
-  breakpoints={{
-    320: { slidesPerView: 1 },
-    768: { slidesPerView: 2 },
-    1024: { slidesPerView: 3 },
-    1280: { slidesPerView: 4 },
-  }}
-  className="testimonials-swiper"
->
-
+              modules={[Autoplay, Navigation]}
+              loop={true}
+              speed={3000} // 3 seconds for smooth slide transition
+              autoplay={{
+                delay: 0, // no delay between slides
+                disableOnInteraction: false, // keep autoplay even if user interacts
+              }}
+              navigation={{
+                prevEl: ".swiper-button-prev-custom",
+                nextEl: ".swiper-button-next-custom",
+              }}
+              spaceBetween={20}
+              breakpoints={{
+                320: { slidesPerView: 1 },
+                768: { slidesPerView: 2 },
+                1024: { slidesPerView: 3 },
+                1280: { slidesPerView: 4 },
+              }}
+              className="testimonials-swiper"
+            >
               {testimonials.map((item, idx) => (
                 <SwiperSlide key={idx} className="h-full flex">
                   <div className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col h-[300px] w-full relative my-4 mx-4">

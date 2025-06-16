@@ -8,6 +8,9 @@ const port = 5000;
 const countryRouter = require('./Routes/CountryRouter');
 const StateRouter = require('./Routes/State.routes');
 const DistrictRouter = require('./Routes/DistrictRoutes')
+const adminRoutes = require("./Routes/Admin")
+const blogRoutes = require('./Routes/blogRoutes')
+const contactRoutes = require('./Routes/contactRoutes')
 
 require('./Models/db');
 
@@ -20,6 +23,12 @@ app.use(express.json());
 app.use('/countries', countryRouter);
 app.use('/state', StateRouter);
 app.use('/district', DistrictRouter)
+
+app.use("/api/admin", adminRoutes);
+app.use('/api/blogs' , blogRoutes)
+app.use('/api/cnt', contactRoutes);
+
+app.use('/uploads', express.static('uploads'));
 
 app.get('/',(req, res)=>{
   res.send("hello ji");

@@ -6,7 +6,7 @@ import placeholderImg from "../assets/ctf.png"; // Replace or use a placeholder 
 const DasNavbar = () => {
   const navItems = [
     { name: "Overview", path: "/dashboard" },
-    { name: "Blog", path: "/blog" },
+    { name: "Blog", path: "/dashboard/blog" },
     { name: "Country", path: "/dashboard/countrypage" },
     { name: "Contact", path: "/contact" },
   ];
