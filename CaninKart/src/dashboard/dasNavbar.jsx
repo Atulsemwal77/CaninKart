@@ -8,7 +8,7 @@ const DasNavbar = () => {
     { name: "Overview", path: "/dashboard" },
     { name: "Blog", path: "/dashboard/blog" },
     { name: "Country", path: "/dashboard/countrypage" },
-    { name: "Contact", path: "/contact" },
+    { name: "Contact", path: "/dashboard/contact" },
   ];
   return (
     <header className="max-w-screen-2xl bg-white shadow-md mx-auto sticky top-0">

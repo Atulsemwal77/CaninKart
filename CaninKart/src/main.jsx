@@ -22,6 +22,7 @@ import DashboardLayout from './dashboard/OutletLayout.jsx';
 import AdminLogin from './dashboard/AdminLogin.jsx';
 import AdminBlog from './dashboard/AdminBlog.jsx';
 import BlogDetailsAdmin from './dashboard/dashBlogdetail.jsx';
+import AdminContact from './dashboard/AdminContact.jsx';
 
 
 const router = createBrowserRouter([
@@ -54,8 +55,8 @@ const router = createBrowserRouter([
       { path : 'blog', element : <AdminBlog/>},
       { path : 'blogdetail/:id', element : <BlogDetailsAdmin/>},
       { path: "state/:countryName/:countryId", element: <StatePage/> },
-      { path : "district/:countryId/:stateName/:stateId" ,element:<DistrictPage/>}
-
+      { path : "district/:countryId/:stateName/:stateId" ,element:<DistrictPage/>},
+      { path : "contact", element:<AdminContact/>}
     
     ]
   }

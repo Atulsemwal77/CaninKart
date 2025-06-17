@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import ContactForm from "../components/contactForm";
@@ -22,6 +22,11 @@ const BlogDetailsAdmin = () => {
       </div>
     );
   }
+  useEffect(() => {
+  window.scrollTo(0, 0);
+}, []);
+
+  
 
   return (
     <>
