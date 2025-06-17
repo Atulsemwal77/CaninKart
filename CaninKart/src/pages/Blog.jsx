@@ -15,8 +15,8 @@ const Blog = () => {
         console.error("Error fetching blogs:", error);
       }
     };
-
     fetchBlogs();
+    window.scrollTo(0, 0);
   }, []);
 
   return (
@@ -29,36 +29,37 @@ const Blog = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {blogs.map((blog) => (
-              <div
-                key={blog._id}
-                className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border border-gray-200"
-              >
-                {blog.image && (
-                  <img
-                    src={`http://localhost:5000/${blog.image}`}
-                    alt={blog.title}
-                    className="w-full h-64 object-contain p-4"
-                  />
-                )}
-                <div className="px-6 pb-6">
-                  <span className="inline-block border border-black px-3 py-1 rounded-full text-sm font-medium mb-4">
+              <Link to={`/blog/${blog._id}`} state={blog}>
+                <div
+                  key={blog._id}
+                  className="bg-[#f5f4ef] rounded-xl px-2 py-2 shadow-lg overflow-hidden border border-gray-200"
+                >
+                  <span className="inline-block border border-black px-4 py-1 rounded-full text-sm font-medium mb-4">
                     {blog.tags[0] || "Blog"}
                   </span>
-                  <p className="text-sm text-gray-600 mb-1">
-                    {new Date(blog.date).toLocaleDateString()} • By {blog.author}
-                  </p>
-                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{blog.title}</h3>
-                  <div
+                  {blog.image && (
+                    <img
+                      src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
+                      alt={blog.title}
+                      className="w-full h-64 object-contain"
+                    />
+                  )}
+                  <div className="px-6 pb-6">
+
+                    <p className="text-sm text-gray-600 mb-1">
+                      {new Date(blog.date).toLocaleDateString()} • By {blog.author}
+                    </p>
+                    <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                      {blog.title.length > 10 ? blog.title.substring(0, 10) + "..." : blog.title}
+                    </h3>
+
+                    {/* <div
                     className="text-gray-700 text-sm prose max-w-none"
                     dangerouslySetInnerHTML={{ __html: blog.content.slice(0, 100) + "..." }}
-                  />
-                  <Link to={`/blog/${blog._id}`} state={blog}>
-                    <button className="mt-4 inline-block text-blue-600 font-medium hover:underline">
-                      Read More
-                    </button>
-                  </Link>
+                  /> */}
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}

@@ -371,7 +371,7 @@ const LocationHierarchy = () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(
-          "http://localhost:5000/countries/hierarchy"
+          `${import.meta.env.VITE_BACKEND}/countries/hierarchy`
         );
         const countriesWithFlags = await Promise.all(
           res.data.map(async (country) => {
@@ -509,8 +509,10 @@ const LocationHierarchy = () => {
                   </li>
                 ))}
               </ul>
+              
             )}
           </div>
+          
         )}
       </div>
     ))}
@@ -518,6 +520,9 @@ const LocationHierarchy = () => {
 )}
         </div>
       </div>
+      <p>
+        
+      </p>
     </>
   );
 };
