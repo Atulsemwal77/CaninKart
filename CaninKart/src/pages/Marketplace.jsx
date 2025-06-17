@@ -363,6 +363,7 @@
 
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import img12 from "../assets/Indiabanner.png";
 
 const LocationHierarchy = () => {
   const [locations, setLocations] = useState([]);
@@ -395,6 +396,7 @@ const LocationHierarchy = () => {
       }
     };
     fetchData();
+    window.scrollTo(0, 0);
   }, []);
 
   const toggleCountry = (countryId) => {
@@ -419,98 +421,106 @@ const LocationHierarchy = () => {
     );
   }
 
+
   return (
+    <>
+    {/* Header */}
+       <div className="w-full mx-auto">
+         <img
+           src={img12}
+           alt="India banner"
+           className="w-full  h-auto mx-auto"
+         />
+       </div>
     <div className="min-h-screen bg-gray-100 py-8">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <h2 className="text-3xl font-bold text-center text-orange-600 mb-8 animate-fade-in">
           Location Hierarchy Explorer
         </h2>
 
-        {locations.length === 0 ? (
-          <div className="bg-white rounded-lg shadow-md p-6 text-center">
-            <p className="text-gray-600 text-lg">No location data available.</p>
-          </div>
-        ) : (
-          <div className="space-y-4">
-            {locations.map((country) => (
-              <div
-                key={country._id}
-                className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-lg"
-              >
-                <button
-                  onClick={() => toggleCountry(country._id)}
-                  className="w-full flex items-center justify-between p-4 bg-gradient-to-r from-blue-50 to-white hover:bg-blue-100 transition-colors"
-                  aria-expanded={expandedCountries[country._id]}
-                >
-                  <div className="flex items-center gap-3">
-                    {country.flag && (
-                      <img
-                        src={country.flag}
-                        alt={`Flag of ${country.name}`}
-                        className="w-8 h-6 object-cover rounded-sm border border-gray-200"
-                        loading="lazy"
-                      />
-                    )}
-                    <h3 className="text-xl font-semibold text-blue-700">
-                      {country.name}
-                    </h3>
-                  </div>
-                  <span className="text-gray-500">
-                    {expandedCountries[country._id] ? "−" : "+"}
-                  </span>
-                </button>
+     {locations.length === 0 ? (
+  <div className="bg-white rounded-lg shadow-md p-6 text-center">
+    <p className="text-gray-600 text-lg">No location data available.</p>
+  </div>
+) : (
+  <div className="flex flex-wrap gap-6 justify-center">
+    {locations.map((country) => (
+      <div
+        key={country._id}
+        className="bg-white rounded-lg shadow-md p-4 w-48 transition-all duration-300 hover:shadow-lg text-center"
+      >
+        <button
+          onClick={() => toggleCountry(country._id)}
+          className="flex flex-col items-center space-y-2 focus:outline-none"
+          aria-expanded={expandedCountries[country._id]}
+        >
+          {country.flag && (
+            <img
+              src={country.flag}
+              alt={`Flag of ${country.name}`}
+              className="w-16 h-16 rounded-full object-cover border border-gray-300"
+              loading="lazy"
+            />
+          )}
+          <h3 className="text-md font-semibold text-blue-700">
+            {country.name}
+          </h3>
+        </button>
 
-                {expandedCountries[country._id] && (
-                  <div className="p-4 animate-slide-down">
-                    {country.states.length === 0 ? (
-                      <p className="text-gray-500 italic">No states found.</p>
-                    ) : (
-                      <ul className="space-y-3">
-                        {country.states.map((state) => (
-                          <li key={state._id}>
-                            <button
-                              onClick={() => toggleState(state._id)}
-                              className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-50 transition-colors"
-                              aria-expanded={expandedStates[state._id]}
-                            >
-                              <span className="font-medium text-green-700 flex items-center gap-2">
-                                🛣️ {state.name}
-                              </span>
-                              <span className="text-gray-500">
-                                {expandedStates[state._id] ? "−" : "+"}
-                              </span>
-                            </button>
+        {expandedCountries[country._id] && (
+          <div className="mt-4 animate-slide-down text-left">
+            {country.states.length === 0 ? (
+              <p className="text-gray-500 italic">No states found.</p>
+            ) : (
+              <ul className="space-y-3">
+                {country.states.map((state) => (
+                  <li key={state._id}>
+                    <button
+                      onClick={() => toggleState(state._id)}
+                      className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-50 transition-colors"
+                      aria-expanded={expandedStates[state._id]}
+                    >
+                      <span className="font-medium text-green-700 flex items-center gap-2">
+                        🛣️ {state.name}
+                      </span>
+                      <span className="text-gray-500">
+                        {expandedStates[state._id] ? "−" : "+"}
+                      </span>
+                    </button>
 
-                            {expandedStates[state._id] && (
-                              <ul className="ml-6 mt-2 space-y-1 animate-slide-down">
-                                {state.districts.length === 0 ? (
-                                  <li className="text-gray-500 italic">
-                                    No districts found.
-                                  </li>
-                                ) : (
-                                  state.districts.map((district) => (
-                                    <li
-                                      key={district._id}
-                                      className="text-gray-700 flex items-center gap-2"
-                                    >
-                                      🏘️ {district.name}
-                                    </li>
-                                  ))
-                                )}
-                              </ul>
-                            )}
+                    {expandedStates[state._id] && (
+                      <ul className="ml-6 mt-2 space-y-1 animate-slide-down">
+                        {state.districts.length === 0 ? (
+                          <li className="text-gray-500 italic">
+                            No districts found.
                           </li>
-                        ))}
+                        ) : (
+                          state.districts.map((district) => (
+                            <li
+                              key={district._id}
+                              className="text-gray-700 flex items-center gap-2"
+                            >
+                              🏘️ {district.name}
+                            </li>
+                          ))
+                        )}
                       </ul>
                     )}
-                  </div>
-                )}
-              </div>
-            ))}
+                  </li>
+                ))}
+              </ul>
+            )}
           </div>
         )}
       </div>
+    ))}
+  </div>
+)}
+
+
+      </div>
     </div>
+    </>
   );
 };
 
