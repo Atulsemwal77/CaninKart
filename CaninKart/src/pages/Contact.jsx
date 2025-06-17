@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import { Mail, Phone, MapPin, Facebook, Youtube, Instagram, Twitter } from 'lucide-react';
 import { FaPaw } from 'react-icons/fa';
 
@@ -15,40 +16,36 @@ const ContactUs = () => {
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
-    // Clear status when user starts typing again
     if (status) setStatus('');
   };
 
   const validateForm = () => {
     const { name, contact, email, message } = formData;
-    
     if (!name.trim() || !contact.trim() || !email.trim() || !message.trim()) {
       setStatus('Please fill in all fields.');
       return false;
     }
-    
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
       setStatus('Please enter a valid email address.');
       return false;
     }
-    
+
     return true;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
     if (!validateForm()) return;
-    
+
     setStatus('Sending...');
     setIsSubmitting(true);
 
     try {
-      // Simulated API call - in real app, replace with actual endpoint
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      setStatus('Message sent successfully! We\'ll get back to you soon.');
+      await axios.post("http://localhost:5000/api/cnt/contact", formData);
+
+      setStatus("Message sent successfully! We'll get back to you soon.");
       setFormData({ name: '', contact: '', email: '', message: '' });
     } catch (error) {
       setStatus('Something went wrong. Please try again later.');
@@ -66,9 +63,8 @@ const ContactUs = () => {
     <div className="bg-white py-10 px-4 md:px-6 max-w-screen-2xl mx-auto mt-16">
       {/* Header */}
       <div className="text-center mb-10">
-        <p className="text-orange-500 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw/> CONTACT</p>
+        <p className="text-orange-500 flex justify-center items-center gap-2 text-lg font-semibold"><FaPaw /> CONTACT</p>
         <h2 className="text-3xl font-bold text-gray-800 mt-2">Contact Us</h2>
-        {/* <p className="text-gray-600 mt-2">We'd love to hear from you. Send us a message!</p> */}
       </div>
 
       {/* Form and Contact Info */}
@@ -77,12 +73,10 @@ const ContactUs = () => {
         <div className="bg-gray-200 p-6 rounded-lg shadow-md">
           <h3 className="font-semibold text-xl mb-6 text-gray-800">Do You Have Any Questions?</h3>
 
-          <div className="space-y-6">
+          <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Name *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
                 <input
                   type="text"
                   name="name"
@@ -93,9 +87,7 @@ const ContactUs = () => {
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">
-                  Contact *
-                </label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Contact *</label>
                 <input
                   type="tel"
                   name="contact"
@@ -108,9 +100,7 @@ const ContactUs = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Email *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
               <input
                 type="email"
                 name="email"
@@ -122,9 +112,7 @@ const ContactUs = () => {
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-gray-700 mb-1">
-                Message *
-              </label>
+              <label className="block text-sm font-medium text-gray-700 mb-1">Message *</label>
               <textarea
                 name="message"
                 value={formData.message}
@@ -137,7 +125,7 @@ const ContactUs = () => {
 
             <div className="text-center">
               <button
-                onClick={handleSubmit}
+                type="submit"
                 disabled={isSubmitting}
                 className="bg-orange-600 text-white px-8 py-3 rounded-md hover:bg-orange-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
               >
@@ -156,7 +144,7 @@ const ContactUs = () => {
                 {status}
               </div>
             )}
-          </div>
+          </form>
         </div>
 
         {/* Get in Touch Info */}
@@ -170,10 +158,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="font-semibold text-gray-800 mb-1">Email:</p>
-              <a 
-                href="mailto:support@caninkart.com" 
-                className="text-gray-600 hover:text-orange-600 transition-colors break-all"
-              >
+              <a href="mailto:support@caninkart.com" className="text-gray-600 hover:text-orange-600 transition-colors break-all">
                 support@caninkart.com
               </a>
             </div>
@@ -186,10 +171,7 @@ const ContactUs = () => {
             </div>
             <div>
               <p className="font-semibold text-gray-800 mb-1">Phone:</p>
-              <a 
-                href="tel:+919520957250" 
-                className="text-gray-600 hover:text-orange-600 transition-colors"
-              >
+              <a href="tel:+919520957250" className="text-gray-600 hover:text-orange-600 transition-colors">
                 +91 95209 57250
               </a>
             </div>
@@ -213,34 +195,10 @@ const ContactUs = () => {
           <div>
             <p className="font-semibold text-gray-800 mb-3">Follow Us:</p>
             <div className="flex gap-3">
-              <a
-                href="#"
-                className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors"
-                aria-label="Follow us on Facebook"
-              >
-                <Facebook size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors"
-                aria-label="Follow us on Instagram"
-              >
-                <Instagram size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors"
-                aria-label="Follow us on YouTube"
-              >
-                <Youtube size={18} />
-              </a>
-              <a
-                href="#"
-                className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors"
-                aria-label="Follow us on X (Twitter)"
-              >
-                <Twitter size={18} />
-              </a>
+              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
+              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
+              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="YouTube"><Youtube size={18} /></a>
+              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Twitter"><Twitter size={18} /></a>
             </div>
           </div>
         </div>

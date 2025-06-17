@@ -92,8 +92,6 @@
 
 // export default Marketplace;
 
-
-
 // import React, { useEffect, useState } from "react";
 // import axios from "axios";
 
@@ -163,8 +161,6 @@
 // };
 
 // export default LocationHierarchy;
-
-
 
 // For Flage
 
@@ -374,7 +370,9 @@ const LocationHierarchy = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/countries/hierarchy");
+        const res = await axios.get(
+          "http://localhost:5000/countries/hierarchy"
+        );
         const countriesWithFlags = await Promise.all(
           res.data.map(async (country) => {
             try {
@@ -421,54 +419,56 @@ const LocationHierarchy = () => {
     );
   }
 
-
   return (
     <>
-    {/* Header */}
-       <div className="w-full mx-auto">
-         <img
-           src={img12}
-           alt="India banner"
-           className="w-full  h-auto mx-auto"
-         />
-       </div>
-    <div className="min-h-screen bg-gray-100 py-8">
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-3xl font-bold text-center text-orange-600 mb-8 animate-fade-in">
-          Location Hierarchy Explorer
-        </h2>
+      {/* Header */}
+      <div className="w-full mx-auto">
+        <img
+          src={img12}
+          alt="India banner"
+          className="w-full  h-auto mx-auto"
+        />
+      </div>
+      <div className="min-h-screen bg-gray-100 py-8">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <h2 className="text-3xl font-bold text-center text-orange-600 mb-8 animate-fade-in">
+            Location Hierarchy Explorer
+          </h2>
 
-     {locations.length === 0 ? (
+          {locations.length === 0 ? (
   <div className="bg-white rounded-lg shadow-md p-6 text-center">
     <p className="text-gray-600 text-lg">No location data available.</p>
   </div>
 ) : (
-  <div className="flex flex-wrap gap-6 justify-center">
+  <div className="space-y-4 grid grid-cols-4 space-x-4">
     {locations.map((country) => (
       <div
         key={country._id}
-        className="bg-white rounded-lg shadow-md p-4 w-48 transition-all duration-300 hover:shadow-lg text-center"
+        className=" overflow-hidden transition-all duration-300 "
       >
         <button
           onClick={() => toggleCountry(country._id)}
-          className="flex flex-col items-center space-y-2 focus:outline-none"
+          className="w-full p-4 bg-gradient-to-r  transition-colors flex flex-col items-center"
           aria-expanded={expandedCountries[country._id]}
         >
           {country.flag && (
             <img
               src={country.flag}
               alt={`Flag of ${country.name}`}
-              className="w-16 h-16 rounded-full object-cover border border-gray-300"
+              className="w-24 h-24 object-contain rounded-full border border-gray-200"
               loading="lazy"
             />
           )}
-          <h3 className="text-md font-semibold text-blue-700">
+          <h3 className="text-xl font-semibold text-blue-700 mt-2">
             {country.name}
           </h3>
+          <span className="text-gray-500 mt-1">
+            {expandedCountries[country._id] ? "−" : "+"}
+          </span>
         </button>
 
         {expandedCountries[country._id] && (
-          <div className="mt-4 animate-slide-down text-left">
+          <div className="p-4 animate-slide-down">
             {country.states.length === 0 ? (
               <p className="text-gray-500 italic">No states found.</p>
             ) : (
@@ -516,10 +516,8 @@ const LocationHierarchy = () => {
     ))}
   </div>
 )}
-
-
+        </div>
       </div>
-    </div>
     </>
   );
 };

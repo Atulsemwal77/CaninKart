@@ -61,7 +61,7 @@ const StatePage = () => {
       </div>
 
       {modalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex justify-center items-center">
+        <div className="fixed inset-0 bg-gray-200 bg-opacity-40 flex justify-center items-center">
           <div className="bg-white rounded-xl p-8 w-96 space-y-4 shadow-lg">
             <input
               type="text"

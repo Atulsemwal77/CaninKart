@@ -11,7 +11,7 @@ const DasNavbar = () => {
     { name: "Contact", path: "/contact" },
   ];
   return (
-    <header className="max-w-screen-2xl bg-white shadow-md  mx-auto sticky top-0  ">
+    <header className="max-w-screen-2xl bg-white shadow-md mx-auto sticky top-0">
       <nav className="shadow-md px-6 py-4 flex justify-between items-center max-w-[1400px] mx-auto">
         {/* Logo */}
         <div>
@@ -19,15 +19,16 @@ const DasNavbar = () => {
         </div>
 
         {/* Navigation Links */}
-        <ul className="flex space-x-10 font-medium text-gray-600">
+        <ul className="flex space-x-10 font-medium text-gray-600 ">
           {navItems.map(({ name, path }, index) => (
             <li key={index}>
               <NavLink
                 to={path}
+                end={name === "Overview"} // Add end prop only for Overview
                 className={({ isActive }) =>
-                  `hover:text-blue-600 ${
-                    isActive ? "text-blue-600 font-semibold" : ""
-                  }`
+                  ` ${
+                    isActive ? "text-white border rounded-2xl border-black px-3 py-1 bg-black font-semibold transition duration-300" : " border border-black px-3 py-1 rounded-2xl "
+                  }` 
                 }
               >
                 {name}
