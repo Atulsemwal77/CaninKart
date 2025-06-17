@@ -96,7 +96,8 @@ const BlogModalPage = () => {
 
   return (
     <>
-      <div className="p-8">
+    <div className='bg-[#D7D9DD]'>
+      <div className="text-right p-3 ">
         <button
           onClick={() => setShowModal(true)}
           className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
@@ -237,7 +238,7 @@ const BlogModalPage = () => {
         )}
       </div>
 
-      <div className="max-w-6xl mx-auto px-4 py-8">
+      <div className="max-w-7xl mx-auto px-4  ">
         <h2 className="text-3xl font-bold text-center mb-8">Blog Posts</h2>
         {blogs.length === 0 ? (
           <p className="text-center text-gray-500">No blogs available</p>
@@ -277,6 +278,7 @@ const BlogModalPage = () => {
             ))}
           </div>
         )}
+      </div>
       </div>
     </>
   );

@@ -30,8 +30,8 @@ const CountryPage = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-200 p-8">
-      <div className="flex justify-between items-center mb-6">
+    <div className="min-h-screen bg-[#D7D9DD] p-8">
+      <div className="flex justify-between items-center max-w-7xl mx-auto mb-6">
         <h1 className="text-2xl font-semibold">Country</h1>
         <button
           onClick={() => setModalOpen(true)}
@@ -41,7 +41,7 @@ const CountryPage = () => {
         </button>
       </div>
 
-      <div className="flex flex-wrap gap-6">
+      <div className="flex flex-wrap gap-6  max-w-7xl mx-auto">
         {countries.length > 0 ? (
           countries.map((country) => (
             <CountryCard

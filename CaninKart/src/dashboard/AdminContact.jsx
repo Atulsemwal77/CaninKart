@@ -19,9 +19,9 @@ const AdminContact = () => {
   }, []);
 
   return (
-    <div>
+    <div className='bg-[#D7D9DD] min-h-screen'>
       {/* Contact Table */}
-      <div className="bg-white rounded-xl p-4 max-w-7xl mx-auto overflow-x-auto">
+      <div className=" rounded-xl p-4 max-w-7xl mx-auto overflow-x-auto">
         <div className="flex justify-between items-center mb-4">
           <h3 className="text-gray-600 font-semibold text-2xl">Contact</h3>
         </div>
