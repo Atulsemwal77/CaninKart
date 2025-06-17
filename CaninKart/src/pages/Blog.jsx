@@ -1,78 +1,70 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import axios from "axios";
 import { Link } from "react-router-dom";
-import blogImg from '../assets/dogb1.jpg';
 import ContactForm from "../components/contactForm";
-import caninkart1 from '../assets/caninkart1.jpg'
-import caninkart2 from '../assets/caninkart2.jpg'
-import caninkart3 from '../assets/caninkart3.jpg'
-import caninkart4 from '../assets/caninkart4.jpg'
-
-const blogs = [
-  { id: 1, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: caninkart1 },
-  { id: 2, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: caninkart2 },
-  { id: 3, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: caninkart3 },
-  { id: 4, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: caninkart4 },
-  { id: 5, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 6, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 7, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 8, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 9, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 10, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 11, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 12, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 13, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 14, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 15, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 16, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 17, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 18, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 19, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-  { id: 20, title: "Explore Caninkart’s Range of Pet Products", date: "May 14, 2025", author: "Tatjana", tag: "Collar", image: blogImg },
-];
-
 
 const Blog = () => {
+  const [blogs, setBlogs] = useState([]);
+
+  useEffect(() => {
+    const fetchBlogs = async () => {
+      try {
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`);
+        setBlogs(res.data);
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+
+    fetchBlogs();
+  }, []);
 
   return (
     <>
       <div className="bg-[#EDEBE0] py-8 px-10 mt-16 max-w-screen-2xl mx-auto">
         <h2 className="text-center text-xl font-bold mb-6">Our Blog</h2>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-          {blogs.map((blog) => (
-            <div>
-              <div key={blog.id} className="bg-white p-3 rounded shadow">
-                <span className="inline-block mt-1 text-xs bg-gray-200 px-2 py-1 rounded">{blog.tag}</span>
-
-                <Link to={`/blog/${blog.id}`} state={blog}>
+        {blogs.length === 0 ? (
+          <p className="text-center text-gray-500">No blogs available</p>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {blogs.map((blog) => (
+              <div
+                key={blog._id}
+                className="bg-[#f5f4ef] rounded-xl shadow-lg overflow-hidden border border-gray-200"
+              >
+                {blog.image && (
                   <img
-                    src={blog.image}
+                    src={`http://localhost:5000/${blog.image}`}
                     alt={blog.title}
-                    className="w-60 h-48 object-cover cursor-pointer mt-2 rounded"
+                    className="w-full h-64 object-contain p-4"
                   />
-                </Link>
-
-
+                )}
+                <div className="px-6 pb-6">
+                  <span className="inline-block border border-black px-3 py-1 rounded-full text-sm font-medium mb-4">
+                    {blog.tags[0] || "Blog"}
+                  </span>
+                  <p className="text-sm text-gray-600 mb-1">
+                    {new Date(blog.date).toLocaleDateString()} • By {blog.author}
+                  </p>
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">{blog.title}</h3>
+                  <div
+                    className="text-gray-700 text-sm prose max-w-none"
+                    dangerouslySetInnerHTML={{ __html: blog.content.slice(0, 100) + "..." }}
+                  />
+                  <Link to={`/blog/${blog._id}`} state={blog}>
+                    <button className="mt-4 inline-block text-blue-600 font-medium hover:underline">
+                      Read More
+                    </button>
+                  </Link>
+                </div>
               </div>
-              <div>
-                <p className="text-xs text-gray-500 mt-1">{blog.date} · By {blog.author}</p>
-
-                <Link
-                  to={`/blog/${blog.id}`}
-                  className="text-sm font-semibold mt-2 block hover:text-orange-500 cursor-pointer"
-                >
-                  {blog.title}
-                </Link>
-              </div>
-            </div>
-
-
-          ))}
-        </div>
-
-
+            ))}
+          </div>
+        )}
       </div>
-        <ContactForm />
+
+      <ContactForm />
     </>
   );
 };

@@ -17,7 +17,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchContactData = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/cnt/contact");
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`);
         setContactData(res.data);
       } catch (error) {
         console.error("Error fetching contact messages:", error);
@@ -32,7 +32,7 @@ const Dashboard = () => {
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
-        const res = await axios.get("http://localhost:5000/api/blogs"); // Replace with your endpoint
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND}/api/blogs`); // Replace with your endpoint
         setBlogs(res.data);
       } catch (error) {
         console.error("Error fetching blogs:", error);

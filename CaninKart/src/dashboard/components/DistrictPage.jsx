@@ -12,12 +12,12 @@ const DistrictPage = () => {
   const navigate = useNavigate();
 
   const fetchDistrict = async () => {
-    const res = await axios.get(`http://localhost:5000/district/${stateId}`);
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND}/district/${stateId}`);
     setDistrict(res.data);
   };
 
   const handleAddState = async () => {
-    await axios.post('http://localhost:5000/district/add', {
+    await axios.post(`${import.meta.env.VITE_BACKEND}/district/add`, {
       name: form.name,
       state: stateId
     });
