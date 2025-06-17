@@ -24,7 +24,7 @@ const Product = () => {
                 pathname: `/product/${product.id}`,
               }}
               state={{ product }}
-              className="bg-white rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block"
+              className="bg-[#f5f4ef] rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block"
             >
               <img
                 src={product.image}

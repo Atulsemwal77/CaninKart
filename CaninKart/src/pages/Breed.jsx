@@ -1,66 +1,76 @@
 import React, { useEffect } from "react";
 import lab1 from '../assets/dogb1.png'; // Ensure the image exists at this path
 import { FaPaw } from "react-icons/fa";
+import dog1 from "../assets/breedspics/Labrador.png"
+import dog2 from "../assets/breedspics/German shepherd.png"
+import dog3 from "../assets/breedspics/Golden retrievar.png"
+import dog4 from "../assets/breedspics/Beagle.png"
+import dog5 from "../assets/breedspics/Pug.png"
+import dog6 from "../assets/breedspics/Chihuahua.png"
+import dog7 from "../assets/breedspics/Cocker spaniel.png"
+import dog8 from "../assets/breedspics/Shihtzu.png"
+import dog9 from "../assets/breedspics/Daschund.png"
+import dog10 from "../assets/breedspics/Great Dane.png"
 
 const dogs = [
   {
     number: "01",
     breed: "Labrador",
-    image: lab1,
+    image: dog1,
     description: `Labradors are some of the most popular dogs around the world. Labradors are known for their loving and friendly personalities, intelligence, and loyalty. They are often used as service dogs, therapy dogs, and for companionship. Labradors are incredibly intelligent, making them great for training and teaching tricks. Labrador comes in three different colors – white, black, and chocolate – and have a unique double coat which sheds seasonally. Labrador is also one of the most popular breeds in India.`,
   },
   {
     number: "02",
     breed: "German Shepherd",
-    image: lab1,
+    image: dog2,
     description: `German Shepherds are known for their courage, confidence, and intelligence. Originally bred for herding, they are now widely used in police and military roles. They are very loyal and protective of their families, making them excellent guard dogs.`,
   },
   {
     number: "03",
     breed: "Golden Retriever",
-    image: lab1,
+    image: dog3,
     description: `Golden Retrievers are friendly, intelligent, and devoted dogs. They are extremely social and love to be around people. These dogs are also excellent swimmers and are often used in search and rescue operations.`,
   },
   {
     number: "04",
     breed: "Beagle",
-    image: lab1,
+    image: dog4,
     description: `Beagles are small hounds known for their keen sense of smell and tracking instincts. They are playful, curious, and great with children, making them ideal family pets. Beagles are vocal and love outdoor activities.`,
   },
   {
     number: "05",
     breed: "Pug",
-    image: lab1,
+    image: dog5,
     description: `Pugs are small dogs with a big personality. Known for their wrinkled face and curled tail, they are playful, affectionate, and charming. Pugs thrive on human companionship and adapt well to apartment living.`,
   },
   {
     number: "06",
-    breed: "Rottweiler",
-    image: lab1,
-    description: `Rottweilers are strong and protective dogs. They are confident, calm, and very loyal. With proper training and socialization, they can be excellent family pets as well as reliable working dogs.`,
+    breed: "Chihuahua",
+    image: dog6,
+    description: `The Chihuahua is the smallest dog breed in the world, but don't let its size fool you—this little pup has a huge personality! Known for their lively, alert, and fiercely loyal nature, Chihuahuas make excellent companions for individuals and families alike..`,
   },
   {
     number: "07",
-    breed: "Doberman",
-    image: lab1,
-    description: `Dobermans are known for their sleek coat, athletic build, and loyalty. They are very intelligent, making them easy to train. Dobermans are often used in security roles and are very protective of their owners.`,
+    breed: "Cocker spaniel",
+    image: dog7,
+    description: `The Cocker Spaniel is a beloved breed known for its silky coat, soulful eyes, and sweet temperament. Originally bred as a hunting dog, the Cocker Spaniel has become a cherished family companion thanks to its affectionate nature and friendly disposition.`,
   },
   {
     number: "08",
     breed: "Shih Tzu",
-    image: lab1,
+    image: dog8,
     description: `Shih Tzus are small, affectionate, and friendly lap dogs. Originally bred for royalty, they have a luxurious coat and a sweet personality. Shih Tzus are great for families and are especially good with kids.`,
   },
   {
     number: "09",
-    breed: "Boxer",
-    image: lab1,
-    description: `Boxers are energetic, playful, and loyal dogs. They are known for their boundless energy and strong protective instincts. Boxers are great with children and make excellent guard dogs when properly trained.`,
+    breed: "Daschund",
+    image: dog9,
+    description: `The Dachshund, often lovingly called the “sausage dog” or “wiener dog,” is famous for its long body, short legs, and bold personality. Originally bred in Germany to hunt badgers, this small hound has a big spirit and isn’t afraid to show it.`,
   },
   {
     number: "10",
-    breed: "Dalmatian",
-    image: lab1,
+    breed: "Great Dance",
+    image: dog10,
     description: `Dalmatians are easily recognizable by their spotted coat. They are energetic, outgoing, and great for active families. Historically used as carriage dogs, Dalmatians require regular exercise and love being around people.`,
   },
   {
