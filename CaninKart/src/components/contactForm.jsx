@@ -48,7 +48,7 @@ const ContactForm = () => {
     setErrorMsg("");
 
     try {
-      const res = await axios.post("http://localhost:5000/api/cnt/contact", formData);
+      const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`, formData);
       setSuccessMsg("Message sent successfully!");
       setFormData({ name: "", contact: "", email: "", message: "" });
     } catch (error) {

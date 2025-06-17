@@ -21,6 +21,8 @@ import DistrictPage from "./dashboard/components/DistrictPage.jsx"
 import DashboardLayout from './dashboard/OutletLayout.jsx';
 import AdminLogin from './dashboard/AdminLogin.jsx';
 import AdminBlog from './dashboard/AdminBlog.jsx';
+import BlogDetailsAdmin from './dashboard/dashBlogdetail.jsx';
+
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,7 @@ const router = createBrowserRouter([
       {path : 'das-login', element : <AdminLogin/>},
       { path : 'countrypage', element : <CountryPage/>},
       { path : 'blog', element : <AdminBlog/>},
+      { path : 'blogdetail/:id', element : <BlogDetailsAdmin/>},
       { path: "state/:countryName/:countryId", element: <StatePage/> },
       { path : "district/:countryId/:stateName/:stateId" ,element:<DistrictPage/>}
 

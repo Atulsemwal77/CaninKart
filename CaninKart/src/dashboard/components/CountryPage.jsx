@@ -9,7 +9,7 @@ const CountryPage = () => {
 
   const fetchCountries = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/countries/view');
+      const res = await axios.get(`${import.meta.env.VITE_BACKEND}/countries/view`);
       setCountries(res.data || []);
     } catch (error) {
       console.error("Error fetching countries:", error);
@@ -18,7 +18,7 @@ const CountryPage = () => {
 
   const handleAddCountry = async (data) => {
     try {
-      await axios.post('http://localhost:5000/countries/add', data);
+      await axios.post(`${import.meta.env.VITE_BACKEND}/countries/add`, data);
       fetchCountries();
     } catch (error) {
       console.error("Error adding country:", error);

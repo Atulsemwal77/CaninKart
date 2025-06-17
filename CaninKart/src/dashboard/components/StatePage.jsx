@@ -11,13 +11,13 @@ const StatePage = () => {
   const navigate = useNavigate();
 
   const fetchStates = async () => {
-    const res = await axios.get(`http://localhost:5000/state/${countryId}`);
+    const res = await axios.get(`${import.meta.env.VITE_BACKEND}/state/${countryId}`);
     setStates(res.data);
   };
   
 
   const handleAddState = async () => {
-    await axios.post('http://localhost:5000/state/add', {
+    await axios.post(`${import.meta.env.VITE_BACKEND}/state/add`, {
       name: form.name,
       country: countryId,
     });
