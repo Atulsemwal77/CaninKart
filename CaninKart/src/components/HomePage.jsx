@@ -11,6 +11,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 import banner2 from "../assets/banner2.png"
 import hero2 from "../assets/caninkarthero.png";
+import hero3 from '../assets/herobanner2.png'
 import hero from "../assets/5dog.png";
 import pupy from "../assets/pupy.png";
 // import img1 from "../assets/categoriy.png";
@@ -126,7 +127,7 @@ const HomePage = () => {
         </div> */}
       {/* <img src={hero2} alt="" /> */}
       {/* </section> */}
-      <section className="bg-orange-100 md:relative overflow-hidden px-4 py-4 text-center flex flex-col items-center mt-16">
+      {/* <section className="bg-orange-100 md:relative overflow-hidden px-4 py-4 text-center flex flex-col items-center mt-16">
         <div className="w-full ">
           <img
             src={hero2}
@@ -134,7 +135,21 @@ const HomePage = () => {
             className="w-full h-auto object-contain mx-auto"
           />
         </div>
-      </section>
+      </section> */}
+      <div className=" md:relative overflow-hidden  text-center flex flex-col items-center mt-14 ">
+        <img
+          // src={img96 || "/placeholder.svg"}
+          src={hero2}
+          alt="Product"
+          className="w-full  mx-auto h-auto object-contain hidden md:flex "
+        />
+
+        <img
+          src={hero3 || "/placeholder.svg"}
+          alt="Product"
+          className="w-full h-auto object-contain md:hidden py-4"
+        />
+      </div>
 
       {/* Categories */}
       <section className="py-10 text-center ">
@@ -202,11 +217,11 @@ const HomePage = () => {
           // src={img96 || "/placeholder.svg"}
           src={banner2}
           alt="Product"
-          className="w-full max-w-7xl mx-auto h-auto object-contain hidden md:flex p-4 "
+          className="w-full max-w-[1500px] mx-auto h-auto object-contain hidden md:flex p-4 "
         />
 
         <img
-          src={img99 || "/placeholder.svg"}
+          src={banner2 || "/placeholder.svg"}
           alt="Product"
           className="w-full h-auto object-contain md:hidden py-4"
         />

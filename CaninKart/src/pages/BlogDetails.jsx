@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 import ContactForm from "../components/contactForm";
@@ -24,6 +24,10 @@ const BlogDetails = () => {
     );
   }
 
+   useEffect(()=>{
+    window.scrollTo(0,0);
+   }, [])
+
   return (
     <>
       <div className="w-full mx-auto px-6 sm:px-10 py-8 bg-[#EDEBE0] mt-16 max-w-screen-2xl">
@@ -47,7 +51,7 @@ const BlogDetails = () => {
         {data.image && (
           <div className="max-w-4xl mx-auto mb-6">
             <img
-              src={`http://localhost:5000/${data.image}`}
+              src={`${import.meta.env.VITE_BACKEND}/${data.image}`}
               alt={data.title}
               className="w-full max-h-[500px] object-contain rounded-lg"
             />

@@ -104,7 +104,7 @@ const Productss = [
   },
   {
     id: 6,
-    image: Images6.dogColler,
+    image: Images6.dogCollerA,
     thumbnails: [
       Images6.dogCollerA,
       Images6.dogColler1,

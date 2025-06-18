@@ -97,17 +97,19 @@ const BlogModalPage = () => {
   return (
     <>
     <div className='bg-[#D7D9DD]'>
-      <div className="text-right p-3 ">
-        <button
+      <div className=" p-3 ">
+        <div className='text-right'>
+          <button
           onClick={() => setShowModal(true)}
-          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700"
+          className="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 "
         >
           Upload Blog
         </button>
+        </div>
 
         {showModal && (
           <div className="flex items-center justify-center">
-            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl relative border">
+            <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-2xl relative border z-5">
               <button
                 onClick={() => setShowModal(false)}
                 className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-2xl"
@@ -238,7 +240,7 @@ const BlogModalPage = () => {
         )}
       </div>
 
-      <div className="max-w-7xl mx-auto px-4  ">
+      <div className="max-w-7xl mx-auto px-4 z-10  ">
         <h2 className="text-3xl font-bold text-center mb-8">Blog Posts</h2>
         {blogs.length === 0 ? (
           <p className="text-center text-gray-500">No blogs available</p>
@@ -257,7 +259,7 @@ const BlogModalPage = () => {
                   <img
                     src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
                     alt={blog.title}
-                    className="w-full h-64 object-contain"
+                    className="w-full h-64 object-cover"
                   />
                 )}
                 <div className="px-6 pb-6">

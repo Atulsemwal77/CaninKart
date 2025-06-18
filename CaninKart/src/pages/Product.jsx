@@ -29,7 +29,7 @@ const Product = () => {
               <img
                 src={product.image}
                 alt="product"
-                className="mx-auto w-36 h-20 md:w-52 sm:h-32 object-contain"
+                className="mx-auto w-36 h-20 md:w-52 sm:h-32 object-cover"
               />
               <p className="mt-2 text-lg font-medium">{product.name}</p>
             </Link>

@@ -11,7 +11,7 @@ const DasNavbar = () => {
     { name: "Contact", path: "/dashboard/contact" },
   ];
   return (
-    <header className="max-w-screen-2xl bg-white shadow-md mx-auto sticky top-0">
+    <header className="max-w-screen-2xl bg-white shadow-md mx-auto sticky top-0 z-50">
       <nav className="shadow-md px-6 py-4 flex justify-between items-center max-w-[1400px] mx-auto">
         {/* Logo */}
         <div>

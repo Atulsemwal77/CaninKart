@@ -43,7 +43,7 @@ const ContactUs = () => {
     setIsSubmitting(true);
 
     try {
-      await axios.post("http://localhost:5000/api/cnt/contact", formData);
+      await axios.post(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`, formData);
 
       setStatus("Message sent successfully! We'll get back to you soon.");
       setFormData({ name: '', contact: '', email: '', message: '' });

@@ -160,7 +160,7 @@ const Dashboard = () => {
                   <div key={blog._id} className="flex gap-4 items-start">
                     <div className="w-24 h-24 flex-shrink-0 border">
                       <img
-                        src={`http://localhost:5000/${blog.image}`}
+                        src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
                         alt={blog.title}
                         className="w-full h-full object-cover rounded-lg"
                       />
