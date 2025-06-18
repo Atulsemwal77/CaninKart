@@ -360,6 +360,8 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import img12 from "../assets/Indiabanner.png";
+import { FaMapMarkerAlt } from "react-icons/fa";
+import { TfiArrowTopRight } from "react-icons/tfi";
 
 const LocationHierarchy = () => {
   const [locations, setLocations] = useState([]);
@@ -398,19 +400,25 @@ const LocationHierarchy = () => {
   }, []);
 
   const toggleCountry = (countryId) => {
-    setExpandedCountries((prev) => ({
-      ...prev,
-      [countryId]: !prev[countryId],
-    }));
-  };
+  setExpandedCountries((prev) => {
+    const newState = {};
+    newState[countryId] = !prev[countryId];
+    return newState;
+  });
+  // Close all states if country changed
+  setExpandedStates({});
+};
 
-  const toggleState = (stateId) => {
-    setExpandedStates((prev) => ({
-      ...prev,
-      [stateId]: !prev[stateId],
-    }));
-  };
+const toggleState = (stateId) => {
+  setExpandedStates((prev) => {
+    const newState = {};
+    newState[stateId] = !prev[stateId];
+    return newState;
+  });
+};
 
+
+  
   if (loading) {
     return (
       <div className="flex justify-center items-center h-screen">
@@ -429,99 +437,122 @@ const LocationHierarchy = () => {
           className="w-full  h-auto mx-auto"
         />
       </div>
-      <div className="min-h-screen bg-gray-100 py-8">
+      <div className="min-h-screen bg-[#FFFDF4] py-8">
         <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-center text-orange-600 mb-8 animate-fade-in">
             Location Hierarchy Explorer
           </h2>
 
           {locations.length === 0 ? (
-  <div className="bg-white rounded-lg shadow-md p-6 text-center">
-    <p className="text-gray-600 text-lg">No location data available.</p>
-  </div>
-) : (
-  <div className="space-y-4 grid grid-cols-4 space-x-4">
-    {locations.map((country) => (
-      <div
-        key={country._id}
-        className=" overflow-hidden transition-all duration-300 "
-      >
-        <button
-          onClick={() => toggleCountry(country._id)}
-          className="w-full p-4 bg-gradient-to-r  transition-colors flex flex-col items-center"
-          aria-expanded={expandedCountries[country._id]}
-        >
-          {country.flag && (
-            <img
-              src={country.flag}
-              alt={`Flag of ${country.name}`}
-              className="w-24 h-24 object-contain rounded-full border border-gray-200"
-              loading="lazy"
-            />
-          )}
-          <h3 className="text-xl font-semibold text-blue-700 mt-2">
-            {country.name}
-          </h3>
-          <span className="text-gray-500 mt-1">
-            {expandedCountries[country._id] ? "−" : "+"}
-          </span>
-        </button>
-
-        {expandedCountries[country._id] && (
-          <div className="p-4 animate-slide-down">
-            {country.states.length === 0 ? (
-              <p className="text-gray-500 italic">No states found.</p>
-            ) : (
-              <ul className="space-y-3">
-                {country.states.map((state) => (
-                  <li key={state._id}>
-                    <button
-                      onClick={() => toggleState(state._id)}
-                      className="w-full flex items-center justify-between py-2 px-3 rounded-md hover:bg-gray-50 transition-colors"
-                      aria-expanded={expandedStates[state._id]}
-                    >
-                      <span className="font-medium text-green-700 flex items-center gap-2">
-                        🛣️ {state.name}
-                      </span>
-                      <span className="text-gray-500">
-                        {expandedStates[state._id] ? "−" : "+"}
-                      </span>
-                    </button>
-
-                    {expandedStates[state._id] && (
-                      <ul className="ml-6 mt-2 space-y-1 animate-slide-down">
-                        {state.districts.length === 0 ? (
-                          <li className="text-gray-500 italic">
-                            No districts found.
-                          </li>
-                        ) : (
-                          state.districts.map((district) => (
-                            <li
-                              key={district._id}
-                              className="text-gray-700 flex items-center gap-2"
-                            >
-                              🏘️ {district.name}
-                            </li>
-                          ))
-                        )}
-                      </ul>
+            <div className="bg-white rounded-lg shadow-md p-6 text-center">
+              <p className="text-gray-600 text-lg">No location data available.</p>
+            </div>
+          ) : (
+            <div className="space-y-4 grid grid-cols-4 space-x-4">
+              {locations.map((country) => (
+                <div
+                  key={country._id}
+                  className=" transition-all duration-300 "
+                >
+                  <button
+                    onClick={() => toggleCountry(country._id)}
+                    className="w-full p-4 bg-gradient-to-r  transition-colors flex flex-col items-center"
+                    aria-expanded={expandedCountries[country._id]}
+                  >
+                    {country.flag && (
+                      <img
+                        src={country.flag}
+                        alt={`Flag of ${country.name}`}
+                        className="w-24 h-24 object-contain rounded-full border border-gray-200"
+                        loading="lazy"
+                      />
                     )}
+                    <h3 className="text-xl font-semibold text-blue-700 mt-2">
+                      {country.name}
+                    </h3>
+                    <span className="text-gray-500 mt-1">
+                      {expandedCountries[country._id] ? "−" : "+"}
+                    </span>
+                  </button>
+
+                  {expandedCountries[country._id] && (
+                    <div className="p-4 animate-slide-right flex flex-row">
+                      {country.states.length === 0 ? (
+                        <p className="text-gray-500 italic">No states found.</p>
+                      ) : (
+                        <ul className=" flex flex-row">
+                          {country.states.map((state) => (
+                            <li key={state._id}>
+                              <button
+                                onClick={() => toggleState(state._id)}
+                                className="w-full flex items-center  py-2 px-3 rounded-md  transition-colors"
+                                aria-expanded={expandedStates[state._id]}
+                              >
+                                <div className="bg-[#F0F2F3] w-full p-2 flex flex-col rounded-md justify-between">
+                                  <div className=" flex w-full flex-row justify-between ">
+                                    <div className="bg-[#FFFAEF] rounded w-9 h-9 px-2 py-1">
+                                      <FaMapMarkerAlt className="text-black text-2xl w-5 h-5" />
+                                    </div>
+                                    <TfiArrowTopRight className="text-[#B9E9F9] text-2xl w-12 h-12" />
+                                  </div>
+                                  {/* <span className="text-sm font-medium mt-5"></span> */}
+                                  <p className="font-semibold w-full  text-left">{state.name}</p>
+                                </div>
+
+                              {/* <span className="font-medium text-green-700 flex items-center gap-2">
+                                🛣️ {state.name}
+                              </span>
+                              <span className="text-gray-500">
+                                {expandedStates[state._id] ? "−" : "+"}
+                              </span> */}
+                            </button>
+
+                    {
+                              expandedStates[state._id] && (
+                                <ul className="ml-6 mt-2 space-y-1 animate-slide-down">
+                                  {state.districts.length === 0 ? (
+                                    <li className="text-gray-500 italic">
+                                      No districts found.
+                                    </li>
+                                  ) : (
+                                    state.districts.map((district) => (
+                                      <div className="bg-[#F0F2F3] w-full p-2 flex flex-col rounded-md justify-between">
+                                  <div className=" flex w-full flex-row justify-between ">
+                                    <div className="bg-[#FFFAEF] rounded w-9 h-9 px-2 py-1">
+                                      <FaMapMarkerAlt className="text-black text-2xl w-5 h-5" />
+                                    </div>
+                                    <TfiArrowTopRight className="text-[#B9E9F9] text-2xl w-12 h-12" />
+                                  </div>
+                                  {/* <span className="text-sm font-medium mt-5"></span> */}
+                                  <p className="font-semibold w-full  text-left">{district.name}</p>
+                                </div>
+                                      // <li
+                                      //   key={district._id}
+                                      //   className="text-gray-700 flex items-center gap-2"
+                                      // >
+                                      //   🏘️ {district.name}
+                                      // </li>
+                                    ))
+                                  )}
+                                </ul>
+                              )
+                            }
                   </li>
-                ))}
-              </ul>
-              
-            )}
-          </div>
-          
-        )}
-      </div>
-    ))}
-  </div>
-)}
+                      ))}
+                    </ul>
+
+                  )}
+                </div>
+
+              )}
+            </div>
+          ))}
         </div>
+)}
       </div>
+    </div >
       <p>
-        
+
       </p>
     </>
   );

@@ -51,7 +51,7 @@ const BlogDetailsAdmin = () => {
         {data.image && (
           <div className="max-w-4xl mx-auto mb-6">
             <img
-              src={`http://localhost:5000/${data.image}`}
+              src={`${import.meta.env.VITE_BACKEND}/${data.image}`}
               alt={data.title}
               className="w-full max-h-[500px] object-contain rounded-lg"
             />
