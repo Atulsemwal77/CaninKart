@@ -9,6 +9,7 @@ const Dashboard = () => {
   const [totalCountries, setTotalCountries] = useState(0);
   const [totalStates, setTotalStates] = useState(0);
   const [totalDistricts, setTotalDistricts] = useState(0);
+  const [selectedMessage, setSelectedMessage] = useState(null); // NEW
 
   // 🟡 Fetch countries + counts
   useEffect(() => {
@@ -137,12 +138,30 @@ const Dashboard = () => {
                     <td className="py-2 pr-4">{data.name}</td>
                     <td className="py-2 pr-4">{data.contact}</td>
                     <td className="py-2 pr-4">{data.email}</td>
-                    <td className="py-2 pr-4 max-w-[150px] truncate">{data.message}</td>
+                    <td
+                      className="py-2 pr-4 max-w-[150px] truncate text-blue-600 cursor-pointer"
+                      onClick={() => setSelectedMessage(data.message)}>{data.message}</td>
                   </tr>
                 ))}
               </tbody>
+
             </table>
           </div>
+          {/* Modal for Full Message */}
+      {selectedMessage && (
+        <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
+          <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
+            <button
+              onClick={() => setSelectedMessage(null)}
+              className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+            >
+              &times;
+            </button>
+            <h2 className="text-lg font-semibold mb-4 text-gray-800"> Message</h2>
+            <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
+          </div>
+        </div>
+      )}
 
           {/* Blog Section */}
           <div className="bg-white rounded-xl py-4 px-4 shadow-sm overflow-x-auto flex-[1]">

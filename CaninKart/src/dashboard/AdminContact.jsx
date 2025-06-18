@@ -66,7 +66,7 @@ const AdminContact = () => {
             >
               &times;
             </button>
-            <h2 className="text-lg font-semibold mb-4 text-gray-800">Full Message</h2>
+            <h2 className="text-lg font-semibold mb-4 text-gray-800"> Message</h2>
             <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
           </div>
         </div>
