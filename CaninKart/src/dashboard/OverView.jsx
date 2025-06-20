@@ -177,7 +177,7 @@ const Dashboard = () => {
               <div className="space-y-6">
                 {blogs.slice(0, 5).map((blog) => (
                   <div key={blog._id} className="flex gap-4 items-start">
-                    <div className="w-24 h-24 flex-shrink-0 border">
+                    <div className="w-24 h-24 flex-shrink-0 ">
                       <img
                         src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
                         alt={blog.title}

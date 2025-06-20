@@ -96,7 +96,7 @@ const BlogModalPage = () => {
 
   return (
     <>
-    <div className='bg-[#D7D9DD]'>
+    <div className='bg-[#D7D9DD] h-screen'>
       <div className=" p-3 ">
         <div className='text-right'>
           <button

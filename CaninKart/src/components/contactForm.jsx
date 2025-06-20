@@ -41,14 +41,36 @@ const ContactForm = () => {
   };
 
   // Handle form submission
+   const validateEmail = (email) => {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+  };
+
+  const validatePhone = (phone) => {
+    return /^\d{10}$/.test(phone); // 10 digits only
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setLoading(true);
     setSuccessMsg("");
     setErrorMsg("");
 
+    // Validation
+    if (!validatePhone(formData.contact)) {
+      setErrorMsg("Please enter a valid 10-digit contact number.");
+      return;
+    }
+
+    if (!validateEmail(formData.email)) {
+      setErrorMsg("Please enter a valid email address.");
+      return;
+    }
+
+    setLoading(true);
     try {
-      const res = await axios.post(`${import.meta.env.VITE_BACKEND}/api/cnt/contact`, formData);
+      const res = await axios.post(
+        `${import.meta.env.VITE_BACKEND}/api/cnt/contact`,
+        formData
+      );
       setSuccessMsg("Message sent successfully!");
       setFormData({ name: "", contact: "", email: "", message: "" });
     } catch (error) {
@@ -101,7 +123,7 @@ const ContactForm = () => {
             />
             <input
               className="w-full p-2 rounded bg-white"
-              type="email"
+              type="text"
               name="email"
               value={formData.email}
               onChange={handleChange}

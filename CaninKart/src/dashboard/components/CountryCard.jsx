@@ -8,7 +8,7 @@ const CountryCard = ({ country, states }) => {
         <div className="text-sm mt-2 space-y-1">
           <div className="flex justify-between">
             <span className="text-orange-400">● <span className="text-[#777676]">State</span></span>
-            <p>{states.length}</p>
+            {/* <p>{states.length}</p> */}
           </div>
           <div className="flex justify-between">
             <span className="text-blue-400">● <span className="text-[#777676]">Districts</span></span>

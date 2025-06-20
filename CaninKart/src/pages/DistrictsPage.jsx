@@ -90,7 +90,7 @@ const DistrictsPage = () => {
               <p className="text-gray-600 text-lg">No districts found.</p>
             </div>
           ) : (
-            <ul className="flex flex-row flex-wrap gap-4 max-w-5xl mx-auto mt-4">
+            <ul className="flex flex-row flex-wrap md:gap-10 gap-5 max-w-[1400px] mx-auto mt-4 p-4 ml-8 lg:ml-23">
               {districts.map((district) => (
                 <li
                   key={state._id}
@@ -102,7 +102,7 @@ const DistrictsPage = () => {
                         state: { districtData: district },
                       })
                     }
-                    className="w-full flex items-center justify-between py-4 px-3 bg-[#F0F2F3] rounded-md shadow-sm hover:bg-gray-200 transition-colors"
+                    className="w-full flex items-center justify-between py-4 px-3 bg-[#F0F2F3]  rounded-md shadow-sm hover:bg-gray-200 transition-colors"
                   >
                     <div className="items-center space-y-3">
                       <div className="bg-white rounded w-8 h-8 p-1.5">

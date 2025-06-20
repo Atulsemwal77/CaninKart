@@ -19,21 +19,30 @@ const ContactUs = () => {
     if (status) setStatus('');
   };
 
-  const validateForm = () => {
-    const { name, contact, email, message } = formData;
-    if (!name.trim() || !contact.trim() || !email.trim() || !message.trim()) {
-      setStatus('Please fill in all fields.');
-      return false;
-    }
+ const validateForm = () => {
+  const { name, contact, email, message } = formData;
 
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-      setStatus('Please enter a valid email address.');
-      return false;
-    }
+  if (!name.trim() || !contact.trim() || !email.trim() || !message.trim()) {
+    setStatus("Please fill in all fields.");
+    return false;
+  }
 
-    return true;
-  };
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  const phoneRegex = /^\d{10}$/;
+
+  if (!phoneRegex.test(contact)) {
+    setStatus("Please enter a valid 10-digit contact number.");
+    return false;
+  }
+
+  if (!emailRegex.test(email)) {
+    setStatus("Please enter a valid email address.");
+    return false;
+  }
+
+  return true;
+};
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -72,11 +81,21 @@ const ContactUs = () => {
         {/* Contact Form */}
         <div className="bg-gray-200 p-6 rounded-lg shadow-md">
           <h3 className="font-semibold text-xl mb-6 text-gray-800">Do You Have Any Questions?</h3>
-
+            {status && (
+              <div className={`text-right  ${
+                status.includes('success') || status.includes('sent') 
+                  ? ' text-green-700  ' 
+                  : status.includes('Sending') 
+                  ? ' text-blue-700  '
+                  : ' text-red-700  '
+              }`}>
+                {status}
+              </div>
+            )}
           <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid sm:grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-1">Name *</label>
+                <label className="block text-sm font-medium text-gray-700 mb-1">Nameee *</label>
                 <input
                   type="text"
                   name="name"
@@ -102,7 +121,7 @@ const ContactUs = () => {
             <div>
               <label className="block text-sm font-medium text-gray-700 mb-1">Email *</label>
               <input
-                type="email"
+                type="text"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
@@ -133,17 +152,7 @@ const ContactUs = () => {
               </button>
             </div>
 
-            {status && (
-              <div className={`text-center p-3 rounded-md ${
-                status.includes('success') || status.includes('sent') 
-                  ? 'bg-green-50 text-green-700 border border-green-200' 
-                  : status.includes('Sending') 
-                  ? 'bg-blue-50 text-blue-700 border border-blue-200'
-                  : 'bg-red-50 text-red-700 border border-red-200'
-              }`}>
-                {status}
-              </div>
-            )}
+            
           </form>
         </div>
 

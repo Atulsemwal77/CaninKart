@@ -22,7 +22,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-2 text-black">Quick Links</h4>
             <ul className="space-y-1 text-gray-600 overflow-y-scroll h-18">
-              {["Home", "About", "Dog Breed", "Product", "Market Place"].map((text, idx) => (
+              {["Home", "About", "Product","Dog Breed",  "Market Place"].map((text, idx) => (
                 <li key={idx}>
                   <Link to={`/${text === "Home" ? "" : text.toLowerCase().replace(/\s+/g, "")}`} className="hover:text-orange-500">
                     {text}
@@ -36,7 +36,7 @@ const Footer = () => {
           <div>
             <h4 className="font-semibold mb-2 text-black">Legal</h4>
             <ul className="space-y-1 text-gray-600">
-              {["Terms & Conditions", "Privacy Policy", "Cookie Policy"].map((text, idx) => (
+              {["Terms & Conditions", "Privacy Policy"].map((text, idx) => (
                 <li key={idx} className="hover:text-orange-500 cursor-pointer">
                   {text}
                 </li>
@@ -54,7 +54,7 @@ const Footer = () => {
             <div className="w-8 h-8  flex items-center justify-center rounded-full bg-[#FDDF82]">
               <FiMail className="text-base md:text-lg" />
             </div>
-            <span className="hover:text-orange-400 text-sm md:text-base break-all text-gray-700">
+            <span className="hover:text-orange-400  break-all text-gray-700">
               support@caninkart.com
             </span>
           </div>
@@ -64,7 +64,7 @@ const Footer = () => {
             <div className="w-8 h-8  flex items-center justify-center rounded-full bg-[#FDDF82]">
               <FiPhone className="text-base md:text-lg" />
             </div>
-            <span className="hover:text-orange-400 text-sm md:text-base text-gray-700">
+            <span className="hover:text-orange-400  text-gray-700">
               +91 95029 57250
             </span>
           </div>

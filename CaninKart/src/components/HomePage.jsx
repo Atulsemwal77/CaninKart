@@ -19,20 +19,16 @@ import img1 from "../assets/Printed_Collar/4.png";
 import img2 from "../assets/Fur Lounger/24.png";
 import img3 from "../assets/Cave Hut - Grey/11.png";
 import img4 from "../assets/Jackets/4.png";
+import img5 from "../assets/dwt1.png"
 
 const HomePage = () => {
   const categories = [
     { category: "WALKING ESSENTIALS", image: img1 },
-    { category: "BEDDINGS", image: img2 },
+    { category: "BEDDING", image: img2 },
     { category: "CAVE HUT", image: img3 },
     { category: "JACKETS", image: img4 },
-    { category: "TOYS", image: img4 },
+    { category: "TOYS", image: img5 },
   ];
-
- 
-
-
- 
   const navigate = useNavigate();
 
   const testimonials = [
@@ -68,8 +64,14 @@ const HomePage = () => {
     },
   ];
 
- 
+  const [selectedCategory, setSelectedCategory] =
+    useState("WALKING ESSENTIALS");
 
+  const filteredProducts = Productss.filter((product) =>
+    Array.isArray(product.category)
+      ? product.category.includes(selectedCategory)
+      : product.category === selectedCategory
+  );
 
   useEffect(() => {
     // Handle mobile navigation buttons
@@ -109,15 +111,21 @@ const HomePage = () => {
       </div>
 
       {/* Categories */}
-     
 
-      <section className="py-10 text-center ">
+      <section className="py-10 text-center">
         <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
           <FaPaw /> CATEGORY
         </h2>
         <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-50 mx-auto md:gap-5">
           {categories.map((category, index) => (
-            <div key={index} className="flex flex-col items-center my-3">
+            <div
+              key={index}
+              // className={`flex flex-col items-center my-3 cursor-pointer  ${
+              //   selectedCategory === category.category ? "opacity-100" : "opacity-50"
+              // }`}
+              className={`flex flex-col items-center my-3 cursor-pointer`}
+              onClick={() => setSelectedCategory(category.category)}
+            >
               <motion.div
                 className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40"
                 initial={{ opacity: 0, y: 50 }}
@@ -131,19 +139,60 @@ const HomePage = () => {
                   className="h-30 mx-auto object-contain"
                 />
               </motion.div>
-
-              <p className="my-2 text-xs font-medium">{category.category}</p>
+              <p
+                className={`my-2   ${
+                  selectedCategory === category.category
+                    ? "text-orange-500 font-bold "
+                    : ""
+                }`}
+              >
+                {category.category}
+              </p>
             </div>
           ))}
         </div>
       </section>
 
-      {/* Top Sellers */}
       <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4">
+          {filteredProducts.map((product, idx) => {
+            return (
+              <motion.div
+                onClick={() =>
+                  navigate(`/product/${product.id}`, { state: { product } })
+                }
+                key={product.id}
+                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
+                initial={{ rotateY: 90, opacity: 0 }}
+                whileInView={{ rotateY: 0, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
+                viewport={{ once: false }}
+                style={{ transformStyle: "preserve-3d" }}
+              >
+                <div className="w-full h-40 flex items-center justify-center bg-white">
+                  <img
+                    src={product.image || img11}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = img11;
+                    }}
+                    alt={product.name}
+                    className="max-h-full object-contain"
+                  />
+                </div>
+                <p className="mt-2 text-lg font-medium">{product.name}</p>
+              </motion.div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* Top Sellers */}
+      {/* <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
         <h2 className="font-semibold mb-4 text-lg text-orange-500 flex justify-center items-center gap-2">
           <FaPaw /> TOP SELLERS
         </h2>
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto ">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 ">
           {Productss.slice(12, 20).map((product, idx) => {
             return (
               <motion.div
@@ -158,30 +207,23 @@ const HomePage = () => {
                 viewport={{ once: false }}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                {/* <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="mx-auto h-36 w-full object-contain border"
-                />
-                <p className=" mt-2 text-lg font-medium">{product.name}</p> */}
-               <div className="w-full h-40 flex items-center justify-center bg-white">
-                <img 
-                src={product.image || img11}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = img11;
-                  }}
-                  alt={product.name}
-                  className="max-h-full object-contain"
+                <div className="w-full h-40 flex items-center justify-center bg-white">
+                  <img
+                    src={product.image || img11}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = img11;
+                    }}
+                    alt={product.name}
+                    className="max-h-full object-contain"
                   />
-                  </div>
-                  <p className="mt-2 text-lg  font-medium">{product.name}</p>
-
+                </div>
+                <p className="mt-2 text-lg  font-medium">{product.name}</p>
               </motion.div>
             );
           })}
         </div>
-      </section>
+      </section> */}
 
       {/* Promo Banner */}
       <div className="w-full max-w-[1400px] mx-auto ">
@@ -228,17 +270,17 @@ const HomePage = () => {
                 />
                 <p className="mt-2 text-lg font-medium">{product.name}</p> */}
                 <div className="w-full h-40 flex items-center justify-center bg-white">
-                <img 
-                src={product.image || img11}
-                  onError={(e) => {
-                    e.target.onerror = null;
-                    e.target.src = img11;
-                  }}
-                  alt={product.name}
-                  className="max-h-full object-contain"
+                  <img
+                    src={product.image || img11}
+                    onError={(e) => {
+                      e.target.onerror = null;
+                      e.target.src = img11;
+                    }}
+                    alt={product.name}
+                    className="max-h-full object-contain"
                   />
-                  </div>
-                  <p className="mt-2 text-lg  font-medium">{product.name}</p>
+                </div>
+                <p className="mt-2 text-lg  font-medium">{product.name}</p>
               </motion.div>
             );
           })}

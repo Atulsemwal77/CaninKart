@@ -188,7 +188,7 @@ const Productss = [
       Images9.jacket11,
     ],
     name: "Jacket",
-    category: "JACKET",
+    category: "JACKETS",
   },
   {
     id: 10,
@@ -232,7 +232,7 @@ const Productss = [
       Images12.bow_ties10,
     ],
     name: "Bow Tue",
-    category: "WALKING ESSENTIALS",
+    category: ""
   },
 
   {
@@ -255,7 +255,7 @@ const Productss = [
       Images13.bandana14,
     ],
     name: "Bandana",
-    category: "WALKING ESSENTIALS",
+    category: "",
   },
 
   {
@@ -406,7 +406,7 @@ const Productss = [
       Image22.hutSnail6,
     ],
     name: "Hut-Snail",
-    category: "HUT",
+    category: "CAVE HUT",
   },
   {
     id: 23,
@@ -422,7 +422,7 @@ const Productss = [
       Image23.hutPumpkin7,
     ],
     name: "Hut-Pumpkin",
-    category: "HUT"
+    category: "CAVE HUT"
   },
   {
     id: 24,
@@ -434,7 +434,7 @@ const Productss = [
       Images24.hutCaterpillar4,
     ],
     name: "Hut-Caterpillar",
-    category: "HUT"
+    category: "CAVE HUT"
   },
 
   {
@@ -446,21 +446,21 @@ const Productss = [
       Images25.bedCartoon2,
     ],
     name: "Cave Bed-Cartoon",
-    category: "HUT"
+    category: "CAVE HUT"
   },
   {
     id: 26,
     image: Images26.xmas2,
     thumbnails: [Images26.xmas, Images26.xmas1, Images26.xmas2],
     name: "Cave Bed-X-MAS",
-    category: "HUT"
+    category: "CAVE HUT"
   },
   {
     id: 27,
     image: Images27.hutGray,
     thumbnails: [Images27.hutGray, Images27.hutGray1, Images27.hutGray2],
     name: "Cave Bed-Grey",
-    category: "HUT"
+    category: "CAVE HUT"
   },
   {
     id: 28,
@@ -476,7 +476,7 @@ const Productss = [
       Images28.hutPrinted7,
     ],
     name: "Cave Bed-Printed",
-    category: ["HUT" , "JACKET"]
+    category: ["CAVE HUT" , "JACKET"]
   },
 ];
 

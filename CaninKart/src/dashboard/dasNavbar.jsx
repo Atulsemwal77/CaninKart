@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png"; // Replace with your actual logo path
 import placeholderImg from "../assets/ctf.png"; // Replace or use a placeholder service
 
@@ -14,9 +14,9 @@ const DasNavbar = () => {
     <header className="max-w-screen-2xl bg-white shadow-md mx-auto sticky top-0 z-50">
       <nav className="shadow-md px-6 py-4 flex justify-between items-center max-w-[1400px] mx-auto">
         {/* Logo */}
-        <div>
-          <img src={logo} alt="Logo" className="w-full" />
-        </div>
+        <Link to='/'>
+        <img src={logo} alt="Logo" className="w-full" />
+        </Link>
 
         {/* Navigation Links */}
         <ul className="flex space-x-10 font-medium text-gray-600 ">
