@@ -288,4 +288,6 @@ export const Images25 = {bedCartoon , bedCartoon1, bedCartoon2 };
 export const Images26 = {xmas , xmas1 , xmas2};
 export const Images27 = {hutGray, hutGray1 , hutGray2};
 export const Images28 = {hutPrinted, hutPrinted1, hutPrinted2, hutPrinted3, hutPrinted4, hutPrinted5, hutPrinted6, hutPrinted7, };
+
+
 export default Images

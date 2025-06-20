@@ -44,6 +44,7 @@ const Productss = [
       Images.hHarness9,
     ],
     name: "H-Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 2,
@@ -55,6 +56,7 @@ const Productss = [
       Images2.EasyOn4,
     ],
     name: "Easy On Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 3,
@@ -75,6 +77,7 @@ const Productss = [
       Images3.fullBody13,
     ],
     name: "Full Body Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 4,
@@ -88,6 +91,7 @@ const Productss = [
       Images4.chest5,
     ],
     name: "Chest Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 5,
@@ -101,6 +105,7 @@ const Productss = [
       Images5.catHarness6,
     ],
     name: "Cat Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 6,
@@ -128,6 +133,7 @@ const Productss = [
       Images6.dogColler19,
     ],
     name: "Dog Collar",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 7,
@@ -148,6 +154,7 @@ const Productss = [
       Images7.dogCollar1,
     ],
     name: "Dog Collar Printed",
+    category: "WALKING ESSENTIALS",
   },
 
   {
@@ -160,6 +167,7 @@ const Productss = [
       Images8.leash4,
     ],
     name: "Leash",
+    category: "WALKING ESSENTIALS",
   },
 
   {
@@ -180,6 +188,7 @@ const Productss = [
       Images9.jacket11,
     ],
     name: "Jacket",
+    category: "JACKET",
   },
   {
     id: 10,
@@ -192,6 +201,7 @@ const Productss = [
       Image10.Basket4,
     ],
     name: "Step-In Harness/ Basket Harness",
+    category: "WALKING ESSENTIALS",
   },
   {
     id: 11,
@@ -203,6 +213,7 @@ const Productss = [
       Images11.tuxedo4,
     ],
     name: "Tuxedo",
+    category: "WALKING ESSENTIALS",
   },
 
   {
@@ -221,6 +232,7 @@ const Productss = [
       Images12.bow_ties10,
     ],
     name: "Bow Tue",
+    category: "WALKING ESSENTIALS",
   },
 
   {
@@ -243,6 +255,7 @@ const Productss = [
       Images13.bandana14,
     ],
     name: "Bandana",
+    category: "WALKING ESSENTIALS",
   },
 
   {
@@ -269,6 +282,7 @@ const Productss = [
       Image14.PrintedMat17,
     ],
     name: "Printed Mat",
+    category: "BEDDING",
   },
 
   {
@@ -281,6 +295,7 @@ const Productss = [
       Image15.furMat3,
     ],
     name: "Fur Mat",
+    category: "BEDDING",
   },
   {
     id: 16,
@@ -295,6 +310,7 @@ const Productss = [
       Image16.patternLounger6,
     ],
     name: "Pattern Lounger",
+    category: "BEDDING",
   },
   {
     id: 17,
@@ -305,6 +321,7 @@ const Productss = [
       Images17.EmbLounger3,
     ],
     name: "Embroidery Lounger",
+    category: "BEDDING",
   },
   {
     id: 18,
@@ -327,6 +344,7 @@ const Productss = [
       Images18.furLounger14,
     ],
     name: "Fur Lounger",
+    category: "BEDDING",
   },
   {
     id: 19,
@@ -346,6 +364,7 @@ const Productss = [
       Image19.printLounger11,
     ],
     name: "Printed Lounger",
+    category: "BEDDING",
   },
   {
     id: 20,
@@ -358,6 +377,7 @@ const Productss = [
       Image20.Mattress4,
     ],
     name: "Mattress",
+    category: "BEDDING",
   },
   {
     id: 21,
@@ -372,6 +392,7 @@ const Productss = [
       Image21.RoundBed6,
     ],
     name: "Round Bed",
+    category: "BEDDING",
   },
   {
     id: 22,
@@ -385,6 +406,7 @@ const Productss = [
       Image22.hutSnail6,
     ],
     name: "Hut-Snail",
+    category: "HUT",
   },
   {
     id: 23,
@@ -400,6 +422,7 @@ const Productss = [
       Image23.hutPumpkin7,
     ],
     name: "Hut-Pumpkin",
+    category: "HUT"
   },
   {
     id: 24,
@@ -411,6 +434,7 @@ const Productss = [
       Images24.hutCaterpillar4,
     ],
     name: "Hut-Caterpillar",
+    category: "HUT"
   },
 
   {
@@ -422,18 +446,21 @@ const Productss = [
       Images25.bedCartoon2,
     ],
     name: "Cave Bed-Cartoon",
+    category: "HUT"
   },
   {
     id: 26,
     image: Images26.xmas2,
     thumbnails: [Images26.xmas, Images26.xmas1, Images26.xmas2],
     name: "Cave Bed-X-MAS",
+    category: "HUT"
   },
   {
     id: 27,
     image: Images27.hutGray,
     thumbnails: [Images27.hutGray, Images27.hutGray1, Images27.hutGray2],
     name: "Cave Bed-Grey",
+    category: "HUT"
   },
   {
     id: 28,
@@ -449,6 +476,7 @@ const Productss = [
       Images28.hutPrinted7,
     ],
     name: "Cave Bed-Printed",
+    category: ["HUT" , "JACKET"]
   },
 ];
 

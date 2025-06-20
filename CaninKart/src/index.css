@@ -45,3 +45,17 @@
 .animate-slide-right {
   animation: slideRight 0.5s ease-out forwards;
 }
+
+.swiper-container {
+  position: relative;
+  overflow: visible; /* Allow navigation buttons to be visible */
+}
+
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  cursor: pointer;
+}

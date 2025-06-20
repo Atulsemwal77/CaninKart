@@ -11,11 +11,9 @@ const cityNames = {
 };
 
 function MarketPlacedetails() {
-  const { cityId } = useParams();
-  const navigate = useNavigate();
-  const location = useLocation();
-  const cityname = location.state;
-  const city = cityNames[cityId];
+  const { state } = useLocation();
+  const district = state?.districtData;
+  const navigate = useNavigate()
 
  useEffect(() => {
   window.scrollTo(0, 0);
@@ -40,7 +38,7 @@ function MarketPlacedetails() {
 
   {/* Text Overlay */}
   <div className="text-white font-[Poppins] text-center text-[28px] md:text-5xl font-semibold leading-relaxed max-w-4xl">
-    Caninkart Manufacturers in {cityname.name}
+    Caninkart Manufacturers in  {district?.name}
   </div>
 </section>
 

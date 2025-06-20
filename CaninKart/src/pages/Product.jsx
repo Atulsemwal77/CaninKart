@@ -24,14 +24,26 @@ const Product = () => {
                 pathname: `/product/${product.id}`,
               }}
               state={{ product }}
-              className="bg-[#f5f4ef] rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block"
+              className=" rounded shadow p-2 text-center cursor-pointer hover:ring-2 ring-orange-300 transition duration-200 block bg-white"
             >
-              <img
+              {/* <img
                 src={product.image}
                 alt="product"
                 className="mx-auto w-36 h-20 md:w-52 sm:h-32 object-cover"
               />
-              <p className="mt-2 text-lg font-medium">{product.name}</p>
+              <p className="mt-2 text-lg font-medium">{product.name}</p> */}
+              <div className="w-full h-40 flex items-center justify-center bg-white">
+                              <img 
+                              src={product.image || img11}
+                                onError={(e) => {
+                                  e.target.onerror = null;
+                                  e.target.src = img11;
+                                }}
+                                alt={product.name}
+                                className="max-h-full object-contain"
+                                />
+                                </div>
+                                <p className="mt-2 text-lg  font-medium">{product.name}</p>
             </Link>
           ))}
         </div>

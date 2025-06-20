@@ -1,31 +1,20 @@
-"use client";
-
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Pagination, Autoplay, Navigation } from "swiper/modules";
+import ContactForm from "./contactForm";
+import Productss from "../pages/productdata";
+
 import { FaPaw } from "react-icons/fa";
 import { motion } from "framer-motion";
-
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-import banner2 from "../assets/banner2.png"
+import banner2 from "../assets/banner2.png";
 import hero2 from "../assets/caninkarthero.png";
-import hero3 from '../assets/herobanner2.png'
-import hero from "../assets/5dog.png";
+import hero3 from "../assets/herobanner2.png";
 import pupy from "../assets/pupy.png";
-// import img1 from "../assets/categoriy.png";
-// import img2 from "../assets/categoriy.png";
-// import img3 from "../assets/categoriy.png";
-// import img4 from "../assets/categoriy.png";
-import img5 from "../assets/categoriy.png";
-import img6 from "../assets/pngwing.png";
-import img96 from "../assets/promo.png";
-import img99 from "../assets/doggab.png";
-import ContactForm from "./contactForm";
 import img11 from "../assets/pngwing.png";
 import { Link, useNavigate } from "react-router-dom";
-import Productss from "../pages/productdata";
 import img1 from "../assets/Printed_Collar/4.png";
 import img2 from "../assets/Fur Lounger/24.png";
 import img3 from "../assets/Cave Hut - Grey/11.png";
@@ -37,9 +26,13 @@ const HomePage = () => {
     { category: "BEDDINGS", image: img2 },
     { category: "CAVE HUT", image: img3 },
     { category: "JACKETS", image: img4 },
-    { category: "TOYS", image: img5 },
+    { category: "TOYS", image: img4 },
   ];
 
+ 
+
+
+ 
   const navigate = useNavigate();
 
   const testimonials = [
@@ -47,13 +40,13 @@ const HomePage = () => {
       name: "David",
       city: "Pune",
       img: "D",
-      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered. The quality is top-notch, and delivery was super fast. You\'ve earned a customer for life!"',
+      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered. The quality is top-notch, and delivery was super fast. You\'ve earned a "',
     },
     {
       name: "David",
       city: "Pune",
       img: img1,
-      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered.The quality is top-notch, and delivery was super fast. You\'ve earned a customer for life!"',
+      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered.The quality is top-notch, and delivery was super fast. You\'ve earned a "',
     },
     {
       name: "Aarav",
@@ -65,7 +58,7 @@ const HomePage = () => {
       name: "Sneha",
       city: "Mumbai",
       img: img3,
-      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet conse expedita ut saepe, nam odit voluptatibus. My puppy is obsessed with the new bed."',
+      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet conse expedita ut saepe, nam odit voluptatibus. My puppy is obsessed "',
     },
     {
       name: "Sneha",
@@ -75,9 +68,8 @@ const HomePage = () => {
     },
   ];
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
+ 
+
 
   useEffect(() => {
     // Handle mobile navigation buttons
@@ -101,41 +93,6 @@ const HomePage = () => {
 
   return (
     <div className="font-sans text-gray-800 max-w-screen-2xl mx-auto">
-      {/* Hero Section */}
-      {/* <section className="bg-orange-100 md:relative overflow-hidden px-4 py-20 text-center flex flex-col items-center mt-16">
-        {/* <div className="relative z-10 max-w-4xl mx-auto">
-          <h1 className="text-xl  md:text-2xl lg:text-5xl font-extrabold mb-4 fredoka-heading">
-            WELCOME TO CANINKART
-          </h1>
-          <p className="mb-6 font-semibold text-base sm:text-lg md:text-xl leading-relaxed">
-            One of India's Leading{" "}
-            <span className="text-red-950">Manufacturers and Exporters</span> of
-            pet
-            <br className="hidden sm:block" />
-            accessories and beddings
-          </p>
-          <button className="bg-orange-500 text-white px-6 py-3 rounded-md text-sm sm:text-base">
-            Explore Now
-          </button>
-        </div>
-        <div className="lg:absolute -bottom-4 right-65 md:w-[300px] lg:w-[350px]">
-          <img
-            src={hero || "/placeholder.svg"}
-            alt="Hero Dogs"
-            className="w-full h-auto object-contain"
-          />
-        </div> */}
-      {/* <img src={hero2} alt="" /> */}
-      {/* </section> */}
-      {/* <section className="bg-orange-100 md:relative overflow-hidden px-4 py-4 text-center flex flex-col items-center mt-16">
-        <div className="w-full ">
-          <img
-            src={hero2}
-            alt="Hero Image"
-            className="w-full h-auto object-contain mx-auto"
-          />
-        </div>
-      </section> */}
       <div className=" md:relative overflow-hidden  text-center flex flex-col items-center mt-14 ">
         <img
           // src={img96 || "/placeholder.svg"}
@@ -152,6 +109,8 @@ const HomePage = () => {
       </div>
 
       {/* Categories */}
+     
+
       <section className="py-10 text-center ">
         <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
           <FaPaw /> CATEGORY
@@ -199,12 +158,25 @@ const HomePage = () => {
                 viewport={{ once: false }}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <img
+                {/* <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain"
+                  className="mx-auto h-36 w-full object-contain border"
                 />
-                <p className=" mt-2 text-lg font-medium">{product.name}</p>
+                <p className=" mt-2 text-lg font-medium">{product.name}</p> */}
+               <div className="w-full h-40 flex items-center justify-center bg-white">
+                <img 
+                src={product.image || img11}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = img11;
+                  }}
+                  alt={product.name}
+                  className="max-h-full object-contain"
+                  />
+                  </div>
+                  <p className="mt-2 text-lg  font-medium">{product.name}</p>
+
               </motion.div>
             );
           })}
@@ -240,7 +212,7 @@ const HomePage = () => {
                   navigate(`/product/${product.id}`, { state: { product } })
                 }
                 key={product.id}
-                className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
+                className="bg-white  px-2 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
                 initial={{ rotateY: 90, opacity: 0 }}
                 whileInView={{ rotateY: 0, opacity: 1 }}
                 whileHover={{ scale: 1.05 }}
@@ -249,12 +221,24 @@ const HomePage = () => {
                 viewport={{ once: false }}
                 style={{ transformStyle: "preserve-3d" }}
               >
-                <img
+                {/* <img
                   src={product.image || "/placeholder.svg"}
                   alt={product.name}
-                  className="mx-auto h-20 sm:h-28 md:h-32 object-contain transition-transform duration-300"
+                  className="mx-auto w-full h-40 object-cover border"
                 />
-                <p className="mt-2 text-lg font-medium">{product.name}</p>
+                <p className="mt-2 text-lg font-medium">{product.name}</p> */}
+                <div className="w-full h-40 flex items-center justify-center bg-white">
+                <img 
+                src={product.image || img11}
+                  onError={(e) => {
+                    e.target.onerror = null;
+                    e.target.src = img11;
+                  }}
+                  alt={product.name}
+                  className="max-h-full object-contain"
+                  />
+                  </div>
+                  <p className="mt-2 text-lg  font-medium">{product.name}</p>
               </motion.div>
             );
           })}

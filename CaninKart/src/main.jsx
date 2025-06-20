@@ -23,6 +23,8 @@ import AdminLogin from './dashboard/AdminLogin.jsx';
 import AdminBlog from './dashboard/AdminBlog.jsx';
 import BlogDetailsAdmin from './dashboard/dashBlogdetail.jsx';
 import AdminContact from './dashboard/AdminContact.jsx';
+import Category from './pages/Category.jsx';
+import DistrictsPage from './pages/DistrictsPage.jsx';
 
 
 const router = createBrowserRouter([
@@ -39,8 +41,10 @@ const router = createBrowserRouter([
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:id', element: <BlogDetails /> },
       { path: 'marketplace', element: <Marketplace /> },
-      { path: 'marketplacedetails/:cityId', element: <MarketPlacedetails /> },
+      { path: "districts/:stateId" , element: <DistrictsPage /> },
+      { path: 'marketplacedetails/:districtId', element: <MarketPlacedetails /> },
       { path: 'contact', element: <Contact /> },
+      { path : "exp" , element : <Category/>}
       // { path: 'CountryPage', element: <CountryPage /> }
     ],
   },
