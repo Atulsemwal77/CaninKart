@@ -26,7 +26,7 @@ const DasNavbar = () => {
                 to={path}
                 end={name === "Overview"} // Add end prop only for Overview
                 className={({ isActive }) =>
-                  ` ${
+                  ` flex ${
                     isActive ? "text-white border rounded-2xl border-black px-3 py-1 bg-black font-semibold transition duration-300" : " border border-black px-3 py-1 rounded-2xl "
                   }` 
                 }

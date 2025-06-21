@@ -58,7 +58,7 @@ const AdminContact = () => {
 
       {/* Modal for Full Message */}
       {selectedMessage && (
-        <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
+        <div className="fixed inset-0  flex justify-center items-center z-50">
           <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
             <button
               onClick={() => setSelectedMessage(null)}

@@ -146,9 +146,9 @@ const ContactUs = () => {
               <button
                 type="submit"
                 disabled={isSubmitting}
-                className="bg-orange-600 text-white px-8 py-3 rounded-md hover:bg-orange-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
+                className="bg-[#BC5E38] text-white px-8 py-3 rounded-md hover:bg-orange-700 disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors font-medium"
               >
-                {isSubmitting ? 'SENDING...' : 'SEND MESSAGE'}
+                {isSubmitting ? 'SENDING...' : 'SEND '}
               </button>
             </div>
 
@@ -162,7 +162,7 @@ const ContactUs = () => {
 
           {/* Email */}
           <div className="flex items-start gap-4 mb-6">
-            <div className="bg-yellow-300 p-3 rounded-full text-gray-800 flex-shrink-0">
+            <div className="bg-[#FDDF82] p-3 rounded-full text-gray-800 flex-shrink-0">
               <Mail size={20} />
             </div>
             <div>
@@ -175,7 +175,7 @@ const ContactUs = () => {
 
           {/* Phone */}
           <div className="flex items-start gap-4 mb-6">
-            <div className="bg-yellow-300 p-3 rounded-full text-gray-800 flex-shrink-0">
+            <div className="bg-[#FDDF82] p-3 rounded-full text-gray-800 flex-shrink-0">
               <Phone size={20} />
             </div>
             <div>
@@ -188,7 +188,7 @@ const ContactUs = () => {
 
           {/* Address */}
           <div className="flex items-start gap-4 mb-8">
-            <div className="bg-yellow-300 p-3 rounded-full text-gray-800 flex-shrink-0">
+            <div className="bg-[#FDDF82] p-3 rounded-full text-gray-800 flex-shrink-0">
               <MapPin size={20} />
             </div>
             <div>
@@ -204,10 +204,10 @@ const ContactUs = () => {
           <div>
             <p className="font-semibold text-gray-800 mb-3">Follow Us:</p>
             <div className="flex gap-3">
-              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
-              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
-              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="YouTube"><Youtube size={18} /></a>
-              <a href="#" className="bg-yellow-300 p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Twitter"><Twitter size={18} /></a>
+              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
+              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
+              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="YouTube"><Youtube size={18} /></a>
+              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Twitter"><Twitter size={18} /></a>
             </div>
           </div>
         </div>

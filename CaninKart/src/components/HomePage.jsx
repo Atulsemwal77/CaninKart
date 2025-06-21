@@ -19,7 +19,7 @@ import img1 from "../assets/Printed_Collar/4.png";
 import img2 from "../assets/Fur Lounger/24.png";
 import img3 from "../assets/Cave Hut - Grey/11.png";
 import img4 from "../assets/Jackets/4.png";
-import img5 from "../assets/dwt1.png"
+import img5 from "../assets/dwt1.png";
 
 const HomePage = () => {
   const categories = [
@@ -93,6 +93,10 @@ const HomePage = () => {
     setTimeout(handleMobileNavigation, 100);
   }, []);
 
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="font-sans text-gray-800 max-w-screen-2xl mx-auto">
       <div className=" md:relative overflow-hidden  text-center flex flex-col items-center mt-14 ">
@@ -113,32 +117,27 @@ const HomePage = () => {
       {/* Categories */}
 
       <section className="py-10 text-center">
-        <h2 className="text-lg font-semibold text-orange-500 mb-4 flex justify-center items-center gap-2">
+        <h2 className="text-lg font-semibold  text-orange-500 mb-4 flex justify-center items-center gap-2">
           <FaPaw /> CATEGORY
         </h2>
-        <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-50 mx-auto md:gap-5">
+        <div className="grid grid-cols-2 lg:grid-cols-5 md:grid-cols-3 lg:mx-10 mx-auto  md:gap-8">
           {categories.map((category, index) => (
             <div
               key={index}
-              // className={`flex flex-col items-center my-3 cursor-pointer  ${
-              //   selectedCategory === category.category ? "opacity-100" : "opacity-50"
-              // }`}
               className={`flex flex-col items-center my-3 cursor-pointer`}
-              onClick={() => setSelectedCategory(category.category)}
+              onClick={() =>
+                navigate("/category-products", {
+                  state: { selectedCategory: category.category },
+                })
+              }
             >
-              <motion.div
-                className="bg-[#ECDDC7] rounded-full px-5 py-5 h-40 w-40"
-                initial={{ opacity: 0, y: 50 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: false }}
-              >
+              <div className="bg-[#ECDDC7] rounded-full px-5 py-5 md:h-52 md:w-52 h-40 w-40 ">
                 <img
                   src={category.image}
                   alt={category.category}
-                  className="h-30 mx-auto object-contain"
+                  className="md:h-40 mx-auto object-contain"
                 />
-              </motion.div>
+              </div>
               <p
                 className={`my-2   ${
                   selectedCategory === category.category
@@ -153,21 +152,16 @@ const HomePage = () => {
         </div>
       </section>
 
-      <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
+      {/* <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4">
           {filteredProducts.map((product, idx) => {
             return (
-              <motion.div
+              <div
                 onClick={() =>
                   navigate(`/product/${product.id}`, { state: { product } })
                 }
                 key={product.id}
                 className="bg-white px-2 sm:px-4 md:px-4 lg:px-8 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer hover:ring-2 ring-orange-300 transition duration-200"
-                initial={{ rotateY: 90, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                transition={{ duration: 0.6, ease: "easeOut" }}
-                viewport={{ once: false }}
-                style={{ transformStyle: "preserve-3d" }}
               >
                 <div className="w-full h-40 flex items-center justify-center bg-white">
                   <img
@@ -181,11 +175,11 @@ const HomePage = () => {
                   />
                 </div>
                 <p className="mt-2 text-lg font-medium">{product.name}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>
-      </section>
+      </section> */}
 
       {/* Top Sellers */}
       {/* <section className="px-4 sm:px-6 md:px-10 lg:px-20 py-10 bg-[#E7EDE6] text-center">
@@ -249,26 +243,13 @@ const HomePage = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-4 gap-4 max-w-8xl mx-auto">
           {Productss.slice(0, 12).map((product, idx) => {
             return (
-              <motion.div
+              <div
                 onClick={() =>
                   navigate(`/product/${product.id}`, { state: { product } })
                 }
                 key={product.id}
                 className="bg-white  px-2 py-4 sm:py-6 md:py-4 shadow-md rounded cursor-pointer ring-orange-300 transition duration-200"
-                initial={{ rotateY: 90, opacity: 0 }}
-                whileInView={{ rotateY: 0, opacity: 1 }}
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ duration: 0.5, ease: "easeOut" }}
-                viewport={{ once: false }}
-                style={{ transformStyle: "preserve-3d" }}
               >
-                {/* <img
-                  src={product.image || "/placeholder.svg"}
-                  alt={product.name}
-                  className="mx-auto w-full h-40 object-cover border"
-                />
-                <p className="mt-2 text-lg font-medium">{product.name}</p> */}
                 <div className="w-full h-40 flex items-center justify-center bg-white">
                   <img
                     src={product.image || img11}
@@ -281,7 +262,7 @@ const HomePage = () => {
                   />
                 </div>
                 <p className="mt-2 text-lg  font-medium">{product.name}</p>
-              </motion.div>
+              </div>
             );
           })}
         </div>

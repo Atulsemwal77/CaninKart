@@ -25,6 +25,7 @@ import BlogDetailsAdmin from './dashboard/dashBlogdetail.jsx';
 import AdminContact from './dashboard/AdminContact.jsx';
 import Category from './pages/Category.jsx';
 import DistrictsPage from './pages/DistrictsPage.jsx';
+import CategoryProducts from './components/CategoryProducts.jsx';
 
 
 const router = createBrowserRouter([
@@ -37,6 +38,7 @@ const router = createBrowserRouter([
       { path: 'about', element: <About /> },
       { path: 'dogbreed', element: <Breed /> },
       { path: 'product', element: <Product /> },
+      { path:"/category-products", element:<CategoryProducts />},
       { path: 'product/:id', element: <ProductDetail /> },
       { path: 'blog', element: <Blog /> },
       { path: 'blog/:id', element: <BlogDetails /> },

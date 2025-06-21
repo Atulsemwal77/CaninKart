@@ -1,43 +1,52 @@
-import React, { useState } from "react";
-import { NavLink } from "react-router-dom";
+import React, { useState, useEffect } from "react";
+import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import logo from "../assets/logo.png";
-
+import Productss from "../pages/productdata";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
+  const [searchedProducts, setSearchedProducts] = useState([]);
 
   const navLinks = ["home", "product", "about", "blog", "contact"];
 
+  useEffect(() => {
+    const searchedProducts = Productss.filter((product, idx) =>
+      product.name.toLowerCase().includes(searchQuery.toLowerCase())
+    );
+
+    setSearchedProducts(searchedProducts);
+
+    // console.log("Search:", searchQuery);
+    // console.log("searchedProducts:", searchedProducts);
+  }, [searchQuery]);
+
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    console.log("Searching for:", searchQuery);
+    // console.log("Searching for:", searchQuery);
+    setSearchQuery("");
     // Navigate or filter logic here
     setShowSearch(false); // hide input after search
   };
 
-    const toggleSearch = () => {
-    if (showSearch) {
-      setSearchQuery('')
-    }
-    setShowSearch(!showSearch)
-  }
+  
   return (
     <nav className="fixed top-0 w-full z-50 bg-white shadow-md">
       <div className="max-w-[1500px] mx-auto px-6 py-4 flex items-center justify-between">
-        {/* Logo */}
+        {/* Logo - Left */}
         <NavLink to="/" className="flex items-center space-x-2">
-          <img src={logo} alt="Caninkart Logo" className="h-10 w-auto" />
+          <img src={logo} alt="Caninkart Logo" className="h-14 w-auto" />
         </NavLink>
 
-        {/* Desktop Nav Links */}
-        <ul className="hidden md:flex space-x-6 font-medium text-gray-700">
+        {/* Nav Links - Center */}
+        <ul className="hidden md:flex space-x-6 font-medium text-gray-700 mx-auto">
           {navLinks.map((item) => (
             <li key={item}>
               <NavLink
-                to={`/${item}`}
+                to={item === "home" ? "/" : `/${item}`}
+
                 className={({ isActive }) =>
                   `group relative inline-block transition-colors ${
                     isActive
@@ -53,57 +62,64 @@ const Navbar = () => {
           ))}
         </ul>
 
-    <div className="flex items-center relative space-x-3">
-      {/* Toggle Button (Search or Close icon) */}
-      <button
-        onClick={toggleSearch}
-        className="bg-[#D0F3FF] p-2 rounded-full hover:bg-[#89defa] transition"
-      >
-        {showSearch ? (
-          <IoClose size={20} className="text-gray-800" />
-        ) : (
-          <FiSearch size={20} className="text-gray-800" />
-        )}
-      </button>
+        {/* Search + Menu - Right */}
+        <div className="flex items-center relative space-x-3">
+          {/* Sliding Search Input */}
+          {/* Always visible Search Input */}
+          <div className="relative w-48 sm:w-72 transition-all">
+            <form
+              onSubmit={handleSearchSubmit}
+              className="flex items-center bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm"
+            >
+              <input
+                type="text"
+                className="flex-1 px-3 py-2 text-sm outline-none"
+                placeholder="Search..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+              />
+              <button
+                type="submit"
+                className="bg-orange-500 text-white px-2 sm:px-4 py-2 hover:bg-orange-600 md:block hidden"
+              >
+                Go
+              </button>
+            </form>
 
-      {/* Sliding Search Input */}
-      <div
-        className={`absolute right-16 md:right-12 top-1/2 -translate-y-1/2 transition-all duration-300 ease-in-out ${
-          showSearch ? 'opacity-100 scale-x-100 w-55 sm:w-72' : 'opacity-0 scale-x-0 w-0'
-        } origin-left`}
-      >
-        <form
-          onSubmit={handleSearchSubmit}
-          className="flex items-center bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm"
-        >
-          <input
-            type="text"
-            className="flex-1 px-3 py-2 text-sm outline-none"
-            placeholder="Search..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            autoFocus={showSearch}
-          />
+            {/* Search Results */}
+            {searchQuery && (
+              <div className="absolute z-10 bg-white border border-gray-300 mt-1 w-full rounded-md shadow-md max-h-60 overflow-auto">
+                {searchedProducts.length > 0 ? (
+                  searchedProducts.map((product, idx) => (
+                    <Link
+                      key={idx}
+                      to={`/product/${product.id}`}
+                      state={{ product }}
+                      className="block px-4 py-2 hover:bg-gray-100 text-sm text-gray-700"
+                      onClick={() => setSearchQuery("")}
+                    >
+                      {product.name}
+                    </Link>
+                  ))
+                ) : (
+                  <div className="px-4 py-2 text-sm text-gray-500">
+                    No products found
+                  </div>
+                )}
+              </div>
+            )}
+          </div>
+
+          {/* Hamburger Menu Icon */}
           <button
-            type="submit"
-            className="bg-orange-500 text-white  px-2 sm:px-4 py-2 hover:bg-orange-600"
+            className="md:hidden text-gray-800 focus:outline-none"
+            onClick={() => setIsOpen(!isOpen)}
+            aria-label={isOpen ? "Close menu" : "Open menu"}
           >
-            Go
+            {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
-        </form>
+        </div>
       </div>
-      {/* Hamburger Menu Icon */}
-        <button
-          className="md:hidden text-gray-800 focus:outline-none"
-          onClick={() => setIsOpen(!isOpen)}
-          aria-label={isOpen ? "Close menu" : "Open menu"}
-        >
-          {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
-        </button>
-      </div>
-    </div>
-
-
 
       {/* Mobile Dropdown Menu */}
       <div
@@ -129,6 +145,26 @@ const Navbar = () => {
             </NavLink>
           </div>
         ))}
+
+        {/* Mobile Search */}
+        {/* <form
+          onSubmit={handleSearchSubmit}
+          className="flex items-center bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm"
+        >
+          <input
+            type="text"
+            className="px-3 py-2 text-sm outline-none w-full"
+            placeholder="Search..."
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button
+            type="submit"
+            className="bg-orange-500 text-white px-3 py-2 hover:bg-orange-600 "
+          >
+            Go
+          </button>
+        </form> */}
       </div>
     </nav>
   );

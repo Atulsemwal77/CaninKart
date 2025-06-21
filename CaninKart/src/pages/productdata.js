@@ -232,7 +232,8 @@ const Productss = [
       Images12.bow_ties10,
     ],
     name: "Bow Tue",
-    category: ""
+    category : "Others"
+    
   },
 
   {
@@ -255,7 +256,7 @@ const Productss = [
       Images13.bandana14,
     ],
     name: "Bandana",
-    category: "",
+    category: "Others",
   },
 
   {
@@ -476,7 +477,7 @@ const Productss = [
       Images28.hutPrinted7,
     ],
     name: "Cave Bed-Printed",
-    category: ["CAVE HUT" , "JACKET"]
+    category: "CAVE HUT"
   },
 ];
 
