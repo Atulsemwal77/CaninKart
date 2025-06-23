@@ -12,7 +12,8 @@ const Footer = () => {
         <div className="flex flex-col items-center md:items-start text-center md:text-left ">
           <img src={logo1} alt="Caninkart" className="w-24 h-auto mb-3" />
           <p className=" leading-relaxed max-w-xs text-base">
-            Caninkart is a highly reputable manufacturer and exporter of pet accessories.
+            Caninkart is a highly reputable manufacturer and exporter of pet
+            accessories.
           </p>
         </div>
 
@@ -20,15 +21,26 @@ const Footer = () => {
         <div className="flex justify-around flex-wrap gap-6 md:gap-0 ">
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-2 text-black text-lg">Quick Links</h4>
-            <ul className="space-y-1  overflow-y-scroll h-22">
-              {["Home", "About", "Product","Dog Breed",  "Market Place"].map((text, idx) => (
-                <li key={idx}>
-                  <Link to={`/${text === "Home" ? "" : text.toLowerCase().replace(/\s+/g, "")}`} className="hover:text-orange-500 text-base">
-                    {text}
-                  </Link>
-                </li>
-              ))}
+            <h4 className="font-semibold mb-2 text-black text-lg">
+              Quick Links
+            </h4>
+            <ul className="space-y-1  overflow-auto h-22">
+              {["Home", "About", "Product", "Dog Breed", "Market Place"].map(
+                (text, idx) => (
+                  <li key={idx}>
+                    <Link
+                      to={`/${
+                        text === "Home"
+                          ? ""
+                          : text.toLowerCase().replace(/\s+/g, "")
+                      }`}
+                      className="hover:text-orange-500 text-base"
+                    >
+                      {text}
+                    </Link>
+                  </li>
+                )
+              )}
             </ul>
           </div>
 
@@ -55,7 +67,7 @@ const Footer = () => {
               <FiMail className="text-base md:text-lg" />
             </div>
             <span className="hover:text-orange-400 text-base break-all ">
-              support@caninkart.com
+              <a href="mailto:support@caninkart.com">support@caninkart.com</a>
             </span>
           </div>
 
@@ -65,7 +77,7 @@ const Footer = () => {
               <FiPhone className="text-base md:text-lg" />
             </div>
             <span className="hover:text-orange-400 text-base">
-              +91 95029 57250
+              +91-95209 57250
             </span>
           </div>
         </div>
@@ -74,26 +86,52 @@ const Footer = () => {
       {/* Social Icons */}
       <div className="mt-4 flex justify-center gap-4 flex-wrap text-xl">
         {[
-          { icon: <FaFacebookF />, label: "Facebook" },
-          { icon: <FaInstagram />, label: "Instagram" },
-          { icon: <FaYoutube />, label: "YouTube" },
-          { icon: <FaXTwitter />, label: "X (Twitter)" },
-        ].map((item, idx) => (
-          <div
-            key={idx}
-            aria-label={item.label}
-            className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDDF82] 
-              transition-transform duration-300 ease-in-out cursor-pointer 
-              hover:scale-110 hover:rotate-12"
-          >
-            {item.icon}
-          </div>
-        ))}
+          {
+            icon: <FaFacebookF />,
+            label: "Facebook",
+            link: "https://www.facebook.com/caninkart/",
+          },
+          {
+            icon: <FaInstagram />,
+            label: "Instagram",
+            link: "https://www.instagram.com/caninkart",
+          },
+          // { icon: <FaYoutube />, label: "YouTube" },
+          // { icon: <FaXTwitter />, label: "X (Twitter)" },
+        ].map((item, idx) => {
+          const content = (
+            <div
+              aria-label={item.label}
+              className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDDF82] 
+          transition-transform duration-300 ease-in-out cursor-pointer 
+          hover:scale-110 hover:rotate-12"
+            >
+              {item.icon}
+            </div>
+          );
+
+          return item.link ? (
+            <a
+              key={idx}
+              href={item.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={item.label}
+            >
+              {content}
+            </a>
+          ) : (
+            <div key={idx}>{content}</div>
+          );
+        })}
       </div>
 
       {/* Copyright */}
       <p className="mt-3 text-center text-xs text-gray-500 mb-2">
-       <span className="text-base"> © 2025 Caninkart , All Right Reserved. Powered By  </span>
+        <span className="text-base">
+          {" "}
+          © 2025 Caninkart , All Right Reserved. Powered By{" "}
+        </span>
 
         <span className="text-blue-500 text-base font-semibold ml-2">
           <a href="https://novanectar.co.in/">Novanecter Services PVT. LTD.</a>

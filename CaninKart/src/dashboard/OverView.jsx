@@ -9,9 +9,8 @@ const Dashboard = () => {
   const [totalCountries, setTotalCountries] = useState(0);
   const [totalStates, setTotalStates] = useState(0);
   const [totalDistricts, setTotalDistricts] = useState(0);
-  const [selectedMessage, setSelectedMessage] = useState(null); // NEW
+  const [selectedMessage, setSelectedMessage] = useState(null);
 
-  // 🟡 Fetch countries + counts
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -53,7 +52,6 @@ const Dashboard = () => {
     fetchData();
   }, []);
 
-  // 🟡 Fetch contact messages
   useEffect(() => {
     const fetchContactData = async () => {
       try {
@@ -67,7 +65,6 @@ const Dashboard = () => {
     fetchContactData();
   }, []);
 
-  // 🟡 Fetch blogs
   useEffect(() => {
     const fetchBlogs = async () => {
       try {
@@ -110,9 +107,9 @@ const Dashboard = () => {
         </div>
 
         {/* Contact and Blog Section */}
-        <div className="flex gap-7">
+        <div className="flex flex-col md:flex-row gap-6">
           {/* Contact Table */}
-          <div className="bg-white rounded-xl p-4 shadow-sm overflow-x-auto flex-[2]">
+          <div className="bg-white rounded-xl p-4 shadow-sm overflow-x-auto w-full md:w-2/3">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-gray-600 font-medium">Contact</h3>
               <Link to={`/dashboard/contact`}>
@@ -121,50 +118,55 @@ const Dashboard = () => {
                 </span>
               </Link>
             </div>
-            <table className="min-w-full text-sm text-left">
-              <thead className="text-gray-500 border-b">
-                <tr>
-                  <th className="py-2 pr-4">S no</th>
-                  <th className="py-2 pr-4">Name</th>
-                  <th className="py-2 pr-4">Contact</th>
-                  <th className="py-2 pr-4">Email</th>
-                  <th className="py-2 pr-4">Message</th>
-                </tr>
-              </thead>
-              <tbody>
-                {contactData.map((data, index) => (
-                  <tr key={data._id} className="border-b hover:bg-gray-50">
-                    <td className="py-2 pr-4">{index + 1}</td>
-                    <td className="py-2 pr-4">{data.name}</td>
-                    <td className="py-2 pr-4">{data.contact}</td>
-                    <td className="py-2 pr-4">{data.email}</td>
-                    <td
-                      className="py-2 pr-4 max-w-[150px] truncate text-blue-600 cursor-pointer"
-                      onClick={() => setSelectedMessage(data.message)}>{data.message}</td>
+            <div className="overflow-x-auto">
+              <table className="min-w-full text-sm text-left">
+                <thead className="text-gray-500 border-b">
+                  <tr>
+                    <th className="py-2 pr-4">S no</th>
+                    <th className="py-2 pr-4">Name</th>
+                    <th className="py-2 pr-4">Contact</th>
+                    <th className="py-2 pr-4">Email</th>
+                    <th className="py-2 pr-4">Message</th>
                   </tr>
-                ))}
-              </tbody>
+                </thead>
+                <tbody>
+                  {contactData.map((data, index) => (
+                    <tr key={data._id} className="border-b hover:bg-gray-50">
+                      <td className="py-2 pr-4">{index + 1}</td>
+                      <td className="py-2 pr-4">{data.name}</td>
+                      <td className="py-2 pr-4">{data.contact}</td>
+                      <td className="py-2 pr-4">{data.email}</td>
+                      <td
+                        className="py-2 pr-4 max-w-[150px] truncate text-blue-600 cursor-pointer"
+                        onClick={() => setSelectedMessage(data.message)}
+                      >
+                        {data.message}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
 
-            </table>
-          </div>
           {/* Modal for Full Message */}
-      {selectedMessage && (
-        <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
-          <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
-            <button
-              onClick={() => setSelectedMessage(null)}
-              className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
-            >
-              &times;
-            </button>
-            <h2 className="text-lg font-semibold mb-4 text-gray-800"> Message</h2>
-            <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
-          </div>
-        </div>
-      )}
+          {selectedMessage && (
+            <div className="fixed inset-0 bg-[#EFF1F3] bg-opacity-40 flex justify-center items-center z-50">
+              <div className="bg-white rounded-lg p-6 w-full max-w-lg relative shadow-lg">
+                <button
+                  onClick={() => setSelectedMessage(null)}
+                  className="absolute top-2 right-2 text-gray-600 hover:text-red-500 text-xl"
+                >
+                  &times;
+                </button>
+                <h2 className="text-lg font-semibold mb-4 text-gray-800">Message</h2>
+                <p className="text-gray-700 whitespace-pre-wrap">{selectedMessage}</p>
+              </div>
+            </div>
+          )}
 
           {/* Blog Section */}
-          <div className="bg-white rounded-xl py-4 px-4 shadow-sm overflow-x-auto flex-[1]">
+          <div className="bg-white rounded-xl p-4 shadow-sm overflow-x-auto w-full md:w-1/3 mt-6 md:mt-0">
             <div className="flex justify-between items-center mb-4">
               <h3 className="text-gray-600 font-medium">My Blog</h3>
               <Link to="/dashboard/blog">
@@ -177,7 +179,7 @@ const Dashboard = () => {
               <div className="space-y-6">
                 {blogs.slice(0, 5).map((blog) => (
                   <div key={blog._id} className="flex gap-4 items-start">
-                    <div className="w-24 h-24 flex-shrink-0 ">
+                    <div className="w-24 h-24 flex-shrink-0">
                       <img
                         src={`${import.meta.env.VITE_BACKEND}/${blog.image}`}
                         alt={blog.title}
@@ -189,10 +191,13 @@ const Dashboard = () => {
                         {blog.tags?.[0] || "Blog"}
                       </span>
                       <p className="text-xs text-gray-500 mb-1">
-                        {new Date(blog.date).toLocaleDateString()} • By {blog.author || "Admin"}
+                        {new Date(blog.date).toLocaleDateString()} • By{" "}
+                        {blog.author || "Admin"}
                       </p>
                       <h4 className="text-sm font-semibold leading-snug text-gray-800">
-                        {blog.title.length > 60 ? blog.title.slice(0, 60) + "..." : blog.title}
+                        {blog.title.length > 60
+                          ? blog.title.slice(0, 60) + "..."
+                          : blog.title}
                       </h4>
                     </div>
                   </div>
@@ -201,7 +206,6 @@ const Dashboard = () => {
             )}
           </div>
         </div>
-
       </div>
     </div>
   );

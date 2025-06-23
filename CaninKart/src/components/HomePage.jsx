@@ -33,34 +33,34 @@ const HomePage = () => {
 
   const testimonials = [
     {
-      name: "David",
+      name: "Deepshikha",
       city: "Pune",
       img: "D",
-      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered. The quality is top-notch, and delivery was super fast. You\'ve earned a "',
+      text: 'This dog bed was a total win! He loves it, and it was worth every penny spent. Love the purchase from Caninkart everytime.',
     },
     {
-      name: "David",
-      city: "Pune",
+      name: "Atul ",
+      city: "Dehradun",
       img: img1,
-      text: '"My golden retriever, Max, absolutely loves the chew toys I ordered.The quality is top-notch, and delivery was super fast. You\'ve earned a "',
+      text: 'The harness fits my dog perfectly, and the dog bed is super sturdy. Highly recommend to any pet parent who wants high-quality, well-designed accessories.',
     },
     {
-      name: "Aarav",
+      name: "Piyush",
       city: "Delhi",
       img: img2,
-      text: '"The accessories are stylish and functional. I\'ve recommended Caninkart to all my friends with pets!"',
+      text: 'They have good R&D team,successfully developed a complex dog sling harness for dogs suffering from IVDD. Good job team',
     },
     {
-      name: "Sneha",
+      name: "Ritika",
       city: "Mumbai",
       img: img3,
-      text: '"Fantastic service and the cutest products! Lorem ipsum dolor, sit amet conse expedita ut saepe, nam odit voluptatibus. My puppy is obsessed "',
+      text: 'They offer amazing, durable, and comfortable pet products. I highly recommend to buy these products. Thank you, Caninkar team',
     },
     {
-      name: "Sneha",
-      city: "Mumbai",
+      name: "Vishal",
+      city: "Bijnor",
       img: img3,
-      text: '"Fantastic service and the cutest products! My puppy is obsessed with the new bed."',
+      text: 'Fantastic service and the cutest products! My puppy is obsessed with the new bed.',
     },
   ];
 

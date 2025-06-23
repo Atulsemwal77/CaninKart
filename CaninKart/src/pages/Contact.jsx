@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Mail, Phone, MapPin, Facebook, Youtube, Instagram, Twitter } from 'lucide-react';
-import { FaPaw } from 'react-icons/fa';
+import { FaFacebookF, FaInstagram, FaPaw } from 'react-icons/fa';
 
 const ContactUs = () => {
   const [formData, setFormData] = useState({
@@ -194,22 +194,56 @@ const ContactUs = () => {
             <div>
               <p className="font-semibold text-gray-800 mb-1">Address:</p>
               <p className="text-gray-600 leading-relaxed">
-                2220 Colorado Avenue, 5th Floor<br />
-                Santa Monica, California, USA
+                305-307, Selaqui Industrial Area, Central Hope Town, <br/> Dehradun, Uttarakhand 248011
               </p>
             </div>
           </div>
 
           {/* Social Icons */}
-          <div>
-            <p className="font-semibold text-gray-800 mb-3">Follow Us:</p>
-            <div className="flex gap-3">
-              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Facebook"><Facebook size={18} /></a>
-              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Instagram"><Instagram size={18} /></a>
-              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="YouTube"><Youtube size={18} /></a>
-              <a href="#" className="bg-[#FDDF82] p-3 rounded-full text-gray-800 hover:bg-yellow-400 transition-colors" aria-label="Twitter"><Twitter size={18} /></a>
-            </div>
-          </div>
+          <div className="mt-4 flex justify-start gap-4 flex-wrap text-xl">
+                 {[
+                   {
+                     icon: <FaFacebookF />,
+                     label: "Facebook",
+                     link: "https://www.facebook.com/caninkart/",
+                   },
+                   {
+                     icon: <FaInstagram />,
+                     label: "Instagram",
+                     link: "https://www.instagram.com/caninkart",
+                   },
+                   // { icon: <FaYoutube />, label: "YouTube" },
+                   // { icon: <FaXTwitter />, label: "X (Twitter)" },
+                 ].map((item, idx) => {
+                   const content = (
+                     <div
+                       aria-label={item.label}
+                       className="w-10 h-10 flex items-center justify-center rounded-full bg-[#FDDF82] 
+                   transition-transform duration-300 ease-in-out cursor-pointer 
+                   hover:scale-110 hover:rotate-12"
+                     >
+                       {item.icon}
+                     </div>
+                   );
+         
+                   return item.link ? (
+                     <a
+                       key={idx}
+                       href={item.link}
+                       target="_blank"
+                       rel="noopener noreferrer"
+                       aria-label={item.label}
+                     >
+                       {content}
+                     </a>
+                   ) : (
+                     <div key={idx}>{content}</div>
+                   );
+                 })}
+               </div>
+         
+
+
         </div>
       </div>
 

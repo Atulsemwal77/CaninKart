@@ -11,6 +11,7 @@ import dog7 from "../assets/breedspics/Cocker spaniel.png"
 import dog8 from "../assets/breedspics/Shihtzu.png"
 import dog9 from "../assets/breedspics/Daschund.png"
 import dog10 from "../assets/breedspics/Great Dane.png"
+import dog11 from "../assets/breedspics/pahari.jpg"
 
 const dogs = [
   {
@@ -76,7 +77,7 @@ const dogs = [
   {
     number: "11",
     breed: "Indian Pariah Dog",
-    image: lab1,
+    image: dog11,
     description: `The Indian Pariah Dog is an indigenous breed known for its resilience, intelligence, and loyalty. They are extremely adaptable, low maintenance, and have been companions to humans for thousands of years.`,
   },
 ];

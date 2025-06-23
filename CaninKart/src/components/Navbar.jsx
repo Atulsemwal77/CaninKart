@@ -18,17 +18,14 @@ const Navbar = () => {
     );
 
     setSearchedProducts(searchedProducts);
-
-    // console.log("Search:", searchQuery);
-    // console.log("searchedProducts:", searchedProducts);
   }, [searchQuery]);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
-    // console.log("Searching for:", searchQuery);
+    
     setSearchQuery("");
-    // Navigate or filter logic here
-    setShowSearch(false); // hide input after search
+    
+    setShowSearch(false); 
   };
 
   
