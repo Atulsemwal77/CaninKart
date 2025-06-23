@@ -9,7 +9,7 @@ const ProtectedRoute = ({ children }) => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/admin/dashboard-data", {
+      .get(`${import.meta.env.VITE_BACKEND}/api/admin/dashboard-data`, {
         withCredentials: true, // Important for sending cookies
       })
       .then((res) => {

@@ -18,8 +18,11 @@ require('./Models/db');
 //middleware
 app.use(cors({
   origin: process.env.FRONTEND_URL,
+  methods : ["POST", "GET", "PUT", "DELETE"],
   credentials: true,
 }));
+console.log("frontend" + process.env.FRONTEND_URL )
+
 app.use(express.json());
 app.use(cookieParser());
 
