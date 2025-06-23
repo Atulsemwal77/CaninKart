@@ -11,12 +11,17 @@ const DistrictRouter = require('./Routes/DistrictRoutes')
 const adminRoutes = require("./Routes/Admin")
 const blogRoutes = require('./Routes/blogRoutes')
 const contactRoutes = require('./Routes/contactRoutes')
+const cookieParser = require("cookie-parser");
 
 require('./Models/db');
 
 //middleware
-app.use(cors());
+app.use(cors({
+  origin: process.env.FRONTEND_URL,
+  credentials: true,
+}));
 app.use(express.json());
+app.use(cookieParser());
 
 //Routes
 // API Routes

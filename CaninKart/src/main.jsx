@@ -27,6 +27,7 @@ import Category from './pages/Category.jsx';
 import DistrictsPage from './pages/DistrictsPage.jsx';
 import CategoryProducts from './components/CategoryProducts.jsx';
 
+import ProtectedRoute from './utils/ProtactedRoute.jsx'
 
 const router = createBrowserRouter([
   {
@@ -55,17 +56,83 @@ const router = createBrowserRouter([
     path: '/dashboard',
     element: <DashboardLayout />,
     children: [
-      { index: true , element: <Dashboard /> },
-      {path : 'das-login', element : <AdminLogin/>},
-      { path : 'countrypage', element : <CountryPage/>},
-      { path : 'blog', element : <AdminBlog/>},
-      { path : 'blogdetail/:id', element : <BlogDetailsAdmin/>},
-      { path: "state/:countryName/:countryId", element: <StatePage/> },
-      { path : "district/:countryId/:stateName/:stateId" ,element:<DistrictPage/>},
-      { path : "contact", element:<AdminContact/>}
-    
-    ]
+      {
+        index: true,
+        element: (
+          <ProtectedRoute>
+            <Dashboard />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'das-login',
+        element: <AdminLogin />,
+      },
+      {
+        path: 'countrypage',
+        element: (
+          <ProtectedRoute>
+            <CountryPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'blog',
+        element: (
+          <ProtectedRoute>
+            <AdminBlog />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'blogdetail/:id',
+        element: (
+          <ProtectedRoute>
+            <BlogDetailsAdmin />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'state/:countryName/:countryId',
+        element: (
+          <ProtectedRoute>
+            <StatePage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'district/:countryId/:stateName/:stateId',
+        element: (
+          <ProtectedRoute>
+            <DistrictPage />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: 'contact',
+        element: (
+          <ProtectedRoute>
+            <AdminContact />
+          </ProtectedRoute>
+        ),
+      },
+    ],
   }
+  // {
+  //   path: '/dashboard',
+  //   element: <DashboardLayout />,
+  //   children: [
+  //     { index: true , element: <Dashboard /> },
+  //     {path : 'das-login', element : <AdminLogin/>},
+  //     { path : 'countrypage', element : <CountryPage/>},
+  //     { path : 'blog', element : <AdminBlog/>},
+  //     { path : 'blogdetail/:id', element : <BlogDetailsAdmin/>},
+  //     { path: "state/:countryName/:countryId", element: <StatePage/> },
+  //     { path : "district/:countryId/:stateName/:stateId" ,element:<DistrictPage/>},
+  //     { path : "contact", element:<AdminContact/>}
+    
+  //   ]
+  // }
 ]);
 
 createRoot(document.getElementById('root')).render(
