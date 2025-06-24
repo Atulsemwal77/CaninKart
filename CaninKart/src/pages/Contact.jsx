@@ -252,7 +252,7 @@ const ContactUs = () => {
         <iframe
           title="Caninkart Location"
           className="w-full h-96"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3445.394351706669!2d78.03218811512935!3d30.316495481775175!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390929bbf6e60c45%3A0x61b36a48fda759a1!2sDehradun%2C%20Uttarakhand!5e0!3m2!1sen!2sin!4v1627887884973!5m2!1sen!2sin"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2253.6925906285287!2d77.84555487656849!3d30.36279733911734!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390f2a2e2e655f57%3A0x62e42546e486b76a!2s305-307%2C%20Selaqui%20Industrial%20Area%2C%20Central%20Hope%20Town%2C%20Dehradun%2C%20Uttarakhand%20248011!5e0!3m2!1sen!2sin!4v1750755881465!5m2!1sen!2sin"
           allowFullScreen=""
           loading="lazy"
           style={{ border: 0 }}

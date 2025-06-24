@@ -80,7 +80,7 @@ const ProductDetail = () => {
           {/* Desktop Sidebar Thumbnails */}
           <div
             className={`hidden md:flex md:flex-col gap-4 h-120 sticky top-24 ${
-              thumbnails.length > 4 && "overflow-y-scroll"
+              thumbnails.length > 4 && "overflow-y-scroll pr-2 thumbnail-scroll"
             }`}
           >
             {thumbnails.map((img, index) => (

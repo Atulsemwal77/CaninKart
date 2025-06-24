@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { NavLink, Link } from "react-router-dom";
 import { FiSearch, FiMenu, FiX } from "react-icons/fi";
 import { IoClose } from "react-icons/io5";
 import logo from "../assets/logo.png";
 import Productss from "../pages/productdata";
 const Navbar = () => {
+   const searchRef = useRef();
   const [isOpen, setIsOpen] = useState(false);
   const [showSearch, setShowSearch] = useState(false);
   const [searchQuery, setSearchQuery] = useState("");
@@ -19,6 +20,16 @@ const Navbar = () => {
 
     setSearchedProducts(searchedProducts);
   }, [searchQuery]);
+
+   useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchRef.current && !searchRef.current.contains(event.target)) {
+        setSearchQuery("");
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   const handleSearchSubmit = (e) => {
     e.preventDefault();
@@ -62,8 +73,9 @@ const Navbar = () => {
         {/* Search + Menu - Right */}
         <div className="flex items-center relative space-x-3">
           {/* Sliding Search Input */}
+          
           {/* Always visible Search Input */}
-          <div className="relative w-48 sm:w-72 transition-all">
+          <div ref={searchRef} className="relative w-48 sm:w-72 transition-all">
             <form
               onSubmit={handleSearchSubmit}
               className="flex items-center bg-white border border-gray-300 rounded-lg overflow-hidden shadow-sm"
@@ -115,6 +127,7 @@ const Navbar = () => {
           >
             {isOpen ? <FiX size={24} /> : <FiMenu size={24} />}
           </button>
+
         </div>
       </div>
 
