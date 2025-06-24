@@ -1,11 +1,15 @@
-import React, { useState } from "react";
-import { Link, NavLink } from "react-router-dom";
+import React, { useEffect, useRef, useState } from "react";
+import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "../assets/logo.png";
 import placeholderImg from "../assets/ctf.png";
 import { FiMenu, FiX } from "react-icons/fi";
+import axios from "axios";
+import { FaChevronDown } from "react-icons/fa";
 
 const DasNavbar = () => {
+  const navigate = useNavigate();
   const [menuOpen, setMenuOpen] = useState(false);
+  const [open, setOpen] = useState(false);
 
   const navItems = [
     { name: "Overview", path: "/dashboard" },
@@ -13,6 +17,34 @@ const DasNavbar = () => {
     { name: "Country", path: "/dashboard/countrypage" },
     { name: "Contact", path: "/dashboard/contact" },
   ];
+
+  const handleLogout = async () => {
+    try {
+      await axios.post(
+        `${import.meta.env.VITE_BACKEND}/api/admin/logout`,
+        {},
+        {
+          withCredentials: true,
+        }
+      );
+      navigate("/dashboard/das-login");
+    } catch (error) {
+      console.error("Logout failed:", error);
+    }
+  };
+
+  const handleToggle = () => setOpen(!open);
+  const menuRef = useRef();
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   return (
     <header className="max-w-screen-2xl bg-white shadow-md sticky top-0 z-50">
@@ -45,11 +77,32 @@ const DasNavbar = () => {
 
         {/* Profile */}
         <div className="flex items-center gap-4">
-          <img
-            src={placeholderImg}
-            alt="User"
-            className="w-10 h-10 rounded-full object-cover border"
-          />
+          <div className="relative flex items-center gap-2" ref={menuRef}>
+            <img
+              src={placeholderImg}
+              alt="User"
+              className="w-10 h-10 rounded-full object-cover border cursor-pointer"
+              onClick={handleToggle}
+            />
+            <FaChevronDown  onClick={handleToggle}/>
+
+
+            {open && (
+              <div className="absolute top-15 right-0 bg-white border shadow-md rounded-md z-50">
+              
+                  <button onClick={()=>navigate('/')} className="block px-4 py-2 hover:bg-gray-100 w-full text-left">
+                    Go to Website
+                  </button>
+              
+                <button
+                  onClick={handleLogout}
+                  className="block px-4 py-2 hover:bg-gray-100 w-full text-left"
+                >
+                  Logout
+                </button>
+              </div>
+            )}
+          </div>
 
           {/* Mobile Menu Toggle */}
           <button

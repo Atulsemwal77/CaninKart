@@ -43,4 +43,15 @@ router.get("/dashboard-data", verifyAdmin, (req, res) => {
   });
 });
 
+// Admin Logout Route
+router.post("/logout", (req, res) => {
+  res.clearCookie("adminToken", {
+    httpOnly: true,
+    secure: true, 
+    sameSite: "None",
+  });
+
+  res.json({ message: "Logout successful" });
+});
+
 module.exports = router;
