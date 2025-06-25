@@ -344,9 +344,9 @@ const HomePage = () => {
               {testimonials.map((item, idx) => (
                 <SwiperSlide key={idx} className="h-full flex">
                   <div className="bg-white p-6 rounded-2xl shadow-md text-left flex flex-col h-[240px] relative my-4 mx-4">
-                    <div className="relative">
+                    <div className="relative ">
                       <div className="w-10 h-10 rounded-full bg-[#FDDF82] flex items-center justify-center absolute -top-10 -left-10 text-4xl ">
-                        ❝
+                        <span className="mt-2">❝</span>
                       </div>
                     </div>
 

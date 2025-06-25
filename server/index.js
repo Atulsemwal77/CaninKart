@@ -23,6 +23,9 @@ app.use(cors({
 }));
 console.log("frontend" + process.env.FRONTEND_URL )
 
+app.use('/uploads', express.static('uploads'));
+app.use(express.urlencoded({ extended: true }));
+
 app.use(express.json());
 app.use(cookieParser());
 
@@ -36,7 +39,7 @@ app.use("/api/admin", adminRoutes);
 app.use('/api/blogs' , blogRoutes)
 app.use('/api/cnt', contactRoutes);
 
-app.use('/uploads', express.static('uploads'));
+// app.use('/uploads', express.static('uploads'));
 
 app.get('/',(req, res)=>{
   res.send("hello ji");
