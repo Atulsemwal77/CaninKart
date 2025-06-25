@@ -120,7 +120,7 @@ const AdminLogin = () => {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100 px-4">
+    <div className="min-h-screen flex items-center justify-center bg-gray-200 px-4">
       <div className="bg-white shadow-md p-8 rounded-md w-full max-w-md">
         <h2 className="text-2xl font-semibold mb-4 text-center">Admin Login</h2>
         {errorMsg && (
