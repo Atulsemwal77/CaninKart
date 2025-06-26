@@ -24,7 +24,7 @@ const CaninkartHome = () => {
 
       {/* <h2 className="text-sm font-semibold  bg-[#DEFED2] text-orange-500 text-center  ">🧡 ABOUT</h2> */}
       <div className="mt-18">
-        <h2 className="  text-orange-500 text-center  py-4 flex justify-center items-center gap-2 text-lg font-semibold">
+        <h2 className="  text-orange-500 text-center  py-5 flex justify-center items-center gap-2 text-lg font-semibold">
           <FaPaw/> ABOUT
         </h2>
         <section className="py-5 px-4  flex flex-col md:flex-row items-center justify-center md:gap-15">
@@ -90,7 +90,7 @@ const CaninkartHome = () => {
             the best and offer an even higher level of quality, making them an
             ideal choice for pet owners. As a pet own
             <br /> Pet owners should always consider Caninkart pet accessories
-            for their pets... [trimmed for brevity]
+            for their pets... trimmed for brevity
           </p>
         </div>
       </section>

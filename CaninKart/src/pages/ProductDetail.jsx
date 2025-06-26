@@ -68,7 +68,7 @@ const ProductDetail = () => {
     <>
       <div className="bg-[#F1FFEF] flex flex-col p-4 sm:p-6 md:px-32 relative top-18 max-w-screen-2xl mx-auto">
         <button
-          className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-orange-500 w-fit transition-colors mb-4"
+          className="flex items-center gap-1 text-sm font-bold text-gray-600 hover:text-orange-500 w-fit transition-colors my-2"
           onClick={() => navigate(-1)}
         >
           <FaArrowLeft className="text-base" />
@@ -76,7 +76,7 @@ const ProductDetail = () => {
         </button>
 
         {/* Main Product Display */}
-        <div className="w-full max-w-6xl rounded-lg flex flex-col md:flex-row gap-6 my-8">
+        <div className="w-full max-w-6xl rounded-lg flex flex-col md:flex-row gap-6 my-4">
           {/* Desktop Sidebar Thumbnails */}
           <div
             className={`hidden md:flex md:flex-col gap-4 h-120 sticky top-24 ${
